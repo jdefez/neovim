@@ -175,7 +175,7 @@ let g:ale_sign_warning = '--'
 let g:ale_lint_on_text_changed = 'never'
 
 " UltiSnips
-set runtimepath+=~/.vim/my-snippets/
+set runtimepath+=~/.config/nvim/my-snippets/
 let g:UltiSnipsExpandTrigger="<c-e>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
