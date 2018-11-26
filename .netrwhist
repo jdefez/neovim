@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/Users/jean/Documents/Github/intranet-api'
+let g:netrw_dirhist_2='/Users/jean/Documents/Github/my-api/app'
+let g:netrw_dirhist_3='/Users/jean/Documents/Github/configManager'
+let g:netrw_dirhist_4='/Users/jean/Documents/Github/configManager/src'
+let g:netrw_dirhist_5='/Users/jean/Documents/Github/configManager/src/conf'
+let g:netrw_dirhist_6='/Users/jean/Documents/Github/my/src/app/engine/lang/dicos'
