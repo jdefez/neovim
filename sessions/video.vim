@@ -7,13 +7,14 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +313 2015/app/models/Video.php
-badd +48 2015/app/controllers/VideoController.php
-badd +34 2015/app/routes.php
-badd +11 2015/composer.json
+badd +25 2015/app/classes/Templates/Spotvideo/Vintage.php
+badd +1 2015/app/classes/Templates/Spotvideo/SpManor.php
+badd +43 2015/app/classes/Templates/Spotvideo/OuestFrance.php
+badd +61 2015/app/views/tester.blade.php
+badd +8 2015/public/assets/scripts/video-tester.js
 argglobal
 silent! argdel *
-edit 2015/app/routes.php
+edit 2015/public/assets/scripts/video-tester.js
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -28,18 +29,21 @@ setlocal fdl=1
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-31
+9
 normal! zo
-33
+15
 normal! zo
-35
+25
 normal! zo
-let s:l = 36 - ((27 * winheight(0) + 28) / 56)
+26
+normal! zo
+let s:l = 33 - ((32 * winheight(0) + 29) / 58)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-36
-normal! 013|
+33
+normal! 0
+lcd ~/Documents/Github/video
 tabnext 1
 if exists('s:wipebuf') && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf

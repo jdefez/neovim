@@ -7,13 +7,14 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +1385 app/Repositories/Listing/PrevisiteListingRepository.php
-badd +103 app/Http/Controllers/Api/SitesmandatsController.php
-badd +10 app/Repositories/Sitesmandats/SitesmandatsRepository.php
-badd +56 app/Repositories/Listing/ListingRepository.php
+badd +33 routes/api.php
+badd +180 app/Repositories/Listing/PrevisiteListingRepository.php
+badd +173 app/Http/Controllers/Api/LiveSessionController.php
+badd +93 app/Repositories/VirtualVisit/PrevisiteVirtualVisitRepository.php
+badd +8 app/Repositories/PrevisiteRepository.php
 argglobal
 silent! argdel *
-edit app/Repositories/Listing/PrevisiteListingRepository.php
+edit app/Http/Controllers/Api/LiveSessionController.php
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -24,58 +25,66 @@ setlocal fdm=indent
 setlocal fde=0
 setlocal fmr={{{,}}}
 setlocal fdi=#
-setlocal fdl=1
+setlocal fdl=12
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-430
+22
 normal! zo
-790
+117
 normal! zo
-794
+119
 normal! zo
-796
+136
 normal! zo
-799
+147
 normal! zo
-802
+148
 normal! zo
-804
+162
 normal! zo
-813
+162
 normal! zo
-817
+162
 normal! zo
-825
+175
 normal! zo
-834
+175
 normal! zo
-996
+175
 normal! zo
-1334
+185
 normal! zo
-1387
+185
 normal! zo
-1392
+185
 normal! zo
-1394
+215
 normal! zo
-1397
+215
 normal! zo
-1398
+221
 normal! zo
-1399
+231
 normal! zo
-1402
+278
 normal! zo
-1410
+279
 normal! zo
-let s:l = 1387 - ((53 * winheight(0) + 29) / 58)
+294
+normal! zo
+295
+normal! zo
+307
+normal! zo
+348
+normal! zo
+let s:l = 172 - ((28 * winheight(0) + 29) / 58)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1387
-normal! 0
+172
+normal! 015|
 tabnext 1
 if exists('s:wipebuf') && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf

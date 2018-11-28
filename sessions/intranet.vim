@@ -7,14 +7,12 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +18 src/app/resources/views/customer-edit.component.html
-badd +1 src/app/com/base.component.ts
-badd +169 src/app/com/customer-edit.component.ts
-badd +29 src/app/com/section-header.component.ts
-badd +11 src/app/com/addresses/addresses.component.html
+badd +1 src/app/dashboard/dashboard.module.ts
+badd +1 src/app/dashboard/dashboard-routing.module.ts
+badd +0 src/app/dashboard/dashboard.component.ts
 argglobal
 silent! argdel *
-edit src/app/resources/views/customer-edit.component.html
+edit src/app/dashboard/dashboard.component.ts
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -25,54 +23,16 @@ setlocal fdm=indent
 setlocal fde=0
 setlocal fmr={{{,}}}
 setlocal fdi=#
-setlocal fdl=8
+setlocal fdl=1
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-2
-normal! zo
-14
-normal! zo
-16
-normal! zo
-21
-normal! zo
-22
-normal! zo
-28
-normal! zo
-32
-normal! zo
-44
-normal! zo
-50
-normal! zo
-61
-normal! zo
-67
-normal! zo
-78
-normal! zo
-84
-normal! zo
-95
-normal! zo
-101
-normal! zo
-112
-normal! zo
-118
-normal! zo
-134
-normal! zo
-135
-normal! zo
-let s:l = 203 - ((49 * winheight(0) + 25) / 50)
+let s:l = 13 - ((12 * winheight(0) + 19) / 38)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-203
-normal! 0
+13
+normal! 019|
 tabnext 1
 if exists('s:wipebuf') && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf

@@ -9,7 +9,6 @@ Plug 'itchyny/lightline.vim'
 Plug 'kshenoy/vim-signature'
 Plug 'sheerun/vim-polyglot', { 'do': './build' }
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
 " Plugin 'phpactor/phpactor'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-fugitive'
