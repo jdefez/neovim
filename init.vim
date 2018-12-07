@@ -9,7 +9,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'kshenoy/vim-signature'
 Plug 'sheerun/vim-polyglot', { 'do': './build' }
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" Plugin 'phpactor/phpactor'
+Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'}
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-fugitive'
 Plug 'jreybert/vimagit'
@@ -22,6 +22,9 @@ Plug 'SirVer/ultisnips'
 
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+
+" Plug 'ajh17/VimCompletesMe' TO BE TESTED
+" Plug 'ncm2/ncm2' TO BE TESTED
 call plug#end()
 
 "filetype plugin on
@@ -77,6 +80,30 @@ autocmd Filetype snippets setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=
 autocmd Filetype python setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
 autocmd Filetype php setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
 autocmd Filetype apache setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
+
+" Phpactor
+
+" Include use statement https://phpactor.github.io/phpactor/vim-plugin.html
+nmap <Leader>u :call phpactor#UseAdd()<CR>
+" Invoke the context menu
+nmap <Leader>mm :call phpactor#ContextMenu()<CR>
+" Invoke the navigation menu
+nmap <Leader>nn :call phpactor#Navigate()<CR>
+" Goto definition of class or class member under the cursor
+nmap <Leader>o :call phpactor#GotoDefinition()<CR>
+" Show brief information about the symbol under the cursor
+nmap <Leader>K :call phpactor#Hover()<CR>
+" Transform the classes in the current file
+nmap <Leader>tt :call phpactor#Transform()<CR>
+" Generate a new class (replacing the current file)
+nmap <Leader>cc :call phpactor#ClassNew()<CR>
+" Extract expression (normal mode)
+nmap <silent><Leader>ee :call phpactor#ExtractExpression(v:false)<CR>
+" Extract expression from selection
+vmap <silent><Leader>ee :<C-U>call phpactor#ExtractExpression(v:true)<CR>
+" Extract method from selection
+vmap <silent><Leader>em :<C-U>call phpactor#ExtractMethod()<CR>
+autocmd FileType php setlocal omnifunc=phpactor#Complete
 
 " Deoplite
 let g:deoplete#enable_at_startup = 1
