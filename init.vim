@@ -4,7 +4,8 @@ Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 Plug 'scrooloose/nerdcommenter'
 Plug 'reedes/vim-colors-pencil'
 Plug 'airblade/vim-gitgutter'
-Plug 'craigemery/vim-autotag'
+Plug 'c0r73x/neotags.nvim', { 'do': ':UpdateRemotePlugins' }
+"Plug 'craigemery/vim-autotag'
 Plug 'itchyny/lightline.vim'
 Plug 'kshenoy/vim-signature'
 Plug 'sheerun/vim-polyglot', { 'do': './build' }
@@ -22,9 +23,6 @@ Plug 'SirVer/ultisnips'
 
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-
-" Plug 'ajh17/VimCompletesMe' TO BE TESTED
-" Plug 'ncm2/ncm2' TO BE TESTED
 call plug#end()
 
 "filetype plugin on
