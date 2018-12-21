@@ -1,19 +1,21 @@
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'HerringtonDarkholme/yats.vim'
-Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
+Plug 'ludovicchabant/vim-gutentags'
 Plug 'scrooloose/nerdcommenter'
 Plug 'reedes/vim-colors-pencil'
 Plug 'airblade/vim-gitgutter'
 Plug 'universal-ctags/ctags'
-Plug 'ludovicchabant/vim-gutentags'
 Plug 'itchyny/lightline.vim'
 Plug 'kshenoy/vim-signature'
 Plug 'sheerun/vim-polyglot', { 'do': './build' }
+
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'rafaelndev/deoplete-laravel-plugin', {'for': ['php'], 'do': 'composer install'}
-" Plug 'shawncplus/phpcomplete.vim'
+Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
+Plug 'zchee/deoplete-jedi'
 Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' } " run :PlugInstall
 Plug 'zefei/deoplete-hack'
+
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-fugitive'
 Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'}
