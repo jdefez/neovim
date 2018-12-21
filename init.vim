@@ -5,7 +5,6 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'reedes/vim-colors-pencil'
 Plug 'airblade/vim-gitgutter'
 Plug 'c0r73x/neotags.nvim', { 'do': ':UpdateRemotePlugins' }
-"Plug 'craigemery/vim-autotag'
 Plug 'itchyny/lightline.vim'
 Plug 'kshenoy/vim-signature'
 Plug 'sheerun/vim-polyglot', { 'do': './build' }
