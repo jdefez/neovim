@@ -13,12 +13,13 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'rafaelndev/deoplete-laravel-plugin', {'for': ['php'], 'do': 'composer install'}
 Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 Plug 'zchee/deoplete-jedi'
-Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' } " run :PlugInstall
+Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'}
+Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
 Plug 'zefei/deoplete-hack'
+Plug 'Shougo/neco-vim'
 
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-fugitive'
-Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'}
 Plug 'jreybert/vimagit'
 Plug 'mattn/emmet-vim'
 Plug 'mileszs/ack.vim'
@@ -34,25 +35,42 @@ call plug#end()
 "filetype plugin on
 
 let mapleader = "\<Space>"
+set belloff=all
+set cmdheight=3
+set complete=.
+set completeopt=menuone,noinsert,noselect  " longest
+set colorcolumn=80
+set cursorline
+set enc=utf-8
+set expandtab " converts tabs to spaces
+set foldcolumn=0
+set foldmethod=indent
+set foldnestmax=1 " maximum fold depth
+set formatoptions+=c " Autowrap comments using textwidth
+set formatoptions+=j " Delete comment character when joining commented lines
+set formatoptions+=l " Do not wrap lines that have been longer when starting insert mode already
+set formatoptions+=n " Recognize numbered lists
+set formatoptions+=q " Allow formatting of comments with "gq".
+set formatoptions+=r " Insert comment leader after hitting <Enter>
+set formatoptions+=t " Auto-wrap text using textwidth
+set history=10000
+set hlsearch
+set incsearch " search as character are entered
+set ignorecase " ignore case when using a search pattern (noic|ic)
 set nowrap " long lines wrap : (nowrap|wrap)
 set number
-set ch=3 " number of lines used for the command-line
-set ru
-set novb
-set incsearch " search as character are entered
-set ic " ignorecase : ignore case when using a search pattern (noic|ic)
-set scs " smartcase : override 'ignorecase' when pattern has upper case characters (noscs|scs)
-set hlsearch
+set pumheight=40
+set ruler
+set scrolloff=1000 " number of screen lines to show around the cursor
+set shiftround
+set shiftwidth=2
+set showfulltag
+set smartcase
+set smartindent
 set softtabstop=2
 set tabstop=2
-set expandtab " converts tabs to spaces
-set shiftwidth=2
-set scrolloff=1000 " number of screen lines to show around the cursor
-set cursorline " Highlights current line
-set enc=utf-8
-set cc=80
-set foldmethod=indent
-set foldlevel=1
+set undolevels=10000
+set wildmode=longest,list:full
 
 colorscheme pencil
 set background=dark
