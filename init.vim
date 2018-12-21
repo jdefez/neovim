@@ -4,14 +4,19 @@ Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 Plug 'scrooloose/nerdcommenter'
 Plug 'reedes/vim-colors-pencil'
 Plug 'airblade/vim-gitgutter'
-Plug 'c0r73x/neotags.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'universal-ctags/ctags'
+Plug 'ludovicchabant/vim-gutentags'
 Plug 'itchyny/lightline.vim'
 Plug 'kshenoy/vim-signature'
 Plug 'sheerun/vim-polyglot', { 'do': './build' }
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'}
+Plug 'rafaelndev/deoplete-laravel-plugin', {'for': ['php'], 'do': 'composer install'}
+" Plug 'shawncplus/phpcomplete.vim'
+Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' } " run :PlugInstall
+Plug 'zefei/deoplete-hack'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-fugitive'
+Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'}
 Plug 'jreybert/vimagit'
 Plug 'mattn/emmet-vim'
 Plug 'mileszs/ack.vim'
@@ -57,8 +62,8 @@ inoremap jj <ESC>
 map T <C-]>
 
 " Buffer navigation
-nnoremap <tab> :bnext<cr>
-nnoremap <S-tab> :bprev<cr>
+" nnoremap <tab> :bnext<cr>
+" nnoremap <S-tab> :bprev<cr>
 
 " Split navigation
 map <C-j> <C-W>j
@@ -78,6 +83,10 @@ autocmd Filetype snippets setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=
 autocmd Filetype python setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
 autocmd Filetype php setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
 autocmd Filetype apache setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
+
+" phpcd
+let g:deoplete#ignore_sources = get(g:, 'deoplete#ignore_sources', {})
+let g:deoplete#ignore_sources.php = ['omni']
 
 " Phpactor
 
@@ -160,7 +169,7 @@ let g:fzf_colors = {
   \ 'pointer': ['fg', 'Exception'],
   \ 'marker':  ['fg', 'Keyword'],
   \ 'spinner': ['fg', 'Label'],
-  \ 'header': ['fg', 'Comment'] }
+  \ 'header':  ['fg', 'Comment'] }
 
 " Doc
   " https://github.com/junegunn/fzf.vim
