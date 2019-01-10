@@ -1,38 +1,32 @@
 call plug#begin('~/.local/share/nvim/plugged')
-Plug 'HerringtonDarkholme/yats.vim'
-Plug 'ludovicchabant/vim-gutentags'
 Plug 'scrooloose/nerdcommenter'
 Plug 'reedes/vim-colors-pencil'
 Plug 'airblade/vim-gitgutter'
-Plug 'universal-ctags/ctags'
+Plug 'jsfaint/gen_tags.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'kshenoy/vim-signature'
 Plug 'sheerun/vim-polyglot', { 'do': './build' }
-
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'rafaelndev/deoplete-laravel-plugin', {'for': ['php'], 'do': 'composer install'}
-Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
-Plug 'zchee/deoplete-jedi'
-Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'}
-Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
-Plug 'zefei/deoplete-hack'
-Plug 'Shougo/neco-vim'
-
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-fugitive'
 Plug 'jreybert/vimagit'
 Plug 'mattn/emmet-vim'
 Plug 'mileszs/ack.vim'
 Plug 'w0rp/ale'
-
 Plug 'honza/vim-snippets'
 Plug 'SirVer/ultisnips'
-
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-call plug#end()
 
-"filetype plugin on
+"Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
+"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"Plug 'rafaelndev/deoplete-laravel-plugin', {'for': ['php'], 'do': 'composer install'}
+"Plug 'zchee/deoplete-jedi'
+"Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'}
+"Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' } php7 only
+"Plug 'zefei/deoplete-hack'
+"Plug 'Shougo/neco-vim'
+call plug#end()
 
 let mapleader = "\<Space>"
 set belloff=all
@@ -81,6 +75,17 @@ inoremap jj <ESC>
 " Open tag files
 map T <C-]>
 
+" gen_tags
+let g:gen_tags#gtags_default_map=1
+"<C+c> Find functions calling this function
+"<C+d> Find functions called by this function
+"<C+e> Find this egrep pattern
+"<C+f> Find this file
+"<C+g> Find this definition
+"<C+i> Find files #including this file
+"<C+s> Find this C symbol
+"<C+t> Find this text string
+
 " Buffer navigation
 " nnoremap <tab> :bnext<cr>
 " nnoremap <S-tab> :bprev<cr>
@@ -104,45 +109,20 @@ autocmd Filetype python setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
 autocmd Filetype php setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
 autocmd Filetype apache setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
 
-" phpcd
-let g:deoplete#ignore_sources = get(g:, 'deoplete#ignore_sources', {})
-let g:deoplete#ignore_sources.php = ['omni']
-
-" Phpactor
-
-" Include use statement https://phpactor.github.io/phpactor/vim-plugin.html
-nmap <Leader>u :call phpactor#UseAdd()<CR>
-" Invoke the context menu
-nmap <Leader>mm :call phpactor#ContextMenu()<CR>
-" Invoke the navigation menu
-nmap <Leader>nn :call phpactor#Navigate()<CR>
-" Goto definition of class or class member under the cursor
-nmap <Leader>o :call phpactor#GotoDefinition()<CR>
-" Show brief information about the symbol under the cursor
-nmap <Leader>K :call phpactor#Hover()<CR>
-" Transform the classes in the current file
-nmap <Leader>tt :call phpactor#Transform()<CR>
-" Generate a new class (replacing the current file)
-nmap <Leader>cc :call phpactor#ClassNew()<CR>
-" Extract expression (normal mode)
-nmap <silent><Leader>ee :call phpactor#ExtractExpression(v:false)<CR>
-" Extract expression from selection
-vmap <silent><Leader>ee :<C-U>call phpactor#ExtractExpression(v:true)<CR>
-" Extract method from selection
-vmap <silent><Leader>em :<C-U>call phpactor#ExtractMethod()<CR>
-autocmd FileType php setlocal omnifunc=phpactor#Complete
-
-" Deoplite
-let g:deoplete#enable_at_startup = 1
+" Coc
+inoremap <expr> <TAB> pumvisible() ? "\<C-y>" : "\<TAB>"
+let g:coc_snippet_next='<C-n>'
+let g:coc_snippet_previous='<C-p>'
 
 " Lightline
 let g:lightline = {
   \ 'active': {
-  \   'left': [ [ 'mode', 'paste' ],
-  \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+  \   'left': [ [ 'mode' ],
+  \             [ 'gitbranch', 'readonly', 'filename', 'modified', 'cocstatus' ] ]
   \ },
   \ 'component_function': {
-  \   'gitbranch': 'fugitive#head'
+  \   'gitbranch': 'fugitive#head',
+  \   'cocstatus': 'coc#status'
   \ },
 \ }
 
