@@ -72,6 +72,12 @@ set background=dark
 " Mapings
 inoremap jj <ESC>
 
+" Path found by using:
+" which python2
+" which python3
+let g:python_host_prog  = '/usr/local/bin/python2'
+let g:python3_host_prog = '/Library/Frameworks/Python.framework/Versions/3.7/bin/python3'
+
 " Open tag files
 map T <C-]>
 
