@@ -50,8 +50,8 @@ set formatoptions+=t " Auto-wrap text using textwidth
 set history=10000
 set hlsearch
 set incsearch " search as character are entered
-set ignorecase " ignore case when using a search pattern (noic|ic)
-set nowrap " long lines wrap : (nowrap|wrap)
+set ignorecase " ignore case when using a search pattern noic|ic
+set nowrap " long lines wrap : nowrap|wrap
 set number
 set pumheight=40
 set ruler
