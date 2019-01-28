@@ -42,8 +42,8 @@ set formatoptions+=t " Auto-wrap text using textwidth
 set history=10000
 set hlsearch
 set incsearch " search as character are entered
-set ignorecase " ignore case when using a search pattern (noic|ic)
-set nowrap " long lines wrap : (nowrap|wrap)
+set ignorecase " ignore case when using a search pattern noic|ic
+set nowrap " long lines wrap : nowrap|wrap
 set number
 set pumheight=40
 set ruler
@@ -63,6 +63,12 @@ set background=dark
 
 " Mapings
 inoremap jj <ESC>
+
+" Path found by using:
+" which python2
+" which python3
+let g:python_host_prog  = '/usr/local/bin/python2'
+let g:python3_host_prog = '/Library/Frameworks/Python.framework/Versions/3.7/bin/python3'
 
 " Open tag files
 map T <C-]>
