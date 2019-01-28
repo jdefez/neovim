@@ -7,25 +7,17 @@ Plug 'itchyny/lightline.vim'
 Plug 'kshenoy/vim-signature'
 Plug 'sheerun/vim-polyglot', { 'do': './build' }
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+Plug 'Shougo/denite.nvim'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-fugitive'
+Plug 'vim-vdebug/vdebug'
 Plug 'jreybert/vimagit'
 Plug 'mattn/emmet-vim'
 Plug 'mileszs/ack.vim'
 Plug 'w0rp/ale'
 Plug 'honza/vim-snippets'
-Plug 'SirVer/ultisnips'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-
-"Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
-"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-"Plug 'rafaelndev/deoplete-laravel-plugin', {'for': ['php'], 'do': 'composer install'}
-"Plug 'zchee/deoplete-jedi'
-"Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'}
-"Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' } php7 only
-"Plug 'zefei/deoplete-hack'
-"Plug 'Shougo/neco-vim'
 call plug#end()
 
 let mapleader = "\<Space>"
@@ -74,6 +66,19 @@ inoremap jj <ESC>
 
 " Open tag files
 map T <C-]>
+
+" Vdebug
+if !exists('g:vdebug_options')
+      let g:vdebug_options = {}
+    endif
+let g:vdebug_options.break_on_open=1
+let g:vdebug_options.debug_file='~/vdebug.log'
+let g:vdebug_options.debug_file_level=8
+" remote_path : local_path
+"let g:vdebug_options.path_maps= {
+"\ "/var/www/api.my.previsite.com" : "/var/www/my-api",
+"\ "/var/www/media.previsite.com" : "/var/www/media"
+"\}
 
 " gen_tags
 let g:gen_tags#gtags_default_map=1
