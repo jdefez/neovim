@@ -1,5 +1,9 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
-let g:netrw_dirhist_1='/Users/jean/Documents/Github/video/2015/public'
-let g:netrw_dirhist_2='/Users/jean/Documents/Github/video/2015/public/assets'
-let g:netrw_dirhist_3='/Users/jean/Documents/Github/video/2015/public/assets/scripts'
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/Users/jean/Documents/Vagrant/gateway/app/classes'
+let g:netrw_dirhist_2='/Users/jean/Documents/Vagrant/gateway/app'
+let g:netrw_dirhist_3='/Users/jean/Documents/Vagrant/gateway/app/storage'
+let g:netrw_dirhist_4='/Users/jean/Documents/Vagrant/gateway/app/storage/logs'
+let g:netrw_dirhist_5='/Users/jean/Documents/Vagrant/gateway/app/classes/Export'
+let g:netrw_dirhist_6='/Users/jean/Documents/Vagrant/gateway/app/classes'
+let g:netrw_dirhist_7='/Users/jean/Documents/Vagrant/gateway/app/classes/Cron'
