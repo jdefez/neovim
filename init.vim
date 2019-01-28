@@ -27,10 +27,11 @@ set complete=.
 set completeopt=menuone,noinsert,noselect  " longest
 set colorcolumn=80
 set cursorline
-set enc=utf-8
+set encoding=utf-8
 set expandtab " converts tabs to spaces
 set foldcolumn=0
 set foldmethod=indent
+set foldlevelstart=2
 set foldnestmax=1 " maximum fold depth
 set formatoptions+=c " Autowrap comments using textwidth
 set formatoptions+=j " Delete comment character when joining commented lines
@@ -57,6 +58,8 @@ set softtabstop=2
 set tabstop=2
 set undolevels=10000
 set wildmode=longest,list:full
+set noerrorbells
+set autoread
 
 colorscheme pencil
 set background=dark
