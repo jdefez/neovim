@@ -10,7 +10,7 @@ Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 Plug 'Shougo/denite.nvim'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-fugitive'
-Plug 'vim-vdebug/vdebug'
+Plug 'joonty/vdebug'
 Plug 'jreybert/vimagit'
 Plug 'mattn/emmet-vim'
 Plug 'mileszs/ack.vim'
@@ -67,42 +67,8 @@ set background=dark
 " Mapings
 inoremap jj <ESC>
 
-" Path found by using:
-" which python
-" which python3
-let g:python_host_prog  = '/usr/local/bin/python'
-let g:python3_host_prog = '/Library/Frameworks/Python.framework/Versions/3.7/bin/python3'
-
 " Open tag files
 map T <C-]>
-
-" Vdebug
-if !exists('g:vdebug_options')
-      let g:vdebug_options = {}
-    endif
-let g:vdebug_options.break_on_open=1
-let g:vdebug_options.debug_file='~/vdebug.log'
-let g:vdebug_options.debug_file_level=8
-" remote_path : local_path
-"let g:vdebug_options.path_maps= {
-"\ "/var/www/api.my.previsite.com" : "/var/www/my-api",
-"\ "/var/www/media.previsite.com" : "/var/www/media"
-"\}
-
-" gen_tags
-let g:gen_tags#gtags_default_map=1
-"<C+c> Find functions calling this function
-"<C+d> Find functions called by this function
-"<C+e> Find this egrep pattern
-"<C+f> Find this file
-"<C+g> Find this definition
-"<C+i> Find files #including this file
-"<C+s> Find this C symbol
-"<C+t> Find this text string
-
-" Buffer navigation
-" nnoremap <tab> :bnext<cr>
-" nnoremap <S-tab> :bprev<cr>
 
 " Split navigation
 map <C-j> <C-W>j
@@ -122,6 +88,33 @@ autocmd Filetype snippets setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=
 autocmd Filetype python setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
 autocmd Filetype php setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
 autocmd Filetype apache setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
+
+" Vdebug
+if !exists('g:vdebug_options')
+  let g:vdebug_options = {}
+endif
+
+" let g:vdebug_options.debug_file_level=2
+" tail -f ~/vdebug.log
+" let g:vdebug_options.debug_file='~/vdebug.log'
+
+let g:vdebug_options.break_on_open=1
+" remote_path : local_path
+let g:vdebug_options.path_maps= {
+\  "/var/www/php-test" : "/var/www/php-test",
+\  "/var/www/api.my.previsite.com" : "/var/www/my-api"
+\}
+
+" gen_tags
+let g:gen_tags#gtags_default_map=1
+"<C+c> Find functions calling this function
+"<C+d> Find functions called by this function
+"<C+e> Find this egrep pattern
+"<C+f> Find this file
+"<C+g> Find this definition
+"<C+i> Find files #including this file
+"<C+s> Find this C symbol
+"<C+t> Find this text string
 
 " Coc
 inoremap <expr> <TAB> pumvisible() ? "\<C-y>" : "\<TAB>"
