@@ -18,6 +18,7 @@ Plug 'w0rp/ale'
 Plug 'honza/vim-snippets'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'JamshedVesuna/vim-markdown-preview'
 call plug#end()
 
 let mapleader = "\<Space>"
@@ -31,8 +32,8 @@ set encoding=utf-8
 set expandtab " converts tabs to spaces
 set foldcolumn=0
 set foldmethod=indent
-set foldlevelstart=2
-set foldnestmax=1 " maximum fold depth
+set foldlevelstart=1
+set foldnestmax=3 " maximum fold depth
 set formatoptions+=c " Autowrap comments using textwidth
 set formatoptions+=j " Delete comment character when joining commented lines
 set formatoptions+=l " Do not wrap lines that have been longer when starting insert mode already
@@ -89,6 +90,9 @@ autocmd Filetype python setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
 autocmd Filetype php setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
 autocmd Filetype apache setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
 
+" vim-markdown-preview
+let vim_markdown_preview_github=1
+
 " Vdebug
 if !exists('g:vdebug_options')
   let g:vdebug_options = {}
@@ -100,8 +104,8 @@ endif
 
 let g:vdebug_options.break_on_open=1
 " remote_path : local_path
-let g:vdebug_options.path_maps= {
-\  "/var/www/php-test" : "/var/www/php-test",
+let g:vdebug_options.path_maps={
+\  "/var/www/gateway.previsite.net" : "/var/www/gateway",
 \  "/var/www/api.my.previsite.com" : "/var/www/my-api"
 \}
 
