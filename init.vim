@@ -15,6 +15,7 @@ Plug 'jreybert/vimagit'
 Plug 'mattn/emmet-vim'
 Plug 'mileszs/ack.vim'
 Plug 'w0rp/ale'
+Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -105,6 +106,7 @@ endif
 let g:vdebug_options.break_on_open=1
 " remote_path : local_path
 let g:vdebug_options.path_maps={
+\  "/var/www/php-test" : "/var/www/php-test",
 \  "/var/www/gateway.previsite.net" : "/var/www/gateway",
 \  "/var/www/api.my.previsite.com" : "/var/www/my-api"
 \}
