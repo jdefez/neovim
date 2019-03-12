@@ -84,12 +84,12 @@ map <C-h> <C-W>h
 map <C-l> <C-W>l
 
 " Move
-nnoremap <S-j> :m .+1<CR>==
-nnoremap <S-k> :m .-2<CR>==
-vnoremap <S-j> :m '>+1<CR>gv=gv
-vnoremap <S-k> :m '<-2<CR>gv=gv
-"inoremap <S-j> <Esc>:m .+1<CR>==gi
-"inoremap <S-k> <Esc>:m .-2<CR>==gi
+nnoremap <S-Up> :m .-2<CR>==
+nnoremap <S-Down> :m .+1<CR>==
+vnoremap <S-Up> :m '<-2<CR>gv=gv
+vnoremap <S-Down> :m '>+1<CR>gv=gv
+"inoremap <S-Up> <Esc>:m .-2<CR>==gi
+"inoremap <S-Down> <Esc>:m .+1<CR>==gi
 
 " Specific syntax settings
 au BufRead,BufNewFile *.ts        set ft=typescript
