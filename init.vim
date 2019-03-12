@@ -1,40 +1,41 @@
 call plug#begin('~/.local/share/nvim/plugged')
+Plug 'JamshedVesuna/vim-markdown-preview'
+Plug 'cormacrelf/vim-colors-github'
+"Plug 'reedes/vim-colors-pencil'
 Plug 'scrooloose/nerdcommenter'
-Plug 'reedes/vim-colors-pencil'
 Plug 'airblade/vim-gitgutter'
-Plug 'jsfaint/gen_tags.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'kshenoy/vim-signature'
+Plug 'jsfaint/gen_tags.vim'
 Plug 'sheerun/vim-polyglot', { 'do': './build' }
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
-Plug 'Shougo/denite.nvim'
 Plug 'tpope/vim-obsession'
+Plug 'Shougo/denite.nvim'
+Plug 'honza/vim-snippets'
 Plug 'tpope/vim-fugitive'
-Plug 'joonty/vdebug'
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+Plug 'SirVer/ultisnips'
+Plug 'junegunn/fzf.vim'
 Plug 'jreybert/vimagit'
 Plug 'mattn/emmet-vim'
 Plug 'mileszs/ack.vim'
-Plug 'w0rp/ale'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-Plug 'junegunn/fzf.vim'
+Plug 'joonty/vdebug'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'JamshedVesuna/vim-markdown-preview'
+Plug 'w0rp/ale'
 call plug#end()
 
 let mapleader = "\<Space>"
 set belloff=all
 set cmdheight=3
 set complete=.
-set completeopt=menuone,noinsert,noselect  " longest
+set completeopt=menuone,noinsert,noselect
 set colorcolumn=80
 set cursorline
 set encoding=utf-8
-set expandtab " converts tabs to spaces
+set expandtab
 set foldcolumn=0
 set foldmethod=indent
 set foldlevelstart=1
-set foldnestmax=3 " maximum fold depth
+set foldnestmax=3
 set formatoptions+=c " Autowrap comments using textwidth
 set formatoptions+=j " Delete comment character when joining commented lines
 set formatoptions+=l " Do not wrap lines that have been longer when starting insert mode already
@@ -44,10 +45,10 @@ set formatoptions+=r " Insert comment leader after hitting <Enter>
 set formatoptions+=t " Auto-wrap text using textwidth
 set history=10000
 set hlsearch
-set incsearch " search as character are entered
-set ignorecase " ignore case when using a search pattern noic|ic
-set nowrap " long lines wrap : nowrap|wrap
-set number
+set incsearch
+set ignorecase
+set nowrap
+set number relativenumber
 set pumheight=40
 set ruler
 set scrolloff=1000 " number of screen lines to show around the cursor
@@ -63,8 +64,12 @@ set wildmode=longest,list:full
 set noerrorbells
 set autoread
 
-colorscheme pencil
-set background=dark
+" githug colorscheme
+let g:github_colors_soft = 0
+let g:github_colors_block_diffmark = 0
+
+colorscheme github
+"set background=dark
 
 " Mapings
 inoremap jj <ESC>
@@ -77,6 +82,14 @@ map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
+
+" Move
+nnoremap <S-j> :m .+1<CR>==
+nnoremap <S-k> :m .-2<CR>==
+vnoremap <S-j> :m '>+1<CR>gv=gv
+vnoremap <S-k> :m '<-2<CR>gv=gv
+"inoremap <S-j> <Esc>:m .+1<CR>==gi
+"inoremap <S-k> <Esc>:m .-2<CR>==gi
 
 " Specific syntax settings
 au BufRead,BufNewFile *.ts        set ft=typescript
