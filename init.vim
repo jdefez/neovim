@@ -23,12 +23,14 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'w0rp/ale'
 call plug#end()
 
+"https://github.com/gquittet/dotfiles/tree/master/nvim/.config/nvim/configs
+
 let mapleader = "\<Space>"
 set belloff=all
 set cmdheight=3
 set complete=.
 set completeopt=menuone,noinsert,noselect
-set colorcolumn=80
+set colorcolumn=81
 set cursorline
 set encoding=utf-8
 set expandtab
@@ -53,11 +55,13 @@ set pumheight=40
 set ruler
 set scrolloff=1000 " number of screen lines to show around the cursor
 set shiftround
-set shiftwidth=2
+set shiftwidth=0
 set showfulltag
 set smartcase
 set smartindent
 set softtabstop=2
+set splitbelow
+set splitright
 set tabstop=2
 set undolevels=10000
 set wildmode=longest,list:full
