@@ -88,13 +88,11 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
-" Move
-nnoremap <S-Up> :m .-2<CR>==
-nnoremap <S-Down> :m .+1<CR>==
-vnoremap <S-Up> :m '<-2<CR>gv=gv
-vnoremap <S-Down> :m '>+1<CR>gv=gv
-"inoremap <S-Up> <Esc>:m .-2<CR>==gi
-"inoremap <S-Down> <Esc>:m .+1<CR>==gi
+" Move (makes coc-vim freeze)
+"nnoremap <S-Up> :m .-2<CR>==
+"nnoremap <S-Down> :m .+1<CR>==
+"vnoremap <S-Up> :m '<-2<CR>gv=gv
+"vnoremap <S-Down> :m '>+1<CR>gv=gv
 
 " Specific syntax settings
 au BufRead,BufNewFile *.ts        set ft=typescript
@@ -113,6 +111,7 @@ autocmd Filetype apache setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
 nnoremap <leader>gd :Gvdiff<CR>
 nnoremap gdh :diffget //2<CR>
 nnoremap gdl :diffget //3<CR>
+
 "TODO: Jumping to the next git hunk (or conflict to fix) can be done with [c
 " to backward or ]c to search forward
 
@@ -195,20 +194,19 @@ if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 
-" Doc
-  " Resulting quickfix list navigation shortcut
-  "
-  " ?    a quick summary of these keys, repeat to close
-  " o    to open (same as Enter)
-  " O    to open and close the quickfix window
-  " go   to preview file, open but maintain focus on ack.vim results
-  " t    to open in new tab
-  " T    to open in new tab without moving to it
-  " h    to open in horizontal split
-  " H    to open in horizontal split, keeping focus on the results
-  " v    to open in vertical split
-  " gv   to open in vertical split, keeping focus on the results
-  " q    to close the quickfix window
+" Resulting quickfix list navigation shortcut
+"
+" ?    a quick summary of these keys, repeat to close
+" o    to open (same as Enter)
+" O    to open and close the quickfix window
+" go   to preview file, open but maintain focus on ack.vim results
+" t    to open in new tab
+" T    to open in new tab without moving to it
+" h    to open in horizontal split
+" H    to open in horizontal split, keeping focus on the results
+" v    to open in vertical split
+" gv   to open in vertical split, keeping focus on the results
+" q    to close the quickfix window
 
 " Fzf
 let $FZF_DEFAULT_COMMAND= 'ag -g ""'
@@ -235,31 +233,30 @@ let g:fzf_colors = {
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
 
-" Doc
-  " https://github.com/junegunn/fzf.vim
-  " Files [PATH] 	Files (similar to :FZF)
-  " GFiles [OPTS] 	Git files (git ls-files)
-  " GFiles? 	    Git files (git status)
-  " Buffers 	    Open buffers
-  " Colors 	    Color schemes
-  " Ag [PATTERN] 	ag search result (ALT-A to select all, ALT-D to deselect all)
-  " Lines [QUERY] 	Lines in loaded buffers
-  " BLines [QUERY] Lines in the current buffer
-  " Tags [QUERY] 	Tags in the project (ctags -R)
-  " BTags [QUERY] 	Tags in the current buffer
-  " Marks 	        Marks
-  " Windows 	    Windows
-  " Locate PATTERN locate command output
-  " History 	    v:oldfiles and open buffers
-  " History: 	    Command history
-  " History/ 	    Search history
-  " Snippets 	    Snippets (UltiSnips)
-  " Commits 	    Git commits (requires fugitive.vim)
-  " BCommits 	    Git commits for the current buffer
-  " Commands 	    Commands
-  " Maps 	        Normal mode mappings
-  " Helptags 	    Help tags 1
-  " Filetypes 	    File types
+" https://github.com/junegunn/fzf.vim
+" Files [PATH] 	Files (similar to :FZF)
+" GFiles [OPTS] 	Git files (git ls-files)
+" GFiles? 	    Git files (git status)
+" Buffers 	    Open buffers
+" Colors 	    Color schemes
+" Ag [PATTERN] 	ag search result (ALT-A to select all, ALT-D to deselect all)
+" Lines [QUERY] 	Lines in loaded buffers
+" BLines [QUERY] Lines in the current buffer
+" Tags [QUERY] 	Tags in the project (ctags -R)
+" BTags [QUERY] 	Tags in the current buffer
+" Marks 	        Marks
+" Windows 	    Windows
+" Locate PATTERN locate command output
+" History 	    v:oldfiles and open buffers
+" History: 	    Command history
+" History/ 	    Search history
+" Snippets 	    Snippets (UltiSnips)
+" Commits 	    Git commits (requires fugitive.vim)
+" BCommits 	    Git commits for the current buffer
+" Commands 	    Commands
+" Maps 	        Normal mode mappings
+" Helptags 	    Help tags 1
+" Filetypes 	    File types
 
 " Autotag to be used after exectuing 'ctags -R -f tags.txt *' on the project folder
 let g:autotagTagsFile = 'tags'
