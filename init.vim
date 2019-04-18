@@ -12,6 +12,7 @@ Plug 'tpope/vim-obsession'
 Plug 'Shougo/denite.nvim'
 Plug 'honza/vim-snippets'
 Plug 'tpope/vim-fugitive'
+Plug 'godlygeek/tabular'
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 Plug 'SirVer/ultisnips'
 Plug 'junegunn/fzf.vim'
