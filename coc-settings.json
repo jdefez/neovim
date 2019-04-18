@@ -3,5 +3,11 @@
   "suggest.preferCompleteThanJumpPlaceholder": true,
   "suggest.autoTrigger": "always",
   "suggest.triggerAfterInsertEnter": false,
-  "suggest.timeout": 2000
+  "suggest.timeout": 2000,
+  "diagnostic.enable": true,
+  "diagnostic.signOffset": 1000,
+  "diagnostic.errorSign": ">>",
+  "diagnostic.warningSign": "⚠",
+  "diagnostic.infoSign": ">>",
+  "diagnostic.hintSign": ">>"
 }
