@@ -119,20 +119,26 @@ nnoremap gdl :diffget //3<CR>
 let vim_markdown_preview_github=1
 
 " Vdebug
-if !exists('g:vdebug_options')
-  let g:vdebug_options = {}
-endif
-
-" let g:vdebug_options.debug_file_level=2
-" tail -f ~/vdebug.log
-" let g:vdebug_options.debug_file='~/vdebug.log'
-
-let g:vdebug_options.break_on_open=1
-" remote_path : local_path
-let g:vdebug_options.path_maps={
-\  "/var/www/php-test" : "/var/www/php-test",
-\  "/var/www/gateway.previsite.net" : "/var/www/gateway",
-\  "/var/www/api.my.previsite.com" : "/var/www/my-api"
+let g:vdebug_options= {
+\    "port" : 9000,
+\    "server" : '',
+\    "timeout" : 20,
+\    "on_close" : 'detach',
+\    "break_on_open" : 0,
+\    "ide_key" : '',
+\    "path_maps" : {
+\       "/var/www/manager" : "/var/www/manager",
+\       "/var/www/php-test" : "/var/www/php-test",
+\       "/var/www/gateway.previsite.net" : "/var/www/gateway",
+\       "/var/www/api.my.previsite.com" : "/var/www/my-api"
+    \},
+\    "debug_window_level" : 0,
+\    "debug_file_level" : 0,
+\    "debug_file" : "",
+\    "watch_window_style" : 'compact',
+\    "marker_default"     : '⬦',
+\    "marker_closed_tree" : '▸',
+\    "marker_open_tree" : '▾'
 \}
 
 " gen_tags
@@ -157,7 +163,7 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 " Use K for show documentation in preview window
-nnoremap <silent> K :call <SID>show_documentation()<CR>
+"nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
   if &filetype == 'vim'
