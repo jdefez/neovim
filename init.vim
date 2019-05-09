@@ -24,9 +24,8 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'w0rp/ale'
 call plug#end()
 
-"https://github.com/gquittet/dotfiles/tree/master/nvim/.config/nvim/configs
-
 let mapleader = "\<Space>"
+set autoread
 set belloff=all
 set cmdheight=3
 set complete=.
@@ -46,18 +45,24 @@ set formatoptions+=n " Recognize numbered lists
 set formatoptions+=q " Allow formatting of comments with gq.
 set formatoptions+=r " Insert comment leader after hitting <Enter>
 set formatoptions+=t " Auto-wrap text using textwidth
+set hidden
 set history=10000
 set hlsearch
 set incsearch
 set ignorecase
+set noerrorbells
 set nowrap
+set nobackup
+set nowritebackup
 set number relativenumber
 set pumheight=40
 set ruler
 set scrolloff=1000 " number of screen lines to show around the cursor
 set shiftround
 set shiftwidth=0
+set shortmess+=c
 set showfulltag
+set signcolumn=yes
 set smartcase
 set smartindent
 set softtabstop=2
@@ -65,9 +70,8 @@ set splitbelow
 set splitright
 set tabstop=2
 set undolevels=10000
+set updatetime=300
 set wildmode=longest,list:full
-set noerrorbells
-set autoread
 
 " githug colorscheme
 let g:github_colors_soft = 0
@@ -88,11 +92,11 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
-" Move (makes coc-vim freeze)
-"nnoremap <S-Up> :m .-2<CR>==
-"nnoremap <S-Down> :m .+1<CR>==
-"vnoremap <S-Up> :m '<-2<CR>gv=gv
-"vnoremap <S-Down> :m '>+1<CR>gv=gv
+" Move
+nnoremap <S-Up> :m .-2<CR>==
+nnoremap <S-Down> :m .+1<CR>==
+vnoremap <S-Up> :m '<-2<CR>gv=gv
+vnoremap <S-Down> :m '>+1<CR>gv=gv
 
 " Specific syntax settings
 au BufRead,BufNewFile *.ts        set ft=typescript
@@ -153,35 +157,40 @@ let g:gen_tags#gtags_default_map=1
 "<C+t> Find this text string
 
 " Coc
-inoremap <expr> <TAB> pumvisible() ? "\<C-y>" : "\<TAB>"
+inoremap <silent><expr> <c-space> coc#refresh()
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
 let g:coc_snippet_next='<C-n>'
 let g:coc_snippet_previous='<C-p>'
-" Remap keys for gotos
+
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
-" Use K for show documentation in preview window
-"nnoremap <silent> K :call <SID>show_documentation()<CR>
+nmap <leader>rn <Plug>(coc-rename)
+vmap <leader>f <Plug>(coc-format-selected)
+nmap <leader>f <Plug>(coc-format-selected)
+
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 
 function! s:show_documentation()
   if &filetype == 'vim'
     execute 'h '.expand('<cword>')
   else
-    call CocAction('doHover')
+    call CocActionAsync('doHover')
   endif
 endfunction
-
-" Highlight symbol under cursor on CursorHold
-autocmd CursorHold * silent call CocActionAsync('highlight')
-
-" Remap for rename current word
-nmap <leader>rn <Plug>(coc-rename)
-
-" Remap for format selected region
-vmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
 
 " Lightline
 let g:lightline = {
