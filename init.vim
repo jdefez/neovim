@@ -10,11 +10,11 @@ Plug 'jsfaint/gen_tags.vim'
 Plug 'sheerun/vim-polyglot', { 'do': './build' }
 Plug 'tpope/vim-obsession'
 Plug 'Shougo/denite.nvim'
-Plug 'honza/vim-snippets'
+"Plug 'honza/vim-snippets'
 Plug 'tpope/vim-fugitive'
 Plug 'godlygeek/tabular'
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
-Plug 'SirVer/ultisnips'
+"Plug 'SirVer/ultisnips'
 Plug 'junegunn/fzf.vim'
 Plug 'jreybert/vimagit'
 Plug 'mattn/emmet-vim'
@@ -166,6 +166,7 @@ inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 let g:coc_snippet_next='<C-n>'
 let g:coc_snippet_previous='<C-p>'
+"imap <C-l> <Plug>(coc-snippets-expand)
 
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
