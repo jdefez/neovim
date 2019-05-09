@@ -10,16 +10,15 @@ Plug 'jsfaint/gen_tags.vim'
 Plug 'sheerun/vim-polyglot', { 'do': './build' }
 Plug 'tpope/vim-obsession'
 Plug 'Shougo/denite.nvim'
-"Plug 'honza/vim-snippets'
+Plug 'honza/vim-snippets'
 Plug 'tpope/vim-fugitive'
 Plug 'godlygeek/tabular'
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
-"Plug 'SirVer/ultisnips'
-Plug 'junegunn/fzf.vim'
 Plug 'jreybert/vimagit'
 Plug 'mattn/emmet-vim'
 Plug 'mileszs/ack.vim'
 Plug 'joonty/vdebug'
+Plug 'junegunn/fzf.vim' " could be replaced with coc-lists (+coc-git)
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'w0rp/ale'
 call plug#end()
@@ -157,16 +156,13 @@ let g:gen_tags#gtags_default_map=1
 "<C+t> Find this text string
 
 " Coc
-inoremap <silent><expr> <c-space> coc#refresh()
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-let g:coc_snippet_next='<C-n>'
-let g:coc_snippet_previous='<C-p>'
-"imap <C-l> <Plug>(coc-snippets-expand)
+" coc-snipets
+imap <C-l> <Plug>(coc-snippets-expand)
+vmap <C-j> <Plug>(coc-snippets-select)
+imap <C-n> <Plug>(coc-snippets-expand-jump)
+let g:coc_snippet_next = '<C-n>'
+let g:coc_snippet_prev = '<C-p>'
 
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
@@ -179,11 +175,6 @@ nmap <leader>f <Plug>(coc-format-selected)
 
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 autocmd CursorHold * silent call CocActionAsync('highlight')
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
 
 function! s:show_documentation()
   if &filetype == 'vim'
@@ -286,8 +277,9 @@ let g:ale_sign_warning = '--'
 let g:ale_lint_on_text_changed = 'never'
 
 " UltiSnips
-set runtimepath+=~/.config/nvim/my-snippets/
-let g:UltiSnipsExpandTrigger="<c-e>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-let g:UltiSnipsEditSplit="vertical"
+"set runtimepath+=~/.config/nvim/my-snippets/
+"let g:UltiSnipsExpandTrigger="<c-e>"
+"let g:UltiSnipsJumpForwardTrigger="<c-b>"
+"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+"let g:UltiSnipsEditSplit="vertical"
+
