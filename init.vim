@@ -156,6 +156,7 @@ let g:gen_tags#gtags_default_map=1
 "<C+t> Find this text string
 
 " Coc
+let g:coc_global_extensions =['coc-lists', 'coc-snippets', 'coc-tag', 'coc-css', 'coc-json', 'coc-phpls', 'coc-python', 'coc-tslint', 'coc-yaml']
 
 " coc-snipets
 imap <C-l> <Plug>(coc-snippets-expand)
