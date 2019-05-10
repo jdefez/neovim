@@ -162,9 +162,9 @@ let g:coc_global_extensions =[
 \]
 
 " coc-snipets
-imap <C-l> <Plug>(coc-snippets-expand)
 vmap <C-j> <Plug>(coc-snippets-select)
-imap <C-n> <Plug>(coc-snippets-expand-jump)
+imap <C-l> <Plug>(coc-snippets-expand)
+imap <C-l> <Plug>(coc-snippets-expand-jump)
 let g:coc_snippet_next = '<C-n>'
 let g:coc_snippet_prev = '<C-p>'
 
