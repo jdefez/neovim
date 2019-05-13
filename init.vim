@@ -1,26 +1,32 @@
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'JamshedVesuna/vim-markdown-preview'
 Plug 'cormacrelf/vim-colors-github'
+
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'othree/javascript-libraries-syntax.vim'
+Plug 'othree/yajs.vim'
+
 "Plug 'reedes/vim-colors-pencil'
 Plug 'scrooloose/nerdcommenter'
 Plug 'airblade/vim-gitgutter'
 Plug 'itchyny/lightline.vim'
 Plug 'kshenoy/vim-signature'
-Plug 'jsfaint/gen_tags.vim'
-Plug 'sheerun/vim-polyglot', { 'do': './build' }
+"Plug 'jsfaint/gen_tags.vim'
+"Plug 'sheerun/vim-polyglot', { 'do': './build' }
 Plug 'tpope/vim-obsession'
 Plug 'Shougo/denite.nvim'
-Plug 'honza/vim-snippets'
+Plug 'Shougo/neosnippet-snippets'
+Plug 'Shougo/neosnippet'
 Plug 'tpope/vim-fugitive'
 Plug 'godlygeek/tabular'
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 Plug 'jreybert/vimagit'
 Plug 'mattn/emmet-vim'
-Plug 'mileszs/ack.vim'
-Plug 'joonty/vdebug'
-Plug 'junegunn/fzf.vim' " could be replaced with coc-lists (+coc-git)
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'w0rp/ale'
+"Plug 'mileszs/ack.vim'
+"Plug 'joonty/vdebug'
+"Plug 'junegunn/fzf.vim'
+"Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+"Plug 'w0rp/ale'
 call plug#end()
 
 let mapleader = "\<Space>"
@@ -83,7 +89,7 @@ colorscheme github
 inoremap jj <ESC>
 
 " Open tag files
-map T <C-]>
+"map T <C-]>
 
 " Split navigation
 map <C-j> <C-W>j
@@ -122,30 +128,30 @@ nnoremap gdl :diffget //3<CR>
 let vim_markdown_preview_github=1
 
 " Vdebug
-let g:vdebug_options= {
-\    "port" : 9000,
-\    "server" : '',
-\    "timeout" : 20,
-\    "on_close" : 'detach',
-\    "break_on_open" : 0,
-\    "ide_key" : '',
-\    "path_maps" : {
-\       "/var/www/manager" : "/var/www/manager",
-\       "/var/www/php-test" : "/var/www/php-test",
-\       "/var/www/gateway.previsite.net" : "/var/www/gateway",
-\       "/var/www/api.my.previsite.com" : "/var/www/my-api"
-    \},
-\    "debug_window_level" : 0,
-\    "debug_file_level" : 0,
-\    "debug_file" : "",
-\    "watch_window_style" : 'compact',
-\    "marker_default"     : '⬦',
-\    "marker_closed_tree" : '▸',
-\    "marker_open_tree" : '▾'
-\}
+"let g:vdebug_options= {
+"\    "port" : 9000,
+"\    "server" : '',
+"\    "timeout" : 20,
+"\    "on_close" : 'detach',
+"\    "break_on_open" : 0,
+"\    "ide_key" : '',
+"\    "path_maps" : {
+"\       "/var/www/manager" : "/var/www/manager",
+"\       "/var/www/php-test" : "/var/www/php-test",
+"\       "/var/www/gateway.previsite.net" : "/var/www/gateway",
+"\       "/var/www/api.my.previsite.com" : "/var/www/my-api"
+    "\},
+"\    "debug_window_level" : 0,
+"\    "debug_file_level" : 0,
+"\    "debug_file" : "",
+"\    "watch_window_style" : 'compact',
+"\    "marker_default"     : '⬦',
+"\    "marker_closed_tree" : '▸',
+"\    "marker_open_tree" : '▾'
+"\}
 
 " gen_tags
-let g:gen_tags#gtags_default_map=1
+"let g:gen_tags#gtags_default_map=1
 "<C+c> Find functions calling this function
 "<C+d> Find functions called by this function
 "<C+e> Find this egrep pattern
@@ -155,18 +161,88 @@ let g:gen_tags#gtags_default_map=1
 "<C+s> Find this C symbol
 "<C+t> Find this text string
 
+" Denite
+" Use ripgrep for searching current directory for files
+" By default, ripgrep will respect rules in .gitignore
+"   --files: Print each file that would be searched (but don't search)
+"   --glob:  Include or exclues files for searching that match the given glob (aka ignore .git files)
+
+call denite#custom#var('file/rec', 'command', ['rg', '--files', '--glob', '!.git'])
+
+" Use ripgrep in place of "grep"
+call denite#custom#var('grep', 'command', ['rg'])
+
+" Custom options for ripgrep
+"   --vimgrep:  Show results with every match on it's own line
+"   --hidden:   Search hidden directories and files
+"   --heading:  Show the file name above clusters of matches from each file
+"   --S:        Search case insensitively if the pattern is all lowercase
+call denite#custom#var('grep', 'default_opts', ['--hidden', '--vimgrep', '--heading', '-S'])
+
+" Recommended defaults for ripgrep via Denite docs
+call denite#custom#var('grep', 'recursive_opts', [])
+call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
+call denite#custom#var('grep', 'separator', ['--'])
+call denite#custom#var('grep', 'final_opts', [])
+
+" Remove date from buffer list
+call denite#custom#var('buffer', 'date_format', '')
+
+" Custom options for Denite
+"   auto_resize             - Auto resize the Denite window height automatically.
+"   prompt                  - Customize denite prompt
+"   direction               - Specify Denite window direction as directly below current pane
+"   winminheight            - Specify min height for Denite window
+"   highlight_mode_insert   - Specify h1-CursorLine in insert mode
+"   prompt_highlight        - Specify color of prompt
+"   highlight_matched_char  - Matched characters highlight
+"   highlight_matched_range - matched range highlight
+
+let s:denite_options = {'default' : {
+\ 'auto_resize': 1,
+\ 'prompt': 'λ:',
+\ 'direction': 'rightbelow',
+\ 'winminheight': '10',
+\ 'highlight_mode_insert': 'Visual',
+\ 'highlight_mode_normal': 'Visual',
+\ 'prompt_highlight': 'Function',
+\ 'highlight_matched_char': 'Function',
+\ 'highlight_matched_range': 'Normal'
+\ }}
+
+" Loop through denite options and enable them
+function! s:profile(opts) abort
+	for l:fname in keys(a:opts)
+		for l:dopt in keys(a:opts[l:fname])
+			call denite#custom#option(l:fname, l:dopt, a:opts[l:fname][l:dopt])
+		endfor
+	endfor
+endfunction
+
+call s:profile(s:denite_options)
+
 " Coc
-let g:coc_global_extensions =[
-\  'coc-lists', 'coc-snippets', 'coc-tag', 'coc-css', 'coc-json', 'coc-phpls',
-\  'coc-python', 'coc-tslint', 'coc-yaml', 'coc-tsserver', 'coc-tslint-plugin'
+let g:coc_global_extensions = [
+\  'coc-lists', 'coc-tag', 'coc-css', 'coc-json', 'coc-phpls',
+\  'coc-python', 'coc-yaml', 'coc-tslint', 'coc-tsserver', 'coc-tslint-plugin'
 \]
 
-" coc-snipets
-vmap <C-j> <Plug>(coc-snippets-select)
-imap <C-l> <Plug>(coc-snippets-expand)
-imap <C-l> <Plug>(coc-snippets-expand-jump)
-let g:coc_snippet_next = '<C-n>'
-let g:coc_snippet_prev = '<C-p>'
+" neo-snippets
+inoremap <silent><expr> <TAB>
+			\ pumvisible() ? "\<C-n>" :
+			\ <SID>check_back_space() ? "\<TAB>" :
+			\ coc#refresh()
+
+" Close preview window when completion is done.
+autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+
+" Map <C-k> as shortcut to activate snippet if available
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+xmap <C-k> <Plug>(neosnippet_expand_target)
+
+" Hide conceal markers
+let g:neosnippet#enable_conceal_markers = 0
 
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
@@ -179,6 +255,12 @@ nmap <leader>f <Plug>(coc-format-selected)
 
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" use <tab> for trigger completion and navigate to next complete item
+function! s:check_back_space() abort
+	let col = col('.') - 1
+	return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
 
 function! s:show_documentation()
   if &filetype == 'vim'
@@ -201,12 +283,6 @@ let g:lightline = {
 \ }
 
 " Ack -> Ag
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-endif
-
-" Resulting quickfix list navigation shortcut
-"
 " ?    a quick summary of these keys, repeat to close
 " o    to open (same as Enter)
 " O    to open and close the quickfix window
@@ -218,31 +294,34 @@ endif
 " v    to open in vertical split
 " gv   to open in vertical split, keeping focus on the results
 " q    to close the quickfix window
+"if executable('ag')
+  "let g:ackprg = 'ag --vimgrep'
+"endif
 
 " Fzf
-let $FZF_DEFAULT_COMMAND= 'ag -g ""'
-nnoremap <silent> <Leader>f :Files<CR>
-nnoremap <silent> <Leader>b :Buffers<CR>
-nnoremap <silent> <Leader>l :Lines<CR>
-nnoremap <silent> <Leader>L :BLines<CR>
-nnoremap <silent> <Leader>s :Snippets<CR>
-nnoremap <silent> <Leader>t :Tags<CR>
-nnoremap <silent> <Leader>T :BTags<CR>
+"let $FZF_DEFAULT_COMMAND= 'ag -g ""'
+"nnoremap <silent> <Leader>f :Files<CR>
+"nnoremap <silent> <Leader>b :Buffers<CR>
+"nnoremap <silent> <Leader>l :Lines<CR>
+"nnoremap <silent> <Leader>L :BLines<CR>
+"nnoremap <silent> <Leader>s :Snippets<CR>
+"nnoremap <silent> <Leader>t :Tags<CR>
+"nnoremap <silent> <Leader>T :BTags<CR>
 
-let g:fzf_colors = {
-  \ 'fg':      ['fg', 'Normal'],
-  \ 'bg':      ['bg', 'Normal'],
-  \ 'hl':      ['fg', 'Comment'],
-  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-  \ 'hl+':     ['fg', 'Statement'],
-  \ 'info':    ['fg', 'PreProc'],
-  \ 'border':  ['fg', 'Ignore'],
-  \ 'prompt':  ['fg', 'Conditional'],
-  \ 'pointer': ['fg', 'Exception'],
-  \ 'marker':  ['fg', 'Keyword'],
-  \ 'spinner': ['fg', 'Label'],
-  \ 'header':  ['fg', 'Comment'] }
+"let g:fzf_colors = {
+  "\ 'fg':      ['fg', 'Normal'],
+  "\ 'bg':      ['bg', 'Normal'],
+  "\ 'hl':      ['fg', 'Comment'],
+  "\ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  "\ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  "\ 'hl+':     ['fg', 'Statement'],
+  "\ 'info':    ['fg', 'PreProc'],
+  "\ 'border':  ['fg', 'Ignore'],
+  "\ 'prompt':  ['fg', 'Conditional'],
+  "\ 'pointer': ['fg', 'Exception'],
+  "\ 'marker':  ['fg', 'Keyword'],
+  "\ 'spinner': ['fg', 'Label'],
+  "\ 'header':  ['fg', 'Comment'] }
 
 " https://github.com/junegunn/fzf.vim
 " Files [PATH] 	Files (similar to :FZF)
@@ -270,15 +349,15 @@ let g:fzf_colors = {
 " Filetypes 	    File types
 
 " Autotag to be used after exectuing 'ctags -R -f tags.txt *' on the project folder
-let g:autotagTagsFile = 'tags'
+" let g:autotagTagsFile = 'tags'
 
 " Ale
-let g:ale_fixers = {
-\   'python': ['flake8'],
-\}
-let g:ale_sign_error = '>>'
-let g:ale_sign_warning = '--'
-let g:ale_lint_on_text_changed = 'never'
+"let g:ale_fixers = {
+"\   'python': ['flake8'],
+"\}
+"let g:ale_sign_error = '>>'
+"let g:ale_sign_warning = '--'
+"let g:ale_lint_on_text_changed = 'never'
 
 " UltiSnips
 "set runtimepath+=~/.config/nvim/my-snippets/
