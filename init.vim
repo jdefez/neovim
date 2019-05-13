@@ -1,18 +1,12 @@
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'JamshedVesuna/vim-markdown-preview'
 Plug 'cormacrelf/vim-colors-github'
-
 Plug 'HerringtonDarkholme/yats.vim'
-Plug 'othree/javascript-libraries-syntax.vim'
-Plug 'othree/yajs.vim'
-
 "Plug 'reedes/vim-colors-pencil'
 Plug 'scrooloose/nerdcommenter'
 Plug 'airblade/vim-gitgutter'
 Plug 'itchyny/lightline.vim'
 Plug 'kshenoy/vim-signature'
-"Plug 'jsfaint/gen_tags.vim'
-"Plug 'sheerun/vim-polyglot', { 'do': './build' }
 Plug 'tpope/vim-obsession'
 Plug 'Shougo/denite.nvim'
 Plug 'Shougo/neosnippet-snippets'
@@ -22,6 +16,8 @@ Plug 'godlygeek/tabular'
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 Plug 'jreybert/vimagit'
 Plug 'mattn/emmet-vim'
+"Plug 'jsfaint/gen_tags.vim'
+"Plug 'sheerun/vim-polyglot', { 'do': './build' }
 "Plug 'mileszs/ack.vim'
 "Plug 'joonty/vdebug'
 "Plug 'junegunn/fzf.vim'
@@ -77,6 +73,29 @@ set tabstop=2
 set undolevels=10000
 set updatetime=300
 set wildmode=longest,list:full
+
+" Loop through denite options and enable them
+function! s:profile(opts) abort
+	for l:fname in keys(a:opts)
+		for l:dopt in keys(a:opts[l:fname])
+			call denite#custom#option(l:fname, l:dopt, a:opts[l:fname][l:dopt])
+		endfor
+	endfor
+endfunction
+
+" use <tab> for trigger completion and navigate to next complete item
+function! s:check_back_space() abort
+	let col = col('.') - 1
+	return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+function! s:show_documentation()
+  if &filetype == 'vim'
+    execute 'h '.expand('<cword>')
+  else
+    call CocActionAsync('doHover')
+  endif
+endfunction
 
 " githug colorscheme
 let g:github_colors_soft = 0
@@ -150,17 +169,6 @@ let vim_markdown_preview_github=1
 "\    "marker_open_tree" : '▾'
 "\}
 
-" gen_tags
-"let g:gen_tags#gtags_default_map=1
-"<C+c> Find functions calling this function
-"<C+d> Find functions called by this function
-"<C+e> Find this egrep pattern
-"<C+f> Find this file
-"<C+g> Find this definition
-"<C+i> Find files #including this file
-"<C+s> Find this C symbol
-"<C+t> Find this text string
-
 " Denite
 " Use ripgrep for searching current directory for files
 " By default, ripgrep will respect rules in .gitignore
@@ -210,21 +218,17 @@ let s:denite_options = {'default' : {
 \ 'highlight_matched_range': 'Normal'
 \ }}
 
-" Loop through denite options and enable them
-function! s:profile(opts) abort
-	for l:fname in keys(a:opts)
-		for l:dopt in keys(a:opts[l:fname])
-			call denite#custom#option(l:fname, l:dopt, a:opts[l:fname][l:dopt])
-		endfor
-	endfor
-endfunction
-
 call s:profile(s:denite_options)
+
+nmap ; :Denite buffer -split=floating -winrow=1<CR>
+nmap <leader>t :Denite file/rec -split=floating -winrow=1<CR>
+nnoremap <leader>g :<C-u>Denite grep:. -no-empty -mode=normal<CR>
+nnoremap <leader>j :<C-u>DeniteCursorWord grep:. -mode=normal<CR>
 
 " Coc
 let g:coc_global_extensions = [
 \  'coc-lists', 'coc-tag', 'coc-css', 'coc-json', 'coc-phpls',
-\  'coc-python', 'coc-yaml', 'coc-tslint', 'coc-tsserver', 'coc-tslint-plugin'
+\  'coc-python', 'coc-yaml', 'coc-eslint'
 \]
 
 " neo-snippets
@@ -256,20 +260,6 @@ nmap <leader>f <Plug>(coc-format-selected)
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
-" use <tab> for trigger completion and navigate to next complete item
-function! s:check_back_space() abort
-	let col = col('.') - 1
-	return !col || getline('.')[col - 1]  =~ '\s'
-endfunction
-
-function! s:show_documentation()
-  if &filetype == 'vim'
-    execute 'h '.expand('<cword>')
-  else
-    call CocActionAsync('doHover')
-  endif
-endfunction
-
 " Lightline
 let g:lightline = {
   \ 'active': {
@@ -281,88 +271,3 @@ let g:lightline = {
   \   'cocstatus': 'coc#status'
   \ },
 \ }
-
-" Ack -> Ag
-" ?    a quick summary of these keys, repeat to close
-" o    to open (same as Enter)
-" O    to open and close the quickfix window
-" go   to preview file, open but maintain focus on ack.vim results
-" t    to open in new tab
-" T    to open in new tab without moving to it
-" h    to open in horizontal split
-" H    to open in horizontal split, keeping focus on the results
-" v    to open in vertical split
-" gv   to open in vertical split, keeping focus on the results
-" q    to close the quickfix window
-"if executable('ag')
-  "let g:ackprg = 'ag --vimgrep'
-"endif
-
-" Fzf
-"let $FZF_DEFAULT_COMMAND= 'ag -g ""'
-"nnoremap <silent> <Leader>f :Files<CR>
-"nnoremap <silent> <Leader>b :Buffers<CR>
-"nnoremap <silent> <Leader>l :Lines<CR>
-"nnoremap <silent> <Leader>L :BLines<CR>
-"nnoremap <silent> <Leader>s :Snippets<CR>
-"nnoremap <silent> <Leader>t :Tags<CR>
-"nnoremap <silent> <Leader>T :BTags<CR>
-
-"let g:fzf_colors = {
-  "\ 'fg':      ['fg', 'Normal'],
-  "\ 'bg':      ['bg', 'Normal'],
-  "\ 'hl':      ['fg', 'Comment'],
-  "\ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-  "\ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-  "\ 'hl+':     ['fg', 'Statement'],
-  "\ 'info':    ['fg', 'PreProc'],
-  "\ 'border':  ['fg', 'Ignore'],
-  "\ 'prompt':  ['fg', 'Conditional'],
-  "\ 'pointer': ['fg', 'Exception'],
-  "\ 'marker':  ['fg', 'Keyword'],
-  "\ 'spinner': ['fg', 'Label'],
-  "\ 'header':  ['fg', 'Comment'] }
-
-" https://github.com/junegunn/fzf.vim
-" Files [PATH] 	Files (similar to :FZF)
-" GFiles [OPTS] 	Git files (git ls-files)
-" GFiles? 	    Git files (git status)
-" Buffers 	    Open buffers
-" Colors 	    Color schemes
-" Ag [PATTERN] 	ag search result (ALT-A to select all, ALT-D to deselect all)
-" Lines [QUERY] 	Lines in loaded buffers
-" BLines [QUERY] Lines in the current buffer
-" Tags [QUERY] 	Tags in the project (ctags -R)
-" BTags [QUERY] 	Tags in the current buffer
-" Marks 	        Marks
-" Windows 	    Windows
-" Locate PATTERN locate command output
-" History 	    v:oldfiles and open buffers
-" History: 	    Command history
-" History/ 	    Search history
-" Snippets 	    Snippets (UltiSnips)
-" Commits 	    Git commits (requires fugitive.vim)
-" BCommits 	    Git commits for the current buffer
-" Commands 	    Commands
-" Maps 	        Normal mode mappings
-" Helptags 	    Help tags 1
-" Filetypes 	    File types
-
-" Autotag to be used after exectuing 'ctags -R -f tags.txt *' on the project folder
-" let g:autotagTagsFile = 'tags'
-
-" Ale
-"let g:ale_fixers = {
-"\   'python': ['flake8'],
-"\}
-"let g:ale_sign_error = '>>'
-"let g:ale_sign_warning = '--'
-"let g:ale_lint_on_text_changed = 'never'
-
-" UltiSnips
-"set runtimepath+=~/.config/nvim/my-snippets/
-"let g:UltiSnipsExpandTrigger="<c-e>"
-"let g:UltiSnipsJumpForwardTrigger="<c-b>"
-"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-"let g:UltiSnipsEditSplit="vertical"
-

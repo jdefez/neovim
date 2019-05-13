@@ -1,13 +1,8 @@
 {
-  "suggest.noselect": false,
-  "suggest.preferCompleteThanJumpPlaceholder": true,
-  "suggest.autoTrigger": "always",
-  "suggest.triggerAfterInsertEnter": false,
-  "suggest.timeout": 2000,
-  "diagnostic.enable": true,
-  "diagnostic.signOffset": 1000,
+  "suggest.maxCompleteItemCount": 20,
   "diagnostic.errorSign": ">>",
   "diagnostic.warningSign": "⚠",
   "diagnostic.infoSign": ">>",
-  "diagnostic.hintSign": ">>"
+  "diagnostic.hintSign": ">>",
+  "eslint.filetypes": ["javascript", "typescript", "typescriptreact", "javascriptreact"]
 }
