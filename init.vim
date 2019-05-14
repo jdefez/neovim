@@ -16,21 +16,18 @@ Plug 'godlygeek/tabular'
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 Plug 'jreybert/vimagit'
 Plug 'mattn/emmet-vim'
-"Plug 'jsfaint/gen_tags.vim'
-"Plug 'sheerun/vim-polyglot', { 'do': './build' }
-"Plug 'mileszs/ack.vim'
 "Plug 'joonty/vdebug'
-"Plug 'junegunn/fzf.vim'
-"Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-"Plug 'w0rp/ale'
+Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 call plug#end()
 
 let mapleader = "\<Space>"
+
 set autoread
 set belloff=all
 set cmdheight=3
-set complete=.
-set completeopt=menuone,noinsert,noselect
+"set complete=.
+"set completeopt=menuone,noinsert,noselect
 set colorcolumn=81
 set cursorline
 set encoding=utf-8
@@ -68,11 +65,11 @@ set smartcase
 set smartindent
 set softtabstop=2
 set splitbelow
-set splitright
+"set splitright
 set tabstop=2
 set undolevels=10000
 set updatetime=300
-set wildmode=longest,list:full
+"set wildmode=longest,list:full
 
 " Loop through denite options and enable them
 function! s:profile(opts) abort
@@ -98,6 +95,7 @@ function! s:show_documentation()
 endfunction
 
 " githug colorscheme
+set termguicolors
 let g:github_colors_soft = 0
 let g:github_colors_block_diffmark = 0
 
@@ -220,8 +218,8 @@ let s:denite_options = {'default' : {
 
 call s:profile(s:denite_options)
 
-nmap ; :Denite buffer -split=floating -winrow=1<CR>
-nmap <leader>t :Denite file/rec -split=floating -winrow=1<CR>
+nmap <leader>b :Denite buffer -split=floating -winrow=1<CR>
+nmap <leader>f :Denite file/rec -split=floating -winrow=1<CR>
 nnoremap <leader>g :<C-u>Denite grep:. -no-empty -mode=normal<CR>
 nnoremap <leader>j :<C-u>DeniteCursorWord grep:. -mode=normal<CR>
 
@@ -249,16 +247,33 @@ xmap <C-k> <Plug>(neosnippet_expand_target)
 let g:neosnippet#enable_conceal_markers = 0
 
 nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gy <Plug>(coc-type-definition)
 
 nmap <leader>rn <Plug>(coc-rename)
-vmap <leader>f <Plug>(coc-format-selected)
-nmap <leader>f <Plug>(coc-format-selected)
+vmap <leader>F <Plug>(coc-format-selected)
+nmap <leader>F <Plug>(coc-format-selected)
+nnoremap <leader> K :call <SID>show_documentation()<CR>
 
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" fzf
+nnoremap <silent> <Leader>L :BLines<CR>
+
+let g:fzf_colors = {
+  \ 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header': ['fg', 'Comment'] }
 
 " Lightline
 let g:lightline = {
@@ -271,3 +286,4 @@ let g:lightline = {
   \   'cocstatus': 'coc#status'
   \ },
 \ }
+
