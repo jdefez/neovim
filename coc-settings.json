@@ -4,5 +4,5 @@
   "diagnostic.warningSign": "⚠",
   "diagnostic.infoSign": ">>",
   "diagnostic.hintSign": ">>",
-  "eslint.filetypes": ["javascript", "typescript", "typescriptreact", "javascriptreact"]
+  "eslint.filetypes": ["javascript"]
 }
