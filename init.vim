@@ -226,7 +226,7 @@ nnoremap <leader>j :<C-u>DeniteCursorWord grep:. -mode=normal<CR>
 " Coc
 let g:coc_global_extensions = [
 \  'coc-lists', 'coc-tag', 'coc-css', 'coc-json', 'coc-phpls',
-\  'coc-python', 'coc-yaml', 'coc-eslint'
+\  'coc-python', 'coc-yaml', 'coc-eslint', 'coc-tsserver'
 \]
 
 " neo-snippets
