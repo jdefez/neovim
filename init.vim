@@ -1,8 +1,8 @@
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'JamshedVesuna/vim-markdown-preview'
 Plug 'cormacrelf/vim-colors-github'
+Plug 'VonHeikemen/rubber-themes.vim'
 Plug 'HerringtonDarkholme/yats.vim'
-"Plug 'reedes/vim-colors-pencil'
 Plug 'scrooloose/nerdcommenter'
 Plug 'airblade/vim-gitgutter'
 Plug 'itchyny/lightline.vim'
@@ -26,8 +26,6 @@ let mapleader = "\<Space>"
 set autoread
 set belloff=all
 set cmdheight=3
-"set complete=.
-"set completeopt=menuone,noinsert,noselect
 set colorcolumn=81
 set cursorline
 set encoding=utf-8
@@ -71,6 +69,11 @@ set undolevels=10000
 set updatetime=300
 "set wildmode=longest,list:full
 
+" Change vertical split character to be a space (essentially hide it)
+set fillchars+=vert:.
+hi! VertSplit gui=NONE guifg=#17252c guibg=#17252c
+hi! EndOfBuffer ctermbg=NONE ctermfg=NONE guibg=#17252c guifg=#17252c
+
 " Loop through denite options and enable them
 function! s:profile(opts) abort
 	for l:fname in keys(a:opts)
@@ -94,13 +97,12 @@ function! s:show_documentation()
   endif
 endfunction
 
-" githug colorscheme
-set termguicolors
-let g:github_colors_soft = 0
-let g:github_colors_block_diffmark = 0
+"githug colorscheme
+"let g:github_colors_soft = 0
+"let g:github_colors_block_diffmark = 0
 
-colorscheme github
-"set background=dark
+set termguicolors
+colorscheme rubber
 
 " Mapings
 inoremap jj <ESC>
@@ -114,7 +116,7 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
-" Move
+" Move line(s)
 nnoremap <S-Up> :m .-2<CR>==
 nnoremap <S-Down> :m .+1<CR>==
 vnoremap <S-Up> :m '<-2<CR>gv=gv
@@ -126,7 +128,6 @@ au BufRead,BufNewFile *.snippets  set ft=snippets
 au BufRead,BufNewFile *.twig      set ft=html
 au BufRead,BufNewFile *.blade.php set ft=html
 
-" autocmd Filetype html setlocal expandtab tabstop=2 shiftwidth=2
 autocmd Filetype html setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype snippets setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype python setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
@@ -137,8 +138,7 @@ autocmd Filetype apache setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
 nnoremap <leader>gd :Gvdiff<CR>
 nnoremap gdh :diffget //2<CR>
 nnoremap gdl :diffget //3<CR>
-
-"TODO: Jumping to the next git hunk (or conflict to fix) can be done with [c
+" TODO: Jumping to the next git hunk (or conflict to fix) can be done with [c
 " to backward or ]c to search forward
 
 " vim-markdown-preview
@@ -274,7 +274,7 @@ let g:fzf_colors = {
   \ 'pointer': ['fg', 'Exception'],
   \ 'marker':  ['fg', 'Keyword'],
   \ 'spinner': ['fg', 'Label'],
-  \ 'header': ['fg', 'Comment'] }
+  \ 'header':  ['fg', 'Comment'] }
 
 " Lightline
 let g:lightline = {
@@ -287,4 +287,16 @@ let g:lightline = {
   \   'cocstatus': 'coc#status'
   \ },
 \ }
+
+" Make background transparent for many things
+hi! Normal ctermbg=NONE guibg=NONE
+hi! NonText ctermbg=NONE guibg=NONE
+hi! LineNr ctermfg=NONE guibg=NONE
+hi! SignColumn ctermfg=NONE guibg=NONE
+hi! StatusLine guifg=#16252b guibg=#6699CC
+hi! StatusLineNC guifg=#16252b guibg=#16252b
+
+" Try to hide vertical spit and end of buffer symbol
+hi! VertSplit gui=NONE guifg=#ffffff guibg=#ffffff
+hi! EndOfBuffer ctermbg=NONE ctermfg=NONE guibg=#ffffff guifg=#ffffff
 
