@@ -258,7 +258,6 @@ vmap <leader>F <Plug>(coc-format-selected)
 nmap <leader>F <Plug>(coc-format-selected)
 nnoremap <leader> K :call <SID>show_documentation()<CR>
 
-
 " fzf
 nnoremap <silent> <Leader>L :BLines<CR>
 

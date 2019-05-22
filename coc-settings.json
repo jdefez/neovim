@@ -1,8 +1,8 @@
 {
   "suggest.maxCompleteItemCount": 20,
-  "diagnostic.errorSign": ">>",
-  "diagnostic.warningSign": "⚠",
-  "diagnostic.infoSign": ">>",
+  "diagnostic.errorSign": "•",
+  "diagnostic.warningSign": "•",
+  "diagnostic.infoSign": "•",
   "diagnostic.hintSign": ">>",
   "eslint.filetypes": ["javascript"]
 }
