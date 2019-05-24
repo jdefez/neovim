@@ -190,8 +190,8 @@ call denite#custom#var('grep', 'recursive_opts', [])
 call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
 call denite#custom#var('grep', 'separator', ['--'])
 call denite#custom#var('grep', 'final_opts', [])
-call denite#custom#map('insert', '<C-j>', '<denite:move_to_next_line>', 'noremap')
-call denite#custom#map('insert', '<C-k>', '<denite:move_to_previous_line>', 'noremap')
+"call denite#custom#map('insert', '<C-j>', '<denite:move_to_next_line>', 'noremap')
+"call denite#custom#map('insert', '<C-k>', '<denite:move_to_previous_line>', 'noremap')
 
 " Remove date from buffer list
 call denite#custom#var('buffer', 'date_format', '')
@@ -220,8 +220,8 @@ let s:denite_options = {'default' : {
 
 call s:profile(s:denite_options)
 
-nmap <leader>b :Denite buffer -split=floating -winrow=1<CR>
-nmap <leader>f :Denite file/rec -split=floating -winrow=1<CR>
+"nmap <leader>b :Denite buffer -split=floating -winrow=1<CR>
+"nmap <leader>f :Denite file/rec -split=floating -winrow=1<CR>
 nnoremap <leader>g :<C-u>Denite grep:. -no-empty -mode=normal<CR>
 nnoremap <leader>j :<C-u>DeniteCursorWord grep:. -mode=normal<CR>
 
@@ -260,6 +260,13 @@ nnoremap <leader> K :call <SID>show_documentation()<CR>
 
 " fzf
 nnoremap <silent> <Leader>L :BLines<CR>
+nnoremap <silent> <Leader>b :Buffers<CR>
+nnoremap <silent> <Leader>f :Files<CR>
+
+" fzf_action
+" ctrl-t tab split
+" ctrl-x split
+" ctrl-v vsplit
 
 let g:fzf_colors = {
   \ 'fg':      ['fg', 'Normal'],
