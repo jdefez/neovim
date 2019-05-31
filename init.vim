@@ -194,7 +194,7 @@ call denite#custom#var('grep', 'final_opts', [])
 "call denite#custom#map('insert', '<C-k>', '<denite:move_to_previous_line>', 'noremap')
 
 " Remove date from buffer list
-call denite#custom#var('buffer', 'date_format', '')
+" call denite#custom#var('buffer', 'date_format', '')
 
 " Custom options for Denite
 "   auto_resize             - Auto resize the Denite window height automatically.
@@ -228,7 +228,7 @@ nnoremap <leader>j :<C-u>DeniteCursorWord grep:. -mode=normal<CR>
 " Coc
 let g:coc_global_extensions = [
 \  'coc-lists', 'coc-tag', 'coc-css', 'coc-json', 'coc-phpls',
-\  'coc-python', 'coc-yaml', 'coc-eslint', 'coc-tsserver'
+\  'coc-python', 'coc-yaml', 'coc-eslint', 'coc-tsserver', 'coc-angular'
 \]
 
 " neo-snippets
