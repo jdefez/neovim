@@ -134,10 +134,10 @@ autocmd Filetype python setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
 autocmd Filetype php setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
 autocmd Filetype apache setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
 
-" Fugitive
-nnoremap <leader>gd :Gvdiff<CR>
-nnoremap gdh :diffget //2<CR>
-nnoremap gdl :diffget //3<CR>
+" Fugitive **conflicting with coc symbol navigation**
+"nnoremap <leader>gd :Gvdiff<CR>
+"nnoremap gdh :diffget //2<CR>
+"nnoremap gdl :diffget //3<CR>
 " TODO: Jumping to the next git hunk (or conflict to fix) can be done with [c
 " to backward or ]c to search forward
 
