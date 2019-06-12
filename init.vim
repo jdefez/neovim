@@ -134,6 +134,11 @@ autocmd Filetype python setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
 autocmd Filetype php setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
 autocmd Filetype apache setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
 
+" Ag
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+
 " Fugitive **conflicting with coc symbol navigation**
 "nnoremap <leader>gd :Gvdiff<CR>
 "nnoremap gdh :diffget //2<CR>
@@ -168,43 +173,22 @@ let vim_markdown_preview_github=1
 "\}
 
 " Denite
-" Use ripgrep for searching current directory for files
-" By default, ripgrep will respect rules in .gitignore
-"   --files: Print each file that would be searched (but don't search)
-"   --glob:  Include or exclues files for searching that match the given glob (aka ignore .git files)
+" reset 50% winheight on window resize
+augroup deniteresize
+  autocmd!
+  autocmd VimResized,VimEnter * call denite#custom#option('default',
+        \'winheight', winheight(0) / 2)
+augroup end
 
-call denite#custom#var('file/rec', 'command', ['rg', '--files', '--glob', '!.git'])
+autocmd FileType denite call s:denite_my_settings()
 
-" Use ripgrep in place of "grep"
-call denite#custom#var('grep', 'command', ['rg'])
-
-" Custom options for ripgrep
-"   --vimgrep:  Show results with every match on it's own line
-"   --hidden:   Search hidden directories and files
-"   --heading:  Show the file name above clusters of matches from each file
-"   --S:        Search case insensitively if the pattern is all lowercase
-call denite#custom#var('grep', 'default_opts', ['--hidden', '--vimgrep', '--heading', '-S'])
-
-" Recommended defaults for ripgrep via Denite docs
-call denite#custom#var('grep', 'recursive_opts', [])
-call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
-call denite#custom#var('grep', 'separator', ['--'])
-call denite#custom#var('grep', 'final_opts', [])
-"call denite#custom#map('insert', '<C-j>', '<denite:move_to_next_line>', 'noremap')
-"call denite#custom#map('insert', '<C-k>', '<denite:move_to_previous_line>', 'noremap')
-
-" Remove date from buffer list
-" call denite#custom#var('buffer', 'date_format', '')
-
-" Custom options for Denite
-"   auto_resize             - Auto resize the Denite window height automatically.
-"   prompt                  - Customize denite prompt
-"   direction               - Specify Denite window direction as directly below current pane
-"   winminheight            - Specify min height for Denite window
-"   highlight_mode_insert   - Specify h1-CursorLine in insert mode
-"   prompt_highlight        - Specify color of prompt
-"   highlight_matched_char  - Matched characters highlight
-"   highlight_matched_range - matched range highlight
+function! s:denite_my_settings() abort
+  nnoremap <silent><buffer><expr> <CR> denite#do_map('do_action')
+  nnoremap <silent><buffer><expr> d denite#do_map('do_action', 'delete')
+  nnoremap <silent><buffer><expr> p denite#do_map('do_action', 'preview')
+  nnoremap <silent><buffer><expr> q denite#do_map('quit')
+  nnoremap <silent><buffer><expr> i denite#do_map('open_filter_buffer')
+endfunction
 
 let s:denite_options = {'default' : {
 \ 'auto_resize': 1,
@@ -217,13 +201,31 @@ let s:denite_options = {'default' : {
 \ 'highlight_matched_char': 'Function',
 \ 'highlight_matched_range': 'Normal'
 \ }}
-
 call s:profile(s:denite_options)
+
+" Ag command on grep source
+call denite#custom#var('grep', 'command', ['ag'])
+call denite#custom#var('grep', 'default_opts', ['-i', '--vimgrep'])
+call denite#custom#var('grep', 'recursive_opts', [])
+call denite#custom#var('grep', 'pattern_opt', [])
+call denite#custom#var('grep', 'separator', ['--'])
+call denite#custom#var('grep', 'final_opts', [])
+
+nnoremap <leader>j :<C-u>DeniteCursorWord grep:.<CR>
+nnoremap <leader>f :<C-u>Denite grep:.<CR>
 
 "nmap <leader>b :Denite buffer -split=floating -winrow=1<CR>
 "nmap <leader>f :Denite file/rec -split=floating -winrow=1<CR>
-nnoremap <leader>g :<C-u>Denite grep:. -no-empty -mode=normal<CR>
-nnoremap <leader>j :<C-u>DeniteCursorWord grep:. -mode=normal<CR>
+"nnoremap <leader>g :<C-u>Denite grep:. -no-empty<CR>
+"nnoremap <leader>j :<C-u>DeniteCursorWord grep:.<CR>
+
+"autocmd FileType denite call s:denite_my_settings()
+"function! s:denite_my_settings() abort
+  "nnoremap <leader>g :<C-u>Denite grep:. -no-empty<CR>
+  "\ denite#do_map('do_action')
+  "nnoremap <leader>j :<C-u>DeniteCursorWord grep:.<CR>
+  "\ denite#do_map('do_action')
+"endfunction
 
 " Coc
 let g:coc_global_extensions = [
@@ -248,10 +250,10 @@ xmap <C-k> <Plug>(neosnippet_expand_target)
 " Hide conceal markers
 let g:neosnippet#enable_conceal_markers = 0
 
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gr <Plug>(coc-references)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent>gd <Plug>(coc-definition)
+nmap <silent>gr <Plug>(coc-references)
+nmap <silent>gi <Plug>(coc-implementation)
+nmap <silent>gy <Plug>(coc-type-definition)
 
 nmap <leader>rn <Plug>(coc-rename)
 vmap <leader>F <Plug>(coc-format-selected)
@@ -306,4 +308,7 @@ hi! StatusLineNC guifg=#16252b guibg=#16252b
 " Try to hide vertical spit and end of buffer symbol
 hi! VertSplit gui=NONE guifg=#ffffff guibg=#ffffff
 hi! EndOfBuffer ctermbg=NONE ctermfg=NONE guibg=#ffffff guifg=#ffffff
+
+let g:python_host_prog='/usr/local/bin/python2'
+let g:python3_host_prog='/usr/local/bin/python3'
 
