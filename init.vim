@@ -214,19 +214,6 @@ call denite#custom#var('grep', 'final_opts', [])
 nnoremap <leader>j :<C-u>DeniteCursorWord grep:.<CR>
 nnoremap <leader>f :<C-u>Denite grep:.<CR>
 
-"nmap <leader>b :Denite buffer -split=floating -winrow=1<CR>
-"nmap <leader>f :Denite file/rec -split=floating -winrow=1<CR>
-"nnoremap <leader>g :<C-u>Denite grep:. -no-empty<CR>
-"nnoremap <leader>j :<C-u>DeniteCursorWord grep:.<CR>
-
-"autocmd FileType denite call s:denite_my_settings()
-"function! s:denite_my_settings() abort
-  "nnoremap <leader>g :<C-u>Denite grep:. -no-empty<CR>
-  "\ denite#do_map('do_action')
-  "nnoremap <leader>j :<C-u>DeniteCursorWord grep:.<CR>
-  "\ denite#do_map('do_action')
-"endfunction
-
 " Coc
 let g:coc_global_extensions = [
 \  'coc-lists', 'coc-tag', 'coc-css', 'coc-json', 'coc-phpls',
