@@ -8,7 +8,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'itchyny/lightline.vim'
 Plug 'kshenoy/vim-signature'
 Plug 'tpope/vim-obsession'
-"Plug 'Shougo/denite.nvim'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'Shougo/neosnippet'
 Plug 'tpope/vim-fugitive'
@@ -63,11 +62,9 @@ set smartcase
 set smartindent
 set softtabstop=2
 set splitbelow
-"set splitright
 set tabstop=2
 set undolevels=10000
 set updatetime=300
-"set wildmode=longest,list:full
 
 " Change vertical split character to be a space (essentially hide it)
 set fillchars+=vert:.
@@ -200,6 +197,7 @@ nnoremap <leader> K :call <SID>show_documentation()<CR>
 " ctrl-t tab split
 " ctrl-x split
 " ctrl-v vsplit
+let $FZF_DEFAULT_COMMAND= 'ag -g ""'
 let g:fzf_colors = {
   \ 'fg':      ['fg', 'Normal'],
   \ 'bg':      ['bg', 'Normal'],
