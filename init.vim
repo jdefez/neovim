@@ -193,6 +193,8 @@ vmap <leader>F <Plug>(coc-format-selected)
 nmap <leader>F <Plug>(coc-format-selected)
 nnoremap <leader> K :call <SID>show_documentation()<CR>
 
+nnoremap <Leader>a :<C-u>CocList diagnostics<cr>
+
 " fzf
 let g:fzf_action = {
     \ 'ctrl-t': 'tab split',
