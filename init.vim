@@ -194,10 +194,12 @@ nmap <leader>F <Plug>(coc-format-selected)
 nnoremap <leader> K :call <SID>show_documentation()<CR>
 
 " fzf
-" ctrl-t tab split
-" ctrl-x split
-" ctrl-v vsplit
+let g:fzf_action = {
+    \ 'ctrl-t': 'tab split',
+    \ 'ctrl-x': 'split',
+    \ 'ctrl-v': 'vsplit' }
 let $FZF_DEFAULT_COMMAND= 'ag -g ""'
+
 let g:fzf_colors = {
   \ 'fg':      ['fg', 'Normal'],
   \ 'bg':      ['bg', 'Normal'],
@@ -212,6 +214,7 @@ let g:fzf_colors = {
   \ 'marker':  ['fg', 'Keyword'],
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
+
 nnoremap <silent> <Leader>L :BLines<CR>
 nnoremap <silent> <Leader>b :Buffers<CR>
 nnoremap <silent> <Leader>f :Files<CR>
