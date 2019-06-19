@@ -1,7 +1,7 @@
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'JamshedVesuna/vim-markdown-preview'
+"Plug 'VonHeikemen/rubber-themes.vim'
 Plug 'cormacrelf/vim-colors-github'
-Plug 'VonHeikemen/rubber-themes.vim'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'airblade/vim-gitgutter'
@@ -86,11 +86,12 @@ function! s:show_documentation()
 endfunction
 
 "githug colorscheme
-"let g:github_colors_soft = 0
-"let g:github_colors_block_diffmark = 0
+let g:github_colors_soft = 0
+let g:github_colors_block_diffmark = 0
 
 set termguicolors
-colorscheme rubber
+"colorscheme rubber
+colorscheme github
 
 " Mapings
 inoremap jj <ESC>
@@ -116,11 +117,11 @@ au BufRead,BufNewFile *.snippets  set ft=snippets
 au BufRead,BufNewFile *.twig      set ft=html
 au BufRead,BufNewFile *.blade.php set ft=html
 
-autocmd Filetype html setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype snippets setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype python setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
-autocmd Filetype php setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
 autocmd Filetype apache setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
+autocmd Filetype html setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
+autocmd Filetype php setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
 
 " Ag
 if executable('ag')
@@ -131,6 +132,7 @@ endif
 "nnoremap <leader>gd :Gvdiff<CR>
 "nnoremap gdh :diffget //2<CR>
 "nnoremap gdl :diffget //3<CR>
+"
 " TODO: Jumping to the next git hunk (or conflict to fix) can be done with [c
 " to backward or ]c to search forward
 
@@ -155,7 +157,7 @@ let vim_markdown_preview_github=1
 "\    "debug_file_level" : 0,
 "\    "debug_file" : "",
 "\    "watch_window_style" : 'compact',
-"\    "marker_default"     : '⬦',
+"\    "marker_default" : '⬦',
 "\    "marker_closed_tree" : '▸',
 "\    "marker_open_tree" : '▾'
 "\}
