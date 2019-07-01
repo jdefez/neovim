@@ -18,6 +18,7 @@ Plug 'mattn/emmet-vim'
 "Plug 'joonty/vdebug'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'MrAlejandro/vim-phpdoc'
 call plug#end()
 
 let mapleader = "\<Space>"
@@ -122,6 +123,9 @@ autocmd Filetype python setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
 autocmd Filetype apache setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
 autocmd Filetype html setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype php setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
+
+" vim-phpdoc
+nmap <Leader>d :call PhpDocPasteComment()<CR>
 
 " Ag
 if executable('ag')
