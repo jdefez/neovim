@@ -97,9 +97,6 @@ colorscheme github
 " Mapings
 inoremap jj <ESC>
 
-" Open tag files
-"map T <C-]>
-
 " Split navigation
 map <C-j> <C-W>j
 map <C-k> <C-W>k
