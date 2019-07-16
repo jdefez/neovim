@@ -1,7 +1,5 @@
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'JamshedVesuna/vim-markdown-preview'
-"Plug 'VonHeikemen/rubber-themes.vim'
-Plug 'cormacrelf/vim-colors-github'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'airblade/vim-gitgutter'
@@ -19,6 +17,8 @@ Plug 'mattn/emmet-vim'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'MrAlejandro/vim-phpdoc'
+Plug 'cormacrelf/vim-colors-github'
+"Plug 'VonHeikemen/rubber-themes.vim'
 call plug#end()
 
 let mapleader = "\<Space>"
@@ -91,7 +91,7 @@ let g:github_colors_soft = 0
 let g:github_colors_block_diffmark = 0
 
 set termguicolors
-"colorscheme rubber
+" colorscheme rubber
 colorscheme github
 
 " Mapings
