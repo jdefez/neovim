@@ -10,7 +10,7 @@ Plug 'Shougo/neosnippet-snippets'
 Plug 'Shougo/neosnippet'
 Plug 'tpope/vim-fugitive'
 Plug 'godlygeek/tabular'
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release', 'do': { -> coc#util#install()}}
 Plug 'jreybert/vimagit'
 Plug 'mattn/emmet-vim'
 "Plug 'joonty/vdebug'
@@ -192,6 +192,7 @@ nmap <silent>gi <Plug>(coc-implementation)
 nmap <silent>gy <Plug>(coc-type-definition)
 
 nmap <leader>rn <Plug>(coc-rename)
+nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 vmap <leader>F <Plug>(coc-format-selected)
 nmap <leader>F <Plug>(coc-format-selected)
 nnoremap <leader> K :call <SID>show_documentation()<CR>
