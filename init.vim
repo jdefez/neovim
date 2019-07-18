@@ -219,7 +219,7 @@ let g:fzf_colors = {
   \ 'pointer': ['fg', 'Exception'],
   \ 'marker':  ['fg', 'Keyword'],
   \ 'spinner': ['fg', 'Label'],
-  \ 'header':  ['fg', 'Comment'] }
+  \ 'header':  ['fg', 'Comment']}
 
 nnoremap <silent> <Leader>L :BLines<CR>
 nnoremap <silent> <Leader>b :Buffers<CR>
