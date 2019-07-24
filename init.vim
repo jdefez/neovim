@@ -2,6 +2,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'JamshedVesuna/vim-markdown-preview'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'scrooloose/nerdcommenter'
+Plug 'swekaj/php-foldexpr.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'itchyny/lightline.vim'
 Plug 'kshenoy/vim-signature'
@@ -19,6 +20,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'MrAlejandro/vim-phpdoc'
 Plug 'cormacrelf/vim-colors-github'
 "Plug 'VonHeikemen/rubber-themes.vim'
+
 call plug#end()
 
 let mapleader = "\<Space>"
@@ -32,8 +34,8 @@ set encoding=utf-8
 set expandtab
 set foldcolumn=0
 set foldmethod=indent
-set foldlevelstart=1
-set foldnestmax=3
+"set foldlevelstart=1
+"set foldnestmax=3
 set formatoptions+=c " Autowrap comments using textwidth
 set formatoptions+=j " Delete comment character when joining commented lines
 set formatoptions+=l " Do not wrap lines that have been longer when starting insert mode already
@@ -226,6 +228,18 @@ nnoremap <silent> <Leader>b :Buffers<CR>
 nnoremap <silent> <Leader>f :Files<CR>
 nnoremap <silent> <Leader>j :Ag <C-R><C-W><CR>
 nnoremap <silent> <Leader>g :Ag <CR>
+
+" php-foldexpr
+let b:phpfold_use = 1              " Fold groups of use statements in the global scope.
+let b:phpfold_group_iftry = 0      " Fold if/elseif/else and try/catch/finally blocks as a group, rather than each part separate.
+let b:phpfold_group_args = 1       " Group function arguments split across multiple lines into their own fold.
+let b:phpfold_group_case = 1       " Fold case and default blocks inside switches.
+let b:phpfold_heredocs = 1         " Fold HEREDOCs and NOWDOCs.
+let b:phpfold_docblocks = 0        " Fold DocBlocks.
+let b:phpfold_doc_with_funcs = 0   " Fold DocBlocks. Overrides b:phpfold_docblocks.
+let b:phpfold_text = 0             " Enable the custom foldtext option.
+let b:phpfold_text_right_lines = 0 " Display the line count on the right instead of the left.
+let b:phpfold_text_percent = 0     " Display the percentage of lines the fold represents.
 
 
 " Lightline
