@@ -14,7 +14,6 @@ Plug 'godlygeek/tabular'
 Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release', 'do': { -> coc#util#install()}}
 Plug 'jreybert/vimagit'
 Plug 'mattn/emmet-vim'
-"Plug 'joonty/vdebug'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'MrAlejandro/vim-phpdoc'
@@ -88,12 +87,10 @@ function! s:show_documentation()
   endif
 endfunction
 
-"githug colorscheme
+set termguicolors
+" githug colorscheme
 let g:github_colors_soft = 0
 let g:github_colors_block_diffmark = 0
-
-set termguicolors
-" colorscheme rubber
 colorscheme github
 
 " Mapings
@@ -135,35 +132,11 @@ endif
 "nnoremap <leader>gd :Gvdiff<CR>
 "nnoremap gdh :diffget //2<CR>
 "nnoremap gdl :diffget //3<CR>
-"
 " TODO: Jumping to the next git hunk (or conflict to fix) can be done with [c
 " to backward or ]c to search forward
 
 " vim-markdown-preview
 let vim_markdown_preview_github=1
-
-" Vdebug
-"let g:vdebug_options= {
-"\    "port" : 9000,
-"\    "server" : '',
-"\    "timeout" : 20,
-"\    "on_close" : 'detach',
-"\    "break_on_open" : 0,
-"\    "ide_key" : '',
-"\    "path_maps" : {
-"\       "/var/www/manager" : "/var/www/manager",
-"\       "/var/www/php-test" : "/var/www/php-test",
-"\       "/var/www/gateway.previsite.net" : "/var/www/gateway",
-"\       "/var/www/api.my.previsite.com" : "/var/www/my-api"
-    "\},
-"\    "debug_window_level" : 0,
-"\    "debug_file_level" : 0,
-"\    "debug_file" : "",
-"\    "watch_window_style" : 'compact',
-"\    "marker_default" : '⬦',
-"\    "marker_closed_tree" : '▸',
-"\    "marker_open_tree" : '▾'
-"\}
 
 " Coc
 let g:coc_global_extensions = [
