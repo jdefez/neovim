@@ -6,6 +6,7 @@
   "diagnostic.infoSign": "•",
   "diagnostic.hintSign": ">>",
   "eslint.filetypes": ["javascript"],
+  "python.jediEnabled": false,
   "list.normalMappings": {
     "t": "action:tabe",
     "v": "action:vsplit",
