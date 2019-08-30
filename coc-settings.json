@@ -7,6 +7,7 @@
   "diagnostic.hintSign": ">>",
   "eslint.filetypes": ["javascript"],
   "python.jediEnabled": false,
+  "coc.preferences.rootPatterns": [".git"],
   "list.normalMappings": {
     "t": "action:tabe",
     "v": "action:vsplit",
