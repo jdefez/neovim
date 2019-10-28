@@ -133,8 +133,6 @@ endif
 nnoremap <leader>gd :Gvdiff<CR>
 nnoremap dgh :diffget //2<CR>
 nnoremap dgl :diffget //3<CR>
-nnoremap ph :fugitive_[c
-nnoremap nh :fugitive_]c
 
 " vim-markdown-preview
 let vim_markdown_preview_github=1
