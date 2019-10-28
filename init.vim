@@ -130,11 +130,11 @@ if executable('ag')
 endif
 
 " Fugitive **conflicting with coc symbol navigation**
-"nnoremap <leader>gd :Gvdiff<CR>
-"nnoremap gdh :diffget //2<CR>
-"nnoremap gdl :diffget //3<CR>
-" TODO: Jumping to the next git hunk (or conflict to fix) can be done with [c
-" to backward or ]c to search forward
+nnoremap <leader>gd :Gvdiff<CR>
+nnoremap dgh :diffget //2<CR>
+nnoremap dgl :diffget //3<CR>
+nnoremap ph :fugitive_[c
+nnoremap nh :fugitive_]c
 
 " vim-markdown-preview
 let vim_markdown_preview_github=1
@@ -214,7 +214,6 @@ let b:phpfold_doc_with_funcs = 0   " Fold DocBlocks. Overrides b:phpfold_docbloc
 let b:phpfold_text = 0             " Enable the custom foldtext option.
 let b:phpfold_text_right_lines = 0 " Display the line count on the right instead of the left.
 let b:phpfold_text_percent = 0     " Display the percentage of lines the fold represents.
-
 
 " Lightline
 let g:lightline = {
