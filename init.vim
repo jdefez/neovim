@@ -165,6 +165,7 @@ nmap <silent>gr <Plug>(coc-references)
 nmap <silent>gi <Plug>(coc-implementation)
 nmap <silent>gy <Plug>(coc-type-definition)
 
+nmap <leader>r <Plug>(coc-refactor)
 nmap <leader>R <Plug>(coc-rename)
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 vmap <leader>F <Plug>(coc-format-selected)
