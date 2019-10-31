@@ -139,7 +139,7 @@ let vim_markdown_preview_github=1
 
 " Coc
 let g:coc_global_extensions = [
-\  'coc-lists', 'coc-tag', 'coc-css', 'coc-json', 'coc-phpls',
+\  'coc-lists', 'coc-tag', 'coc-css', 'coc-json', 'coc-phpls', 'coc-html',
 \  'coc-python', 'coc-yaml', 'coc-eslint', 'coc-tsserver', 'coc-angular'
 \]
 
