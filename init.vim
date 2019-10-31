@@ -225,18 +225,5 @@ let g:lightline = {
   \ },
 \ }
 
-" Make background transparent for many things
-" hi! Normal ctermbg=NONE guibg=NONE
-" hi! NonText ctermbg=NONE guibg=NONE
-" hi! LineNr ctermfg=NONE guibg=NONE
-" hi! SignColumn ctermfg=NONE guibg=NONE
-" hi! StatusLine guifg=#16252b guibg=#6699CC
-" hi! StatusLineNC guifg=#16252b guibg=#16252b
-
-" Try to hide vertical spit and end of buffer symbol
-" hi! VertSplit gui=NONE guifg=#ffffff guibg=#ffffff
-" hi! EndOfBuffer ctermbg=NONE ctermfg=NONE guibg=#ffffff guifg=#ffffff
-
 let g:python_host_prog='/usr/local/bin/python2'
 let g:python3_host_prog='/usr/local/bin/python3'
-
