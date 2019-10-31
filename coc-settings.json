@@ -8,6 +8,7 @@
   "eslint.filetypes": ["javascript"],
   "python.jediEnabled": false,
   "coc.preferences.rootPatterns": [".git"],
+  "html.format.enable": true,
   "list.normalMappings": {
     "t": "action:tabe",
     "v": "action:vsplit",
