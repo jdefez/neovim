@@ -4,7 +4,8 @@ Plug 'HerringtonDarkholme/yats.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'swekaj/php-foldexpr.vim'
 Plug 'airblade/vim-gitgutter'
-Plug 'itchyny/lightline.vim'
+"Plug 'itchyny/lightline.vim'
+Plug 'vim-airline/vim-airline'
 Plug 'kshenoy/vim-signature'
 Plug 'tpope/vim-obsession'
 Plug 'Shougo/neosnippet-snippets'
@@ -76,8 +77,8 @@ hi! EndOfBuffer ctermbg=NONE ctermfg=NONE guibg=#17252c guifg=#17252c
 
 " use <tab> for trigger completion and navigate to next complete item
 function! s:check_back_space() abort
-	let col = col('.') - 1
-	return !col || getline('.')[col - 1]  =~ '\s'
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
 endfunction
 
 function! s:show_documentation()
@@ -145,9 +146,9 @@ let g:coc_global_extensions = [
 
 " neo-snippets
 inoremap <silent><expr> <TAB>
-			\ pumvisible() ? "\<C-n>" :
-			\ <SID>check_back_space() ? "\<TAB>" :
-			\ coc#refresh()
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
 
 " Close preview window when completion is done.
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
@@ -214,17 +215,20 @@ let b:phpfold_text = 0             " Enable the custom foldtext option.
 let b:phpfold_text_right_lines = 0 " Display the line count on the right instead of the left.
 let b:phpfold_text_percent = 0     " Display the percentage of lines the fold represents.
 
+" airline
+let g:airline_powerline_fonts = 1
+
 " Lightline
-let g:lightline = {
-  \ 'active': {
-  \   'left': [['mode'],
-  \             ['gitbranch', 'readonly', 'filename', 'modified', 'cocstatus']]
-  \ },
-  \ 'component_function': {
-  \   'gitbranch': 'fugitive#head',
-  \   'cocstatus': 'coc#status'
-  \ },
-\ }
+" let g:lightline = {
+"   \ 'active': {
+"   \   'left': [['mode'],
+"   \             ['gitbranch', 'readonly', 'filename', 'modified', 'cocstatus']]
+"   \ },
+"   \ 'component_function': {
+"   \   'gitbranch': 'fugitive#head',
+"   \   'cocstatus': 'coc#status'
+"   \ },
+" \ }
 
 let g:python_host_prog='/usr/local/bin/python2'
 let g:python3_host_prog='/usr/local/bin/python3'
