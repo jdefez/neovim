@@ -174,6 +174,7 @@ nmap <leader>F <Plug>(coc-format-selected)
 nnoremap <leader> K :call <SID>show_documentation()<CR>
 
 nnoremap <Leader>a :<C-u>CocList diagnostics<cr>
+nnoremap <Leader>l :<C-u>CocList<cr>
 nnoremap <Leader>A :<C-u>CocAction<cr>
 
 " fzf
