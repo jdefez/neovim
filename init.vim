@@ -19,7 +19,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'MrAlejandro/vim-phpdoc'
 Plug 'cormacrelf/vim-colors-github'
-"Plug 'psliwka/vim-smoothie'
+Plug 'psliwka/vim-smoothie'
 "Plug 'VonHeikemen/rubber-themes.vim'
 
 call plug#end()
