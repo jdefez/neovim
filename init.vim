@@ -20,6 +20,8 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'MrAlejandro/vim-phpdoc'
 Plug 'cormacrelf/vim-colors-github'
 Plug 'psliwka/vim-smoothie'
+Plug 'arzg/vim-colors-xcode'
+
 "Plug 'VonHeikemen/rubber-themes.vim'
 
 call plug#end()
@@ -91,9 +93,17 @@ endfunction
 
 set termguicolors
 " githug colorscheme
-let g:github_colors_soft = 0
-let g:github_colors_block_diffmark = 0
-colorscheme github
+"let g:github_colors_soft = 0
+"let g:github_colors_block_diffmark = 0
+"colorscheme github
+
+" xcode colorscheme
+augroup vim-colors-xcode
+  autocmd!
+augroup END
+autocmd vim-colors-xcode ColorScheme * hi Comment        cterm=italic gui=italic
+autocmd vim-colors-xcode ColorScheme * hi SpecialComment cterm=italic gui=italic
+colorscheme xcodelight
 
 " Mapings
 inoremap jj <ESC>
