@@ -19,7 +19,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'MrAlejandro/vim-phpdoc'
 Plug 'cormacrelf/vim-colors-github'
-Plug 'psliwka/vim-smoothie'
+"Plug 'roxma/LanguageServer-php-neovim',  {'do': 'composer install && composer run-script parse-stubs'}
+"Plug 'psliwka/vim-smoothie'
 Plug 'arzg/vim-colors-xcode'
 
 "Plug 'VonHeikemen/rubber-themes.vim'
@@ -151,7 +152,7 @@ let vim_markdown_preview_github=1
 " Coc
 " Todo: test coc-jest
 let g:coc_global_extensions = [
-\  'coc-lists', 'coc-tag', 'coc-css', 'coc-json', 'coc-phpls', 'coc-html',
+\  'coc-lists', 'coc-tag', 'coc-css', 'coc-json', 'coc-html', 'coc-phpls',
 \  'coc-python', 'coc-yaml', 'coc-eslint', 'coc-tsserver', 'coc-angular'
 \]
 
