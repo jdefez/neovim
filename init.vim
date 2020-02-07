@@ -23,7 +23,6 @@ Plug 'cormacrelf/vim-colors-github'
 Plug 'arzg/vim-colors-xcode'
 
 "Plug 'VonHeikemen/rubber-themes.vim'
-
 call plug#end()
 
 let mapleader = "\<Space>"
