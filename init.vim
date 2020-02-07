@@ -19,7 +19,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'MrAlejandro/vim-phpdoc'
 Plug 'cormacrelf/vim-colors-github'
-"Plug 'roxma/LanguageServer-php-neovim',  {'do': 'composer install && composer run-script parse-stubs'}
 "Plug 'psliwka/vim-smoothie'
 Plug 'arzg/vim-colors-xcode'
 
@@ -153,7 +152,8 @@ let vim_markdown_preview_github=1
 " Todo: test coc-jest
 let g:coc_global_extensions = [
 \  'coc-lists', 'coc-tag', 'coc-css', 'coc-json', 'coc-html', 'coc-phpls',
-\  'coc-python', 'coc-yaml', 'coc-eslint', 'coc-tsserver', 'coc-angular'
+\  'coc-python', 'coc-yaml', 'coc-eslint', 'coc-tsserver', 'coc-angular',
+\  'coc-post', 'coc-svelte'
 \]
 
 " neo-snippets
