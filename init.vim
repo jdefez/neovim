@@ -232,5 +232,5 @@ let b:phpfold_text_percent = 0     " Display the percentage of lines the fold re
 " airline
 let g:airline_powerline_fonts = 1
 
-let g:python_host_prog='/usr/local/bin/python2'
-let g:python3_host_prog='/usr/local/bin/python3'
+"let g:python_host_prog='/usr/local/bin/python2'
+"let g:python3_host_prog='/usr/local/bin/python3'
