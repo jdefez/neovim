@@ -17,8 +17,9 @@ Plug 'mattn/emmet-vim'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'MrAlejandro/vim-phpdoc'
+Plug 'evanleck/vim-svelte'
 Plug 'cormacrelf/vim-colors-github'
-"Plug 'psliwka/vim-smoothie'
+Plug 'psliwka/vim-smoothie'
 Plug 'arzg/vim-colors-xcode'
 
 "Plug 'VonHeikemen/rubber-themes.vim'
@@ -101,7 +102,7 @@ augroup vim-colors-xcode
 augroup END
 autocmd vim-colors-xcode ColorScheme * hi Comment        cterm=italic gui=italic
 autocmd vim-colors-xcode ColorScheme * hi SpecialComment cterm=italic gui=italic
-colorscheme xcodelight
+colorscheme xcodedark
 
 " Mapings
 inoremap jj <ESC>
@@ -124,11 +125,15 @@ au BufRead,BufNewFile *.snippets  set ft=snippets
 au BufRead,BufNewFile *.twig      set ft=html
 au BufRead,BufNewFile *.blade.php set ft=html
 
+autocmd Filetype svelte setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype snippets setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype python setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
 autocmd Filetype apache setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
 autocmd Filetype html setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype php setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
+
+" vim-smoothie
+" let g:smoothie_no_default_mappings = 1
 
 " vim-phpdoc
 nmap <Leader>d :call PhpDocPasteComment()<CR>
@@ -231,4 +236,4 @@ let b:phpfold_text_percent = 0     " Display the percentage of lines the fold re
 let g:airline_powerline_fonts = 1
 
 "let g:python_host_prog='/usr/local/bin/python2'
-"let g:python3_host_prog='/usr/local/bin/python3'
+"let g:python3_host_prog='/Library/Frameworks/Python.framework/Versions/3.7/bin/python3'
