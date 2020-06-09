@@ -21,8 +21,7 @@ Plug 'evanleck/vim-svelte'
 Plug 'cormacrelf/vim-colors-github'
 Plug 'psliwka/vim-smoothie'
 Plug 'arzg/vim-colors-xcode'
-
-"Plug 'VonHeikemen/rubber-themes.vim'
+"Plug 'vim-vdebug/vdebug'
 call plug#end()
 
 let mapleader = "\<Space>"
@@ -82,6 +81,7 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~ '\s'
 endfunction
 
+
 function! s:show_documentation()
   if &filetype == 'vim'
     execute 'h '.expand('<cword>')
@@ -132,6 +132,12 @@ autocmd Filetype apache setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
 autocmd Filetype html setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype php setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
 
+" Vdebug
+" if !exists('g:vdebug_options')
+"   let g:vdebug_options = {}
+" endif
+" let g:vdebug_options.path_maps = {"/var/www/mooveo": "/Users/jean/Documents/VagVagrant/mooveo"}
+
 " vim-smoothie
 " let g:smoothie_no_default_mappings = 1
 
@@ -160,10 +166,10 @@ let g:coc_global_extensions = [
 \]
 
 " neo-snippets
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
+ inoremap <silent><expr> <TAB>
+       \ pumvisible() ? "\<C-n>" :
+       \ <SID>check_back_space() ? "\<TAB>" :
+       \ coc#refresh()
 
 " Close preview window when completion is done.
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
@@ -191,6 +197,7 @@ nnoremap <leader> K :call <SID>show_documentation()<CR>
 nnoremap <Leader>a :<C-u>CocList diagnostics<cr>
 nnoremap <Leader>l :<C-u>CocList<cr>
 nnoremap <Leader>A :<C-u>CocAction<cr>
+nnoremap <Leader>C :<C-u>CocCommand<cr>
 
 " fzf
 let g:fzf_action = {
