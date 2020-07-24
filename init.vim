@@ -162,7 +162,7 @@ let vim_markdown_preview_github=1
 let g:coc_global_extensions = [
 \  'coc-lists', 'coc-tag', 'coc-css', 'coc-json', 'coc-html', 'coc-phpls',
 \  'coc-python', 'coc-yaml', 'coc-eslint', 'coc-tsserver', 'coc-angular',
-\  'coc-post', 'coc-svelte'
+\  'coc-svelte', 'coc-pairs'
 \]
 
 " neo-snippets
