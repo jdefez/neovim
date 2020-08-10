@@ -1,6 +1,6 @@
 {
   "phpactor.enable": true,
-  "phpactor.path" : "~/Documents/Github/phpactor/bin/phpactor",
+  "phpactor.path" : "~/phpactor/bin/phpactor",
   "session.directory": "~/.nvim/sessions",
   "suggest.maxCompleteItemCount": 20,
   "diagnostic.errorSign": "!",
