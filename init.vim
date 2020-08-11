@@ -11,6 +11,7 @@ Plug 'Shougo/neosnippet'
 Plug 'tpope/vim-fugitive'
 Plug 'idanarye/vim-merginal'
 Plug 'godlygeek/tabular'
+Plug 'phpactor/phpactor', {'for': 'php', 'branch': 'master', 'do': 'composer install --no-dev -o'}
 Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release', 'do': { -> coc#util#install()}}
 Plug 'jreybert/vimagit'
 Plug 'mattn/emmet-vim'
@@ -160,7 +161,7 @@ let vim_markdown_preview_github=1
 " Coc
 " Todo: test coc-jest
 let g:coc_global_extensions = [
-\  'coc-phpactor', 'coc-lists', 'coc-tag', 'coc-css', 'coc-json', 'coc-html',
+\  'coc-phpls', 'coc-lists', 'coc-tag', 'coc-css', 'coc-json', 'coc-html',
 \  'coc-yaml', 'coc-eslint', 'coc-tsserver', 'coc-angular',
 \  'coc-svelte', 'coc-pairs'
 \]
@@ -182,6 +183,12 @@ xmap <C-k> <Plug>(neosnippet_expand_target)
 " Hide conceal markers
 let g:neosnippet#enable_conceal_markers = 0
 
+" coc mappings
+nnoremap <Leader>a :<C-u>CocList diagnostics<cr>
+nnoremap <Leader>l :<C-u>CocList<cr>
+nnoremap <Leader>A :<C-u>CocAction<cr>
+nnoremap <Leader>C :<C-u>CocCommand<cr>
+
 nmap <silent>gd <Plug>(coc-definition)
 nmap <silent>gr <Plug>(coc-references)
 nmap <silent>gi <Plug>(coc-implementation)
@@ -194,10 +201,29 @@ vmap <leader>F <Plug>(coc-format-selected)
 nmap <leader>F <Plug>(coc-format-selected)
 nnoremap <leader> K :call <SID>show_documentation()<CR>
 
-nnoremap <Leader>a :<C-u>CocList diagnostics<cr>
-nnoremap <Leader>l :<C-u>CocList<cr>
-nnoremap <Leader>A :<C-u>CocAction<cr>
-nnoremap <Leader>C :<C-u>CocCommand<cr>
+
+augroup PhpactorMappings
+  au!
+  au FileType php nmap <buffer> <Leader>u :PhpactorImportClass<CR>
+  au FileType php nmap <buffer> <Leader>e :PhpactorClassExpand<CR>
+  au FileType php nmap <buffer> <Leader>ua :PhpactorImportMissingClasses<CR>
+  au FileType php nmap <buffer> <Leader>mm :PhpactorContextMenu<CR>
+  au FileType php nmap <buffer> <Leader>nn :PhpactorNavigate<CR>
+  "au FileType php nmap <buffer> <Leader>o :PhpactorGotoDefinition<CR>
+  "au FileType php nmap <buffer> <Leader>Oh :PhpactorGotoDefinitionHsplit<CR>
+  "au FileType php nmap <buffer> <Leader>Ov :PhpactorGotoDefinitionVsplit<CR>
+  "au FileType php nmap <buffer> <Leader>Ot :PhpactorGotoDefinitionTab<CR>
+  au FileType php nmap <buffer> <Leader>K :PhpactorHover<CR>
+  au FileType php nmap <buffer> <Leader>tt :PhpactorTransform<CR>
+  au FileType php nmap <buffer> <Leader>cc :PhpactorClassNew<CR>
+  au FileType php nmap <buffer> <Leader>ci :PhpactorClassInflect<CR>
+  au FileType php nmap <buffer> <Leader>fr :PhpactorFindReferences<CR>
+  au FileType php nmap <buffer> <Leader>mf :PhpactorMoveFile<CR>
+  au FileType php nmap <buffer> <Leader>cf :PhpactorCopyFile<CR>
+  au FileType php nmap <buffer> <silent> <Leader>ee :PhpactorExtractExpression<CR>
+  au FileType php vmap <buffer> <silent> <Leader>ee :<C-u>PhpactorExtractExpression<CR>
+  au FileType php vmap <buffer> <silent> <Leader>em :<C-u>PhpactorExtractMethod<CR>
+augroup END
 
 " fzf
 let g:fzf_action = {
