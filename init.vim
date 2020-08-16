@@ -202,24 +202,30 @@ nmap <leader>F <Plug>(coc-format-selected)
 nnoremap <leader> K :call <SID>show_documentation()<CR>
 
 
+" Phpactor
+let g:phpactor_executable = '~/.local/share/nvim/plugged/phpactor/bin/phpactor'
 augroup PhpactorMappings
   au!
-  au FileType php nmap <buffer> <Leader>u :PhpactorImportClass<CR>
-  au FileType php nmap <buffer> <Leader>e :PhpactorClassExpand<CR>
-  au FileType php nmap <buffer> <Leader>ua :PhpactorImportMissingClasses<CR>
-  au FileType php nmap <buffer> <Leader>mm :PhpactorContextMenu<CR>
-  au FileType php nmap <buffer> <Leader>nn :PhpactorNavigate<CR>
+  "au FileType php nmap <buffer> <Leader>nn :PhpactorNavigate<CR>
   "au FileType php nmap <buffer> <Leader>o :PhpactorGotoDefinition<CR>
   "au FileType php nmap <buffer> <Leader>Oh :PhpactorGotoDefinitionHsplit<CR>
   "au FileType php nmap <buffer> <Leader>Ov :PhpactorGotoDefinitionVsplit<CR>
   "au FileType php nmap <buffer> <Leader>Ot :PhpactorGotoDefinitionTab<CR>
-  au FileType php nmap <buffer> <Leader>K :PhpactorHover<CR>
+  "au FileType php nmap <buffer> <Leader>fr :PhpactorFindReferences<CR>
+
+  au FileType php nmap <buffer> <Leader>mm :PhpactorContextMenu<CR>
   au FileType php nmap <buffer> <Leader>tt :PhpactorTransform<CR>
+
+  au FileType php nmap <buffer> <Leader>vv :PhpactorChangeVisibility<CR>
+  au FileType php nmap <buffer> <Leader>u :PhpactorImportClass<CR>
+  au FileType php nmap <buffer> <Leader>e :PhpactorClassExpand<CR>
+  au FileType php nmap <buffer> <Leader>ua :PhpactorImportMissingClasses<CR>
+  au FileType php nmap <buffer> <Leader>K :PhpactorHover<CR>
   au FileType php nmap <buffer> <Leader>cc :PhpactorClassNew<CR>
   au FileType php nmap <buffer> <Leader>ci :PhpactorClassInflect<CR>
-  au FileType php nmap <buffer> <Leader>fr :PhpactorFindReferences<CR>
   au FileType php nmap <buffer> <Leader>mf :PhpactorMoveFile<CR>
   au FileType php nmap <buffer> <Leader>cf :PhpactorCopyFile<CR>
+  au FileType php nmap <buffer> <Leader>gs :PhpactorGenerateAccessor<CR>
   au FileType php nmap <buffer> <silent> <Leader>ee :PhpactorExtractExpression<CR>
   au FileType php vmap <buffer> <silent> <Leader>ee :<C-u>PhpactorExtractExpression<CR>
   au FileType php vmap <buffer> <silent> <Leader>em :<C-u>PhpactorExtractMethod<CR>
