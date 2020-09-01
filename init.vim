@@ -22,6 +22,7 @@ Plug 'evanleck/vim-svelte'
 Plug 'cormacrelf/vim-colors-github'
 Plug 'psliwka/vim-smoothie'
 Plug 'arzg/vim-colors-xcode'
+Plug 'chuling/ci_dark'
 "Plug 'vim-vdebug/vdebug'
 call plug#end()
 
@@ -91,19 +92,25 @@ function! s:show_documentation()
   endif
 endfunction
 
+" color schemes
+
 set termguicolors
+
+" ci_dark
+colorscheme ci_dark
+
 " githug colorscheme
 "let g:github_colors_soft = 0
 "let g:github_colors_block_diffmark = 0
 "colorscheme github
 
 " xcode colorscheme
-augroup vim-colors-xcode
-  autocmd!
-augroup END
-autocmd vim-colors-xcode ColorScheme * hi Comment        cterm=italic gui=italic
-autocmd vim-colors-xcode ColorScheme * hi SpecialComment cterm=italic gui=italic
-colorscheme xcodedark
+"augroup vim-colors-xcode
+  "autocmd!
+"augroup END
+"autocmd vim-colors-xcode ColorScheme * hi Comment        cterm=italic gui=italic
+"autocmd vim-colors-xcode ColorScheme * hi SpecialComment cterm=italic gui=italic
+"colorscheme xcodedark
 
 " Mapings
 inoremap jj <ESC>
@@ -211,6 +218,7 @@ augroup PhpactorMappings
   "au FileType php nmap <buffer> <Leader>Ov :PhpactorGotoDefinitionVsplit<CR>
   "au FileType php nmap <buffer> <Leader>Ot :PhpactorGotoDefinitionTab<CR>
   "au FileType php nmap <buffer> <Leader>fr :PhpactorFindReferences<CR>
+  "au FileType php nmap <buffer> <Leader>K :PhpactorHover<CR>
 
   au FileType php nmap <buffer> <Leader>mm :PhpactorContextMenu<CR>
   au FileType php nmap <buffer> <Leader>tt :PhpactorTransform<CR>
@@ -219,7 +227,6 @@ augroup PhpactorMappings
   au FileType php nmap <buffer> <Leader>u :PhpactorImportClass<CR>
   au FileType php nmap <buffer> <Leader>e :PhpactorClassExpand<CR>
   au FileType php nmap <buffer> <Leader>ua :PhpactorImportMissingClasses<CR>
-  au FileType php nmap <buffer> <Leader>K :PhpactorHover<CR>
   au FileType php nmap <buffer> <Leader>cc :PhpactorClassNew<CR>
   au FileType php nmap <buffer> <Leader>ci :PhpactorClassInflect<CR>
   au FileType php nmap <buffer> <Leader>mf :PhpactorMoveFile<CR>
