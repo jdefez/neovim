@@ -21,7 +21,8 @@ Plug 'MrAlejandro/vim-phpdoc'
 Plug 'evanleck/vim-svelte'
 Plug 'psliwka/vim-smoothie'
 " schemes
-Plug 'tjammer/focusedpanic.vim'
+Plug 'matveyt/vim-modest'
+Plug 'kyoto-shift/film-noir'
 Plug 'cormacrelf/vim-colors-github'
 Plug 'arzg/vim-colors-xcode'
 call plug#end()
@@ -32,7 +33,7 @@ set autoread
 set belloff=all
 set cmdheight=3
 set colorcolumn=81
-set cursorline
+set cursorline 
 set encoding=utf-8
 set expandtab
 set foldcolumn=0
@@ -96,8 +97,18 @@ endfunction
 
 set termguicolors
 
-" tjammer/focusedpanic.vim
-colorscheme focusedpanic
+" matveyt/vim-modest
+colorscheme modest
+
+" kyoto-shift/film-noir
+" let g:film_noir_color='green' " also:'red', 'green', 'blue' (default)
+" colorscheme film_noir
+
+" Change highlighting of cursor line when entering/leaving Insert Mode
+" set cursorline
+" highlight CursorLine cterm=NONE ctermfg=NONE ctermbg=233 guifg=NONE guibg=#121212
+" autocmd InsertEnter * highlight CursorLine cterm=NONE ctermfg=NONE ctermbg=234 guifg=NONE guibg=#1c1c1c
+" autocmd InsertLeave * highlight CursorLine cterm=NONE ctermfg=NONE ctermbg=233 guifg=NONE guibg=#121212
 
 " githug colorscheme
 "let g:github_colors_soft = 0
