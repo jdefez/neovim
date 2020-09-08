@@ -19,11 +19,11 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'MrAlejandro/vim-phpdoc'
 Plug 'evanleck/vim-svelte'
-Plug 'cormacrelf/vim-colors-github'
 Plug 'psliwka/vim-smoothie'
+" schemes
+Plug 'zefei/simple-dark'
+Plug 'cormacrelf/vim-colors-github'
 Plug 'arzg/vim-colors-xcode'
-Plug 'chuling/ci_dark'
-"Plug 'vim-vdebug/vdebug'
 call plug#end()
 
 let mapleader = "\<Space>"
@@ -96,8 +96,8 @@ endfunction
 
 set termguicolors
 
-" ci_dark
-colorscheme ci_dark
+" zefei/simple-dark
+colorscheme simple-dark
 
 " githug colorscheme
 "let g:github_colors_soft = 0
@@ -105,12 +105,12 @@ colorscheme ci_dark
 "colorscheme github
 
 " xcode colorscheme
-"augroup vim-colors-xcode
-  "autocmd!
-"augroup END
-"autocmd vim-colors-xcode ColorScheme * hi Comment        cterm=italic gui=italic
-"autocmd vim-colors-xcode ColorScheme * hi SpecialComment cterm=italic gui=italic
-"colorscheme xcodedark
+" augroup vim-colors-xcode
+"   autocmd!
+" augroup END
+" autocmd vim-colors-xcode ColorScheme * hi Comment        cterm=italic gui=italic
+" autocmd vim-colors-xcode ColorScheme * hi SpecialComment cterm=italic gui=italic
+" colorscheme xcodedark
 
 " Mapings
 inoremap jj <ESC>
