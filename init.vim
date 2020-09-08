@@ -21,7 +21,7 @@ Plug 'MrAlejandro/vim-phpdoc'
 Plug 'evanleck/vim-svelte'
 Plug 'psliwka/vim-smoothie'
 " schemes
-Plug 'zefei/simple-dark'
+Plug 'tjammer/focusedpanic.vim'
 Plug 'cormacrelf/vim-colors-github'
 Plug 'arzg/vim-colors-xcode'
 call plug#end()
@@ -96,8 +96,8 @@ endfunction
 
 set termguicolors
 
-" zefei/simple-dark
-colorscheme simple-dark
+" tjammer/focusedpanic.vim
+colorscheme focusedpanic
 
 " githug colorscheme
 "let g:github_colors_soft = 0
