@@ -55,7 +55,7 @@ set noerrorbells
 set nowrap
 set nobackup
 set nowritebackup
-set number relativenumber
+set number " relativenumber
 set pumheight=40
 set ruler
 set scrolloff=1000 " number of screen lines to show around the cursor
