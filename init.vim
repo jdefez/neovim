@@ -21,6 +21,9 @@ Plug 'MrAlejandro/vim-phpdoc'
 Plug 'evanleck/vim-svelte'
 Plug 'psliwka/vim-smoothie'
 " schemes
+Plug 'arcticicestudio/nord-vim'
+Plug 'ayu-theme/ayu-vim'
+Plug 'drewtempelmeyer/palenight.vim'
 Plug 'phanviet/vim-monokai-pro'
 Plug 'cormacrelf/vim-colors-github'
 Plug 'arzg/vim-colors-xcode'
@@ -95,8 +98,22 @@ endfunction
 
 set termguicolors
 
+" arcticicestudio/nord-vim
+"colorscheme nord
+
+" ayu-theme/ayu-vim
+"let ayucolor="light"
+let ayucolor="mirage"
+"let ayucolor="dark"
+colorscheme ayu
+
+" palenight
+"set background=dark
+"colorscheme palenight
+"let g:palenight_terminal_italics=1
+
 " monokai_pro
-colorscheme monokai_pro
+"colorscheme monokai_pro
 
 " githug colorscheme
 "let g:github_colors_soft = 0
