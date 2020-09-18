@@ -21,8 +21,7 @@ Plug 'MrAlejandro/vim-phpdoc'
 Plug 'evanleck/vim-svelte'
 Plug 'psliwka/vim-smoothie'
 " schemes
-Plug 'matveyt/vim-modest'
-Plug 'kyoto-shift/film-noir'
+Plug 'phanviet/vim-monokai-pro'
 Plug 'cormacrelf/vim-colors-github'
 Plug 'arzg/vim-colors-xcode'
 call plug#end()
@@ -33,7 +32,7 @@ set autoread
 set belloff=all
 set cmdheight=3
 set colorcolumn=81
-set cursorline 
+set cursorline
 set encoding=utf-8
 set expandtab
 set foldcolumn=0
@@ -84,7 +83,6 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~ '\s'
 endfunction
 
-
 function! s:show_documentation()
   if &filetype == 'vim'
     execute 'h '.expand('<cword>')
@@ -97,18 +95,8 @@ endfunction
 
 set termguicolors
 
-" matveyt/vim-modest
-colorscheme modest
-
-" kyoto-shift/film-noir
-" let g:film_noir_color='green' " also:'red', 'green', 'blue' (default)
-" colorscheme film_noir
-
-" Change highlighting of cursor line when entering/leaving Insert Mode
-" set cursorline
-" highlight CursorLine cterm=NONE ctermfg=NONE ctermbg=233 guifg=NONE guibg=#121212
-" autocmd InsertEnter * highlight CursorLine cterm=NONE ctermfg=NONE ctermbg=234 guifg=NONE guibg=#1c1c1c
-" autocmd InsertLeave * highlight CursorLine cterm=NONE ctermfg=NONE ctermbg=233 guifg=NONE guibg=#121212
+" monokai_pro
+colorscheme monokai_pro
 
 " githug colorscheme
 "let g:github_colors_soft = 0
@@ -116,12 +104,12 @@ colorscheme modest
 "colorscheme github
 
 " xcode colorscheme
-" augroup vim-colors-xcode
-"   autocmd!
-" augroup END
-" autocmd vim-colors-xcode ColorScheme * hi Comment        cterm=italic gui=italic
-" autocmd vim-colors-xcode ColorScheme * hi SpecialComment cterm=italic gui=italic
-" colorscheme xcodedark
+"augroup vim-colors-xcode
+  "autocmd!
+"augroup END
+"autocmd vim-colors-xcode ColorScheme * hi Comment        cterm=italic gui=italic
+"autocmd vim-colors-xcode ColorScheme * hi SpecialComment cterm=italic gui=italic
+"colorscheme xcodedark
 
 " Mapings
 inoremap jj <ESC>
@@ -185,7 +173,7 @@ let g:coc_global_extensions = [
 \]
 
 " neo-snippets
- inoremap <silent><expr> <TAB>
+inoremap <silent><expr> <TAB>
        \ pumvisible() ? "\<C-n>" :
        \ <SID>check_back_space() ? "\<TAB>" :
        \ coc#refresh()
