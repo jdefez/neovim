@@ -21,6 +21,8 @@ Plug 'MrAlejandro/vim-phpdoc'
 Plug 'evanleck/vim-svelte'
 Plug 'psliwka/vim-smoothie'
 " schemes
+Plug 'rakr/vim-one'
+Plug 'mhartington/oceanic-next'
 Plug 'arcticicestudio/nord-vim'
 Plug 'ayu-theme/ayu-vim'
 Plug 'drewtempelmeyer/palenight.vim'
@@ -98,14 +100,21 @@ endfunction
 
 set termguicolors
 
+"rakr/vim-one
+colorscheme one
+set background=light
+
+" mhartington/oceanic-next
+"colorscheme OceanicNext
+
 " arcticicestudio/nord-vim
 "colorscheme nord
 
 " ayu-theme/ayu-vim
+"let ayucolor="mirage"
 "let ayucolor="light"
-let ayucolor="mirage"
 "let ayucolor="dark"
-colorscheme ayu
+"colorscheme ayu
 
 " palenight
 "set background=dark
