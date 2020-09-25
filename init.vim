@@ -152,6 +152,9 @@ nnoremap <S-Down> :m .+1<CR>==
 vnoremap <S-Up> :m '<-2<CR>gv=gv
 vnoremap <S-Down> :m '>+1<CR>gv=gv
 
+" copy to clip board
+vnoremap <C-c> :w !pbcopy<CR><CR>
+
 " Specific syntax settings
 au BufRead,BufNewFile *.ts        set ft=typescript
 au BufRead,BufNewFile *.snippets  set ft=snippets
