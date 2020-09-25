@@ -102,7 +102,7 @@ set termguicolors
 
 "rakr/vim-one
 colorscheme one
-set background=light
+set background=dark
 
 " mhartington/oceanic-next
 "colorscheme OceanicNext
