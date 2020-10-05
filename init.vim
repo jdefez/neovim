@@ -12,7 +12,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'idanarye/vim-merginal'
 Plug 'godlygeek/tabular'
 Plug 'phpactor/phpactor', {'for': 'php', 'branch': 'master', 'do': 'composer install --no-dev -o'}
-Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release', 'do': { -> coc#util#install()}}
+Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
 Plug 'jreybert/vimagit'
 Plug 'mattn/emmet-vim'
 Plug 'junegunn/fzf.vim'
@@ -20,6 +20,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'MrAlejandro/vim-phpdoc'
 Plug 'evanleck/vim-svelte'
 Plug 'psliwka/vim-smoothie'
+
 " schemes
 Plug 'rakr/vim-one'
 Plug 'mhartington/oceanic-next'
