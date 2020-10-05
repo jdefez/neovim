@@ -10,10 +10,6 @@
   "python.jediEnabled": false,
   "coc.preferences.rootPatterns": [".git"],
   "html.format.enable": true,
-  "intelephense.environment.includePaths" : [
-    "/Users/jean/Documents/Vagrant/libs.previsite.net",
-    "/Users/jean/Documents/Vagrant/_libs"
-  ],
   "list.normalMappings": {
     "t": "action:tabe",
     "v": "action:vsplit",
