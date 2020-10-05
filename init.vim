@@ -197,8 +197,7 @@ let vim_markdown_preview_github=1
 " Todo: test coc-jest
 let g:coc_global_extensions = [
 \  'coc-phpls', 'coc-lists', 'coc-tag', 'coc-css', 'coc-json', 'coc-html',
-\  'coc-yaml', 'coc-eslint', 'coc-tsserver', 'coc-angular',
-\  'coc-svelte', 'coc-pairs'
+\  'coc-yaml', 'coc-eslint', 'coc-pairs', 'coc-vetur'
 \]
 
 " neo-snippets
