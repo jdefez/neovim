@@ -12,7 +12,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'idanarye/vim-merginal'
 Plug 'godlygeek/tabular'
 Plug 'phpactor/phpactor', {'for': 'php', 'branch': 'master', 'do': 'composer install --no-dev -o'}
-Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jreybert/vimagit'
 Plug 'mattn/emmet-vim'
 Plug 'junegunn/fzf.vim'
@@ -198,7 +198,7 @@ let vim_markdown_preview_github=1
 " Todo: test coc-jest
 let g:coc_global_extensions = [
 \  'coc-phpls', 'coc-lists', 'coc-tag', 'coc-css', 'coc-json', 'coc-html',
-\  'coc-yaml', 'coc-eslint', 'coc-pairs', 'coc-vetur'
+\  'coc-yaml', 'coc-eslint', 'coc-pairs', 'coc-vetur', 'coc-tsserver'
 \]
 
 " neo-snippets
