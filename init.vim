@@ -97,6 +97,13 @@ function! s:show_documentation()
   endif
 endfunction
 
+" executing a macro over a selection
+xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
+function! ExecuteMacroOverVisualRange()
+  echo "@".getcmdline()
+  execute ":'<,'>normal @".nr2char(getchar())
+endfunction
+
 " color schemes
 
 set termguicolors
