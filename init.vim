@@ -109,8 +109,8 @@ endfunction
 set termguicolors
 
 "rakr/vim-one
-colorscheme one
-set background=dark
+"colorscheme one
+"set background=dark
 
 " mhartington/oceanic-next
 "colorscheme OceanicNext
@@ -130,7 +130,7 @@ set background=dark
 "let g:palenight_terminal_italics=1
 
 " monokai_pro
-"colorscheme monokai_pro
+colorscheme monokai_pro
 
 " githug colorscheme
 "let g:github_colors_soft = 0
@@ -314,6 +314,13 @@ let b:phpfold_text_percent = 0     " Display the percentage of lines the fold re
 
 " airline
 let g:airline_powerline_fonts = 1
+
+" abbreviations
+" find away to load them for a dedicated language
+iab puf public function()<Left><Left>
+iab psf public static function()<Left><Left>
+iab prif private static function()<Left><Left>
+iab prof protected static function()<Left><Left>
 
 "let g:python_host_prog='/usr/local/bin/python2'
 "let g:python3_host_prog='/Library/Frameworks/Python.framework/Versions/3.7/bin/python3'
