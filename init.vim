@@ -164,16 +164,17 @@ vnoremap <S-Down> :m '>+1<CR>gv=gv
 vmap <C-c> "+y
 
 " Specific syntax settings
-au BufRead,BufNewFile *.ts        set ft=typescript
-au BufRead,BufNewFile *.snippets  set ft=snippets
+"au BufRead,BufNewFile *.ts        set ft=typescript
+"au BufRead,BufNewFile *.snippets  set ft=snippets
 au BufRead,BufNewFile *.twig      set ft=html
 au BufRead,BufNewFile *.blade.php set ft=html
 
+autocmd Filetype vue setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype svelte setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype snippets setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype python setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
-autocmd Filetype apache setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
 autocmd Filetype html setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
+autocmd Filetype apache setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
 autocmd Filetype php setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
 
 " Vdebug
@@ -247,14 +248,6 @@ nnoremap <leader>K :call <SID>show_documentation()<CR>
 let g:phpactor_executable = '~/.local/share/nvim/plugged/phpactor/bin/phpactor'
 augroup PhpactorMappings
   au!
-  "au FileType php nmap <buffer> <Leader>nn :PhpactorNavigate<CR>
-  "au FileType php nmap <buffer> <Leader>o :PhpactorGotoDefinition<CR>
-  "au FileType php nmap <buffer> <Leader>Oh :PhpactorGotoDefinitionHsplit<CR>
-  "au FileType php nmap <buffer> <Leader>Ov :PhpactorGotoDefinitionVsplit<CR>
-  "au FileType php nmap <buffer> <Leader>Ot :PhpactorGotoDefinitionTab<CR>
-  "au FileType php nmap <buffer> <Leader>fr :PhpactorFindReferences<CR>
-  "au FileType php nmap <buffer> <Leader>K :PhpactorHover<CR>
-
   au FileType php nmap <buffer> <Leader>mm :PhpactorContextMenu<CR>
   au FileType php nmap <buffer> <Leader>tt :PhpactorTransform<CR>
 
