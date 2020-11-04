@@ -313,7 +313,7 @@ let g:airline_powerline_fonts = 1
 iab puf public function()<Left><Left>
 iab psf public static function()<Left><Left>
 iab prif private static function()<Left><Left>
-iab prof protected static function()<Left><Left>
+iab prof protected function()<Left><Left>
 
 "let g:python_host_prog='/usr/local/bin/python2'
 "let g:python3_host_prog='/Library/Frameworks/Python.framework/Versions/3.7/bin/python3'
