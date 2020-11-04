@@ -1,6 +1,6 @@
 " https://gist.github.com/mahemoff/8967b5de067cffc67cec174cb3a9f49d
 
-"call plug#begin('~/.local/share/nvim/plugged')
+call plug#begin('~/.local/share/nvim/plugged')
 Plug 'JamshedVesuna/vim-markdown-preview'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'scrooloose/nerdcommenter'
