@@ -165,10 +165,10 @@ vmap <C-c> "+y
 au BufRead,BufNewFile *.twig      set ft=html
 au BufRead,BufNewFile *.blade.php set ft=html
 
-"autocmd Filetype vue setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
-"autocmd Filetype svelte setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
-"autocmd Filetype snippets setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
-"autocmd Filetype html setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
+autocmd Filetype vue setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
+autocmd Filetype svelte setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
+autocmd Filetype snippets setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
+autocmd Filetype html setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype python setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
 autocmd Filetype apache setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
 autocmd Filetype php setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
