@@ -179,12 +179,6 @@ autocmd Filetype php setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
 " endif
 " let g:vdebug_options.path_maps = {"/var/www/mooveo": "/Users/jean/Documents/VagVagrant/mooveo"}
 
-" vim-smoothie
-" let g:smoothie_no_default_mappings = 1
-
-" vim-phpdoc
-"nmap <Leader>d :call PhpDocPasteComment()<CR>
-
 " Ag
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
