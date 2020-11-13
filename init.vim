@@ -1,6 +1,5 @@
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'JamshedVesuna/vim-markdown-preview'
-Plug 'HerringtonDarkholme/yats.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'swekaj/php-foldexpr.vim'
 Plug 'airblade/vim-gitgutter'
@@ -10,15 +9,13 @@ Plug 'Shougo/neosnippet-snippets'
 Plug 'Shougo/neosnippet'
 Plug 'tpope/vim-fugitive'
 Plug 'idanarye/vim-merginal'
-Plug 'godlygeek/tabular'
 Plug 'phpactor/phpactor', {'for': 'php', 'branch': 'master', 'do': 'composer install --no-dev -o'}
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jreybert/vimagit'
 Plug 'mattn/emmet-vim'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'MrAlejandro/vim-phpdoc'
-Plug 'evanleck/vim-svelte'
+"Plug 'evanleck/vim-svelte'
 Plug 'psliwka/vim-smoothie'
 
 " schemes
