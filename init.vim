@@ -187,7 +187,7 @@ autocmd Filetype php setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
 " let g:smoothie_no_default_mappings = 1
 
 " vim-phpdoc
-nmap <Leader>d :call PhpDocPasteComment()<CR>
+"nmap <Leader>d :call PhpDocPasteComment()<CR>
 
 " Ag
 if executable('ag')
@@ -198,6 +198,8 @@ endif
 nnoremap <leader>gd :Gvdiff<CR>
 nnoremap dgh :diffget //2<CR>
 nnoremap dgl :diffget //3<CR>
+nnoremap dp :diffput<CR>
+nnoremap dg :diffget<CR>
 
 " vim-markdown-preview
 let vim_markdown_preview_github=1
@@ -231,6 +233,7 @@ nnoremap <Leader>a :<C-u>CocList diagnostics<cr>
 nnoremap <Leader>l :<C-u>CocList<cr>
 nnoremap <Leader>A :<C-u>CocAction<cr>
 nnoremap <Leader>C :<C-u>CocCommand<cr>
+nnoremap <Leader>S :<C-u>CocSearch <C-R><C-W><CR>
 
 nmap <silent>gd <Plug>(coc-definition)
 nmap <silent>gr <Plug>(coc-references)
