@@ -162,15 +162,14 @@ vmap <C-c> "+y
 
 " Specific syntax settings
 "au BufRead,BufNewFile *.ts        set ft=typescript
-"au BufRead,BufNewFile *.snippets  set ft=snippets
 au BufRead,BufNewFile *.twig      set ft=html
 au BufRead,BufNewFile *.blade.php set ft=html
 
-autocmd Filetype vue setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
-autocmd Filetype svelte setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
-autocmd Filetype snippets setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
+"autocmd Filetype vue setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
+"autocmd Filetype svelte setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
+"autocmd Filetype snippets setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
+"autocmd Filetype html setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype python setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
-autocmd Filetype html setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype apache setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
 autocmd Filetype php setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
 
