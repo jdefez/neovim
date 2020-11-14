@@ -2,7 +2,6 @@
 
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'JamshedVesuna/vim-markdown-preview'
-Plug 'HerringtonDarkholme/yats.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'swekaj/php-foldexpr.vim'
 Plug 'airblade/vim-gitgutter'
@@ -12,15 +11,13 @@ Plug 'Shougo/neosnippet-snippets'
 Plug 'Shougo/neosnippet'
 Plug 'tpope/vim-fugitive'
 Plug 'idanarye/vim-merginal'
-Plug 'godlygeek/tabular'
 Plug 'phpactor/phpactor', {'for': 'php', 'branch': 'master', 'do': 'composer install --no-dev -o'}
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jreybert/vimagit'
 Plug 'mattn/emmet-vim'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'MrAlejandro/vim-phpdoc'
-Plug 'evanleck/vim-svelte'
+"Plug 'evanleck/vim-svelte'
 Plug 'psliwka/vim-smoothie'
 
 " schemes
@@ -167,15 +164,14 @@ vmap <C-c> "+y
 
 " Specific syntax settings
 "au BufRead,BufNewFile *.ts        set ft=typescript
-"au BufRead,BufNewFile *.snippets  set ft=snippets
 au BufRead,BufNewFile *.twig      set ft=html
 au BufRead,BufNewFile *.blade.php set ft=html
 
-autocmd Filetype vue setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
-autocmd Filetype svelte setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
-autocmd Filetype snippets setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
+"autocmd Filetype vue setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
+"autocmd Filetype svelte setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
+"autocmd Filetype snippets setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
+"autocmd Filetype html setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype python setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
-autocmd Filetype html setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype apache setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
 autocmd Filetype php setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
 
@@ -184,12 +180,6 @@ autocmd Filetype php setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
 "   let g:vdebug_options = {}
 " endif
 " let g:vdebug_options.path_maps = {"/var/www/mooveo": "/Users/jean/Documents/VagVagrant/mooveo"}
-
-" vim-smoothie
-" let g:smoothie_no_default_mappings = 1
-
-" vim-phpdoc
-nmap <Leader>d :call PhpDocPasteComment()<CR>
 
 " Ag
 if executable('ag')
@@ -200,6 +190,8 @@ endif
 nnoremap <leader>gd :Gvdiff<CR>
 nnoremap dgh :diffget //2<CR>
 nnoremap dgl :diffget //3<CR>
+nnoremap dp :diffput<CR>
+nnoremap dg :diffget<CR>
 
 " vim-markdown-preview
 let vim_markdown_preview_github=1
@@ -233,6 +225,7 @@ nnoremap <Leader>a :<C-u>CocList diagnostics<cr>
 nnoremap <Leader>l :<C-u>CocList<cr>
 nnoremap <Leader>A :<C-u>CocAction<cr>
 nnoremap <Leader>C :<C-u>CocCommand<cr>
+nnoremap <Leader>S :<C-u>CocSearch <C-R><C-W><CR>
 
 nmap <silent>gd <Plug>(coc-definition)
 nmap <silent>gr <Plug>(coc-references)
