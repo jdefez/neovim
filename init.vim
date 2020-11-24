@@ -20,7 +20,11 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 "Plug 'evanleck/vim-svelte'
 Plug 'psliwka/vim-smoothie'
 
+" to tested
+"Plug 'dbatten5/vim-macroscope'
+
 " schemes
+Plug 'lifepillar/vim-wwdc16-theme'
 Plug 'rakr/vim-one'
 Plug 'mhartington/oceanic-next'
 Plug 'arcticicestudio/nord-vim'
