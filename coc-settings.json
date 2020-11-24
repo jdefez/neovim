@@ -7,7 +7,6 @@
   "diagnostic.hintSign": ">>",
   "diagnostic.checkCurrentLine": true,
   "eslint.filetypes": ["javascript"],
-  "python.jediEnabled": false,
   "coc.preferences.rootPatterns": [".git"],
   "html.format.enable": true,
   "list.normalMappings": {
