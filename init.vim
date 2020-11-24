@@ -129,7 +129,10 @@ set termguicolors
 "let g:palenight_terminal_italics=1
 
 " monokai_pro
-colorscheme monokai_pro
+"colorscheme monokai_pro
+
+"lifepillar/vim-wwdc16-theme
+colorscheme wwdc16
 
 " githug colorscheme
 "let g:github_colors_soft = 0
