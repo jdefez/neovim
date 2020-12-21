@@ -17,6 +17,7 @@ Plug 'jreybert/vimagit'
 Plug 'mattn/emmet-vim'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'jdhao/better-escape.vim'
 "Plug 'evanleck/vim-svelte'
 Plug 'psliwka/vim-smoothie'
 
@@ -152,7 +153,7 @@ colorscheme wwdc16
 "colorscheme xcodedark
 
 " Mapings
-inoremap jj <ESC>
+"inoremap jj <ESC>
 
 " Split navigation
 map <C-j> <C-W>j
@@ -192,6 +193,10 @@ autocmd Filetype php setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
+
+" better-escape
+let g:better_escape_interval = 200
+let g:better_escape_shortcut = 'jj'
 
 " Fugitive **conflicting with coc symbol navigation**
 nnoremap <leader>gd :Gvdiff<CR>
@@ -312,10 +317,11 @@ let g:airline_powerline_fonts = 1
 
 " abbreviations
 " find away to load them for a dedicated language
-iab puf public function()<Left><Left>
-iab psf public static function()<Left><Left>
-iab prif private static function()<Left><Left>
-iab prof protected function()<Left><Left>
+iab puf public function ()<Left><Left>
+iab psf public static function ()<Left><Left>
+iab prif private static function ()<Left><Left>
+iab prof protected function ()<Left><Left>
+iab pros protected static function ()<Left><Left>
 
 "let g:python_host_prog='/usr/local/bin/python2'
 "let g:python3_host_prog='/Library/Frameworks/Python.framework/Versions/3.7/bin/python3'
