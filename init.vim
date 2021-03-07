@@ -232,10 +232,11 @@ nmap <silent>gy <Plug>(coc-type-definition)
 
 "nmap <leader>r <Plug>(coc-refactor)
 "nmap <leader>R <Plug>(coc-rename)
-nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+nnoremap <silent> <space>p :<C-u>CocListResume<CR>
 vmap <leader>F <Plug>(coc-format-selected)
 nmap <leader>F <Plug>(coc-format-selected)
 nnoremap <leader>K :call <SID>show_documentation()<CR>
+nmap <space>e :CocCommand explorer<CR>
 
 " Phpactor
 let g:phpactor_executable = '~/.local/share/nvim/plugged/phpactor/bin/phpactor'
