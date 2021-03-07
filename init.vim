@@ -17,6 +17,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 "Plug 'evanleck/vim-svelte'
 Plug 'psliwka/vim-smoothie'
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 
 " schemes
 Plug 'rakr/vim-one'
