@@ -14,5 +14,6 @@
     "t": "action:tabe",
     "v": "action:vsplit",
     "s": "action:split"
-  }
+  },
+  "explorer.icon.enableVimDevicons": true
 }
