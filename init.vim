@@ -20,6 +20,9 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'jdhao/better-escape.vim'
 "Plug 'evanleck/vim-svelte'
 Plug 'psliwka/vim-smoothie'
+Plug 'jparise/vim-graphql'
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+"Plug 'mattboehm/vim-accordion'
 
 " to tested
 "Plug 'dbatten5/vim-macroscope'
@@ -34,6 +37,9 @@ Plug 'drewtempelmeyer/palenight.vim'
 Plug 'phanviet/vim-monokai-pro'
 Plug 'cormacrelf/vim-colors-github'
 Plug 'arzg/vim-colors-xcode'
+Plug 'sff1019/vim-joker'
+Plug 'sainnhe/edge'
+Plug 'sainnhe/sonokai'
 call plug#end()
 
 let mapleader = "\<Space>"
@@ -137,12 +143,22 @@ set termguicolors
 "colorscheme monokai_pro
 
 "lifepillar/vim-wwdc16-theme
-colorscheme wwdc16
+"colorscheme wwdc16
+
+"colorscheme joker
 
 " githug colorscheme
 "let g:github_colors_soft = 0
 "let g:github_colors_block_diffmark = 0
+"set background=light
 "colorscheme github
+
+" edge
+let g:edge_style = 'aura'
+let g:edge_enable_italic = 1
+let g:edge_disable_italic_comment = 1
+set background = light
+colorscheme edge
 
 " xcode colorscheme
 "augroup vim-colors-xcode
@@ -183,12 +199,6 @@ autocmd Filetype python setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
 autocmd Filetype apache setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
 autocmd Filetype php setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
 
-" Vdebug
-" if !exists('g:vdebug_options')
-"   let g:vdebug_options = {}
-" endif
-" let g:vdebug_options.path_maps = {"/var/www/mooveo": "/Users/jean/Documents/VagVagrant/mooveo"}
-
 " Ag
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
@@ -199,7 +209,7 @@ let g:better_escape_interval = 200
 let g:better_escape_shortcut = 'jj'
 
 " Fugitive **conflicting with coc symbol navigation**
-nnoremap <leader>gd :Gvdiff<CR>
+nnoremap <leader>gd :Gvdiffsplit!<CR>
 nnoremap dgh :diffget //2<CR>
 nnoremap dgl :diffget //3<CR>
 nnoremap dp :diffput<CR>
@@ -317,11 +327,11 @@ let g:airline_powerline_fonts = 1
 
 " abbreviations
 " find away to load them for a dedicated language
-iab puf public function ()<Left><Left>
-iab psf public static function ()<Left><Left>
-iab prif private static function ()<Left><Left>
-iab prof protected function ()<Left><Left>
-iab pros protected static function ()<Left><Left>
+iab puf public function()<Left><Left>
+iab pusf public static function()<Left><Left>
+iab prif private static function()<Left><Left>
+iab prof protected function()<Left><Left>
+iab pros protected static function()<Left><Left>
 
 "let g:python_host_prog='/usr/local/bin/python2'
 "let g:python3_host_prog='/Library/Frameworks/Python.framework/Versions/3.7/bin/python3'
