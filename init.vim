@@ -10,7 +10,7 @@ Plug 'tpope/vim-obsession'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'Shougo/neosnippet'
 Plug 'tpope/vim-fugitive'
-Plug 'idanarye/vim-merginal'
+"Plug 'idanarye/vim-merginal'
 Plug 'phpactor/phpactor', {'for': 'php', 'branch': 'master', 'do': 'composer install --no-dev -o'}
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jreybert/vimagit'
@@ -24,7 +24,7 @@ Plug 'jparise/vim-graphql'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 "Plug 'mattboehm/vim-accordion'
 
-" to tested
+" to be tested
 "Plug 'dbatten5/vim-macroscope'
 
 " schemes
@@ -36,6 +36,7 @@ Plug 'ayu-theme/ayu-vim'
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'phanviet/vim-monokai-pro'
 Plug 'cormacrelf/vim-colors-github'
+"Plug '1612492/github.vim'
 Plug 'arzg/vim-colors-xcode'
 Plug 'sff1019/vim-joker'
 Plug 'sainnhe/edge'
@@ -191,10 +192,10 @@ vmap <C-c> "+y
 au BufRead,BufNewFile *.twig      set ft=html
 au BufRead,BufNewFile *.blade.php set ft=html
 
-"autocmd Filetype vue setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
+autocmd Filetype vue setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
 "autocmd Filetype svelte setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
 "autocmd Filetype snippets setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
-"autocmd Filetype html setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
+autocmd Filetype html setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype python setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
 autocmd Filetype apache setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
 autocmd Filetype php setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
