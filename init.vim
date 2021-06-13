@@ -216,9 +216,6 @@ imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
 xmap <C-k> <Plug>(neosnippet_expand_target)
 
-" Hide conceal markers
-let g:neosnippet#enable_conceal_markers = 0
-
 " coc mappings
 nnoremap <Leader>a :<C-u>CocList diagnostics<cr>
 nnoremap <Leader>l :<C-u>CocList<cr>
@@ -238,6 +235,12 @@ vmap <leader>F <Plug>(coc-format-selected)
 nmap <leader>F <Plug>(coc-format-selected)
 nnoremap <leader>K :call <SID>show_documentation()<CR>
 nmap <space>e :CocCommand explorer<CR>
+
+" scroll in floating window
+nnoremap <nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+nnoremap <nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+inoremap <nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+inoremap <nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
 
 " Phpactor
 let g:phpactor_executable = '~/.local/share/nvim/plugged/phpactor/bin/phpactor'
@@ -310,5 +313,5 @@ iab psf public static function()<Left><Left>
 iab prif private static function()<Left><Left>
 iab prof protected static function()<Left><Left>
 
-"let g:python_host_prog='/usr/local/bin/python2'
-"let g:python3_host_prog='/Library/Frameworks/Python.framework/Versions/3.7/bin/python3'
+let g:python_host_prog='/usr/local/bin/python2'
+let g:python3_host_prog='/Library/Frameworks/Python.framework/Versions/3.7/bin/python3'
