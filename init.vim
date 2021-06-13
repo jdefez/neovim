@@ -262,6 +262,13 @@ vmap <leader>F <Plug>(coc-format-selected)
 nmap <leader>F <Plug>(coc-format-selected)
 nnoremap <leader>K :call <SID>show_documentation()<CR>
 
+" scroll in floating window
+nnoremap <nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+nnoremap <nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+inoremap <nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+inoremap <nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+
+
 " Phpactor
 let g:phpactor_executable = '~/.local/share/nvim/plugged/phpactor/bin/phpactor'
 augroup PhpactorMappings
