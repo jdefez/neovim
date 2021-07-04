@@ -8,7 +8,6 @@ Plug 'tpope/vim-obsession'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'Shougo/neosnippet'
 Plug 'tpope/vim-fugitive'
-Plug 'idanarye/vim-merginal'
 Plug 'phpactor/phpactor', {'for': 'php', 'branch': 'master', 'do': 'composer install --no-dev -o'}
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jreybert/vimagit'
@@ -197,9 +196,13 @@ let vim_markdown_preview_github=1
 
 " Coc
 " Todo: test coc-jest
+" check this out ! https://github.com/yaegassy/coc-intelephense in replacement
+" of coc-phpls
+" https://github.com/yaegassy/coc-php-cs-fixer
 let g:coc_global_extensions = [
 \  'coc-phpls', 'coc-lists', 'coc-tag', 'coc-css', 'coc-json', 'coc-html',
-\  'coc-yaml', 'coc-eslint', 'coc-pairs', 'coc-vetur', 'coc-tsserver'
+\  'coc-yaml', 'coc-eslint', 'coc-pairs', 'coc-vetur', 'coc-tsserver',
+\  'coc-blade-formatter', 'coc-blade-linter', 'coc-graphql', 'coc-xml'
 \]
 
 " neo-snippets
