@@ -17,7 +17,6 @@ Plug 'jreybert/vimagit'
 Plug 'mattn/emmet-vim'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'jdhao/better-escape.vim'
 "Plug 'evanleck/vim-svelte'
 Plug 'psliwka/vim-smoothie'
 Plug 'jparise/vim-graphql'
@@ -170,7 +169,7 @@ colorscheme edge
 "colorscheme xcodedark
 
 " Mapings
-"inoremap jj <ESC>
+inoremap jj <ESC>
 
 " Split navigation
 map <C-j> <C-W>j
@@ -205,10 +204,6 @@ if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 
-" better-escape
-let g:better_escape_interval = 200
-let g:better_escape_shortcut = 'jj'
-
 " Fugitive **conflicting with coc symbol navigation**
 nnoremap <leader>gd :Gvdiffsplit!<CR>
 nnoremap dgh :diffget //2<CR>
@@ -220,10 +215,11 @@ nnoremap dg :diffget<CR>
 let vim_markdown_preview_github=1
 
 " Coc
-" Todo: test coc-jest
+" Todo: test 'coc-intelephense', 'coc-tabnine', 'coc-snippets'
 let g:coc_global_extensions = [
 \  'coc-phpls', 'coc-lists', 'coc-tag', 'coc-css', 'coc-json', 'coc-html',
-\  'coc-yaml', 'coc-eslint', 'coc-pairs', 'coc-vetur', 'coc-tsserver'
+\  'coc-yaml', 'coc-eslint', 'coc-pairs', 'coc-vetur', 'coc-tsserver',
+\  'coc-blade-formatter', 'coc-blade-linter', 'coc-php-cs-fixer'
 \]
 
 " neo-snippets
@@ -255,8 +251,8 @@ nmap <silent>gr <Plug>(coc-references)
 nmap <silent>gi <Plug>(coc-implementation)
 nmap <silent>gy <Plug>(coc-type-definition)
 
-"nmap <leader>r <Plug>(coc-refactor)
-"nmap <leader>R <Plug>(coc-rename)
+nmap <leader>r <Plug>(coc-refactor)
+nmap <leader>R <Plug>(coc-rename)
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 vmap <leader>F <Plug>(coc-format-selected)
 nmap <leader>F <Plug>(coc-format-selected)
@@ -267,7 +263,6 @@ nnoremap <nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<
 nnoremap <nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
 inoremap <nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
 inoremap <nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
-
 
 " Phpactor
 let g:phpactor_executable = '~/.local/share/nvim/plugged/phpactor/bin/phpactor'
