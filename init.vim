@@ -215,10 +215,10 @@ nnoremap dg :diffget<CR>
 let vim_markdown_preview_github=1
 
 " Coc
-" Todo: test 'coc-intelephense', 'coc-tabnine', 'coc-snippets'
+" Todo: test 'coc-tabnine', 'coc-snippets' (read the doc)
 let g:coc_global_extensions = [
-\  'coc-phpls', 'coc-lists', 'coc-tag', 'coc-css', 'coc-json', 'coc-html',
-\  'coc-yaml', 'coc-eslint', 'coc-pairs', 'coc-vetur', 'coc-tsserver',
+\  '@yaegassy/coc-intelephense', 'coc-lists', 'coc-tag', 'coc-css', 'coc-json',
+\  'coc-html', 'coc-yaml', 'coc-eslint', 'coc-pairs', 'coc-vetur', 'coc-tsserver',
 \  'coc-blade-formatter', 'coc-blade-linter', 'coc-php-cs-fixer'
 \]
 
