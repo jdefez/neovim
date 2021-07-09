@@ -189,7 +189,7 @@ vmap <C-c> "+y
 " Specific syntax settings
 "au BufRead,BufNewFile *.ts        set ft=typescript
 au BufRead,BufNewFile *.twig      set ft=html
-au BufRead,BufNewFile *.blade.php set ft=html
+au BufNewFile,BufRead *.blade.php set filetype=blade
 
 autocmd Filetype vue setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
 "autocmd Filetype svelte setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
