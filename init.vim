@@ -195,14 +195,10 @@ nnoremap dg :diffget<CR>
 let vim_markdown_preview_github=1
 
 " Coc
-" Todo: test coc-jest
-" check this out ! https://github.com/yaegassy/coc-intelephense in replacement
-" of coc-phpls
-" https://github.com/yaegassy/coc-php-cs-fixer
 let g:coc_global_extensions = [
-\  'coc-phpls', 'coc-lists', 'coc-tag', 'coc-css', 'coc-json', 'coc-html',
-\  'coc-yaml', 'coc-eslint', 'coc-pairs', 'coc-vetur', 'coc-tsserver',
-\  'coc-blade-formatter', 'coc-blade-linter', 'coc-graphql', 'coc-xml'
+\  'coc-lists', 'coc-tag', 'coc-css', 'coc-json', 'coc-html', '@yaegassy/coc-intelephense',
+\  'coc-yaml', 'coc-eslint', 'coc-pairs', 'coc-vetur', 'coc-tsserver', 'coc-graphql',
+\  'coc-php-cs-fixer'
 \]
 
 " neo-snippets

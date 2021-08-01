@@ -6,8 +6,6 @@
   "diagnostic.infoSign": "•",
   "diagnostic.hintSign": ">>",
   "diagnostic.checkCurrentLine": true,
-  "eslint.filetypes": ["javascript"],
-  "python.jediEnabled": false,
   "coc.preferences.rootPatterns": [".git"],
   "html.format.enable": true,
   "list.normalMappings": {
@@ -15,5 +13,5 @@
     "v": "action:vsplit",
     "s": "action:split"
   },
-  "explorer.icon.enableVimDevicons": true
+  "php-cs-fixer.toolPath": "~/.config/composer/vendor/bin/php-cs-fixer"
 }
