@@ -189,7 +189,7 @@ vmap <C-c> "+y
 " Specific syntax settings
 "au BufRead,BufNewFile *.ts        set ft=typescript
 au BufRead,BufNewFile *.twig      set ft=html
-au BufNewFile,BufRead *.blade.php set filetype=blade
+au BufNewFile,BufRead *.blade.php set filetype=html
 
 autocmd Filetype vue setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
 "autocmd Filetype svelte setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
@@ -219,7 +219,7 @@ let vim_markdown_preview_github=1
 let g:coc_global_extensions = [
 \  '@yaegassy/coc-intelephense', 'coc-lists', 'coc-tag', 'coc-css', 'coc-json',
 \  'coc-html', 'coc-yaml', 'coc-eslint', 'coc-pairs', 'coc-vetur', 'coc-tsserver',
-\  'coc-blade-formatter', 'coc-blade-linter', 'coc-php-cs-fixer'
+\  'coc-php-cs-fixer'
 \]
 
 " neo-snippets

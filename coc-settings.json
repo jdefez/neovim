@@ -15,5 +15,6 @@
     "v": "action:vsplit",
     "s": "action:split"
   },
-  "php-cs-fixer.toolPath" : "/usr/local/bin/php-cs-fixer"
+  "php-cs-fixer.toolPath" : "/usr/local/bin/php-cs-fixer",
+  "php-cs-fixer.rules": "@PSR12,ordered_imports,no_unused_imports"
 }
