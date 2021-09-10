@@ -14,7 +14,6 @@ Plug 'jreybert/vimagit'
 Plug 'mattn/emmet-vim'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-"Plug 'evanleck/vim-svelte'
 Plug 'psliwka/vim-smoothie'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 
@@ -169,15 +168,10 @@ autocmd Filetype vue setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype svelte setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype snippets setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype html setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
+autocmd Filetype graphql setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype python setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
 autocmd Filetype apache setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
 autocmd Filetype php setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
-
-" Vdebug
-" if !exists('g:vdebug_options')
-"   let g:vdebug_options = {}
-" endif
-" let g:vdebug_options.path_maps = {"/var/www/mooveo": "/Users/jean/Documents/VagVagrant/mooveo"}
 
 " Ag
 if executable('ag')
@@ -197,7 +191,7 @@ let vim_markdown_preview_github=1
 " Coc
 let g:coc_global_extensions = [
 \  'coc-lists', 'coc-tag', 'coc-css', 'coc-json', 'coc-html', '@yaegassy/coc-intelephense',
-\  'coc-yaml', 'coc-eslint', 'coc-pairs', 'coc-vetur', 'coc-tsserver', 'coc-graphql',
+\  'coc-yaml', 'coc-eslint', 'coc-pairs', 'coc-vetur', 'coc-tsserver',
 \  'coc-php-cs-fixer'
 \]
 

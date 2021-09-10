@@ -6,12 +6,14 @@
   "diagnostic.infoSign": "•",
   "diagnostic.hintSign": ">>",
   "diagnostic.checkCurrentLine": true,
-  "coc.preferences.rootPatterns": [".git"],
+  "coc.preferences.rootPatterns": [
+    ".git"
+  ],
   "html.format.enable": true,
   "list.normalMappings": {
     "t": "action:tabe",
     "v": "action:vsplit",
     "s": "action:split"
   },
-  "php-cs-fixer.toolPath": "~/.config/composer/vendor/bin/php-cs-fixer"
+  "php-cs-fixer.rules": "@PSR12,ordered_imports,no_unused_imports"
 }
