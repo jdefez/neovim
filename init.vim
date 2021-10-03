@@ -19,14 +19,8 @@ Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'jparise/vim-graphql'
 
 " schemes
-Plug 'rakr/vim-one'
-Plug 'mhartington/oceanic-next'
-Plug 'arcticicestudio/nord-vim'
-Plug 'ayu-theme/ayu-vim'
-Plug 'drewtempelmeyer/palenight.vim'
 Plug 'phanviet/vim-monokai-pro'
 Plug 'cormacrelf/vim-colors-github'
-Plug 'arzg/vim-colors-xcode'
 call plug#end()
 
 let mapleader = "\<Space>"
@@ -104,28 +98,6 @@ endfunction
 " color schemes
 
 set termguicolors
-
-"rakr/vim-one
-"set background=light
-"colorscheme one
-
-" mhartington/oceanic-next
-"colorscheme OceanicNext
-
-" arcticicestudio/nord-vim
-"colorscheme nord
-
-" ayu-theme/ayu-vim
-"let ayucolor="mirage"
-"let ayucolor="light"
-"let ayucolor="dark"
-"colorscheme ayu
-
-" palenight
-"set background=dark
-"colorscheme palenight
-"let g:palenight_terminal_italics=1
-
 " monokai_pro
 "colorscheme monokai_pro
 
@@ -134,14 +106,6 @@ let g:github_colors_soft = 0
 let g:github_colors_block_diffmark = 0
 set background=light
 colorscheme github
-
-" xcode colorscheme
-"augroup vim-colors-xcode
-  "autocmd!
-"augroup END
-"autocmd vim-colors-xcode ColorScheme * hi Comment        cterm=italic gui=italic
-"autocmd vim-colors-xcode ColorScheme * hi SpecialComment cterm=italic gui=italic
-"colorscheme xcodedark
 
 " Mapings
 inoremap jj <ESC>
