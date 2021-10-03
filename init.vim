@@ -16,6 +16,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'psliwka/vim-smoothie'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+Plug 'jparise/vim-graphql'
 
 " schemes
 Plug 'rakr/vim-one'
@@ -105,8 +106,8 @@ endfunction
 set termguicolors
 
 "rakr/vim-one
+"set background=light
 "colorscheme one
-"set background=dark
 
 " mhartington/oceanic-next
 "colorscheme OceanicNext
@@ -126,12 +127,13 @@ set termguicolors
 "let g:palenight_terminal_italics=1
 
 " monokai_pro
-colorscheme monokai_pro
+"colorscheme monokai_pro
 
 " githug colorscheme
-"let g:github_colors_soft = 0
-"let g:github_colors_block_diffmark = 0
-"colorscheme github
+let g:github_colors_soft = 0
+let g:github_colors_block_diffmark = 0
+set background=light
+colorscheme github
 
 " xcode colorscheme
 "augroup vim-colors-xcode
@@ -300,11 +302,7 @@ let b:phpfold_text_percent = 0     " Display the percentage of lines the fold re
 let g:airline_powerline_fonts = 1
 
 " abbreviations
-" find away to load them for a dedicated language
-iab puf public function()<Left><Left>
-iab psf public static function()<Left><Left>
-iab prif private static function()<Left><Left>
-iab prof protected static function()<Left><Left>
+:autocmd FileType php iabbrev <buffer> inter@ interface Name {<Right><Esc>i<CR><Esc><Up>0/Name<CR>ciw
 
 let g:python_host_prog='/usr/local/bin/python2'
 let g:python3_host_prog='/Library/Frameworks/Python.framework/Versions/3.7/bin/python3'
