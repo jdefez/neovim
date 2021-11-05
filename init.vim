@@ -27,19 +27,12 @@ Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 "Plug 'dbatten5/vim-macroscope'
 
 " schemes
-Plug 'lifepillar/vim-wwdc16-theme'
-Plug 'rakr/vim-one'
-Plug 'mhartington/oceanic-next'
-Plug 'arcticicestudio/nord-vim'
-Plug 'ayu-theme/ayu-vim'
-Plug 'drewtempelmeyer/palenight.vim'
+Plug 'NLKNguyen/papercolor-theme'
 Plug 'phanviet/vim-monokai-pro'
-Plug 'cormacrelf/vim-colors-github'
+"Plug 'cormacrelf/vim-colors-github'
 "Plug '1612492/github.vim'
-Plug 'arzg/vim-colors-xcode'
-Plug 'sff1019/vim-joker'
-Plug 'sainnhe/edge'
-Plug 'sainnhe/sonokai'
+"Plug 'sainnhe/edge'
+"Plug 'sainnhe/sonokai'
 call plug#end()
 
 let mapleader = "\<Space>"
@@ -93,6 +86,9 @@ set fillchars+=vert:.
 hi! VertSplit gui=NONE guifg=#17252c guibg=#17252c
 hi! EndOfBuffer ctermbg=NONE ctermfg=NONE guibg=#17252c guifg=#17252c
 
+" highlighting whitespaces
+set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
+
 " use <tab> for trigger completion and navigate to next complete item
 function! s:check_back_space() abort
   let col = col('.') - 1
@@ -118,55 +114,31 @@ endfunction
 
 set termguicolors
 
-"rakr/vim-one
-"colorscheme one
-"set background=dark
-
-" mhartington/oceanic-next
-"colorscheme OceanicNext
-
-" arcticicestudio/nord-vim
-"colorscheme nord
-
-" ayu-theme/ayu-vim
-"let ayucolor="mirage"
-"let ayucolor="light"
-"let ayucolor="dark"
-"colorscheme ayu
-
-" palenight
-"set background=dark
-"colorscheme palenight
-"let g:palenight_terminal_italics=1
-
 " monokai_pro
 "colorscheme monokai_pro
 
 "lifepillar/vim-wwdc16-theme
 "colorscheme wwdc16
 
-"colorscheme joker
+"paper color
 
-" githug colorscheme
+set background=light
+colorscheme PaperColor
+
+" github colorscheme
+
 "let g:github_colors_soft = 0
 "let g:github_colors_block_diffmark = 0
 "set background=light
 "colorscheme github
 
 " edge
-let g:edge_style = 'aura'
-let g:edge_enable_italic = 1
-let g:edge_disable_italic_comment = 1
-set background=light
-colorscheme edge
 
-" xcode colorscheme
-"augroup vim-colors-xcode
-  "autocmd!
-"augroup END
-"autocmd vim-colors-xcode ColorScheme * hi Comment        cterm=italic gui=italic
-"autocmd vim-colors-xcode ColorScheme * hi SpecialComment cterm=italic gui=italic
-"colorscheme xcodedark
+"let g:edge_style = 'aura'
+"let g:edge_enable_italic = 1
+"let g:edge_disable_italic_comment = 1
+"set background=light
+"colorscheme edge
 
 " Mapings
 inoremap jj <ESC>
@@ -186,8 +158,10 @@ vnoremap <S-Down> :m '>+1<CR>gv=gv
 " copy to clip board
 vmap <C-c> "+y
 
+" remove highlightings conflicting
+"nnoremap <C-L> :nohl<CR><C-L>
+
 " Specific syntax settings
-"au BufRead,BufNewFile *.ts        set ft=typescript
 au BufRead,BufNewFile *.twig      set ft=html
 au BufNewFile,BufRead *.blade.php set filetype=html
 
@@ -329,8 +303,8 @@ let b:phpfold_text_percent = 0     " Display the percentage of lines the fold re
 let g:airline_powerline_fonts = 1
 
 " abbreviations
-" abbreviations
-:autocmd FileType php iabbrev <buffer> tmet@ /** @test */<CR>public function Name(<Esc><S-a><CR>{<Right><Esc>i<CR><Esc><Up><Up>0/Name<CR>caw
+:autocmd FileType php iabbrev <buffer> tmet@ /** @test */<CR>public function Name() {}<Esc>?Name<CR>caw
+":autocmd FileType php iabbrev <buffer> tmet@ /** @test */<CR>public function Name() {}<Esc>$i<CR><Esc>2k0/Name<CR>caw
 
 
 "let g:python_host_prog='/usr/local/bin/python2'
