@@ -1,11 +1,14 @@
 
 vim.g.mapleader = ' '
 
+vim.g['python3_host_prog'] = '/usr/bin/python3'
+
 vim.wo.colorcolumn = '81'
 vim.wo.relativenumber = true
 vim.wo.number = true
 
 vim.opt.cmdheight = 3
+vim.opt.completeopt = 'menu,menuone,noselect'
 vim.opt.cursorline = true
 -- vim.opt.encoding = utf-8
 vim.opt.expandtab = true
