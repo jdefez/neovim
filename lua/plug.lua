@@ -15,6 +15,8 @@ Plug 'tpope/vim-fugitive'
 -- https://github.com/sindrets/diffview.nvim
 -- https://github.com/TimUntersberger/neogit
 -- https://github.com/mfussenegger/nvim-dap
+-- https://github.com/nvim-lualine/lualine.nvim
+-- https://github.com/glepnir/galaxyline.nvim/
 
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/nvim-cmp'
