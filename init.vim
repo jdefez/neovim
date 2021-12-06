@@ -27,9 +27,9 @@ Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 "Plug 'dbatten5/vim-macroscope'
 
 " schemes
-Plug 'NLKNguyen/papercolor-theme'
-Plug 'phanviet/vim-monokai-pro'
-"Plug 'cormacrelf/vim-colors-github'
+"Plug 'NLKNguyen/papercolor-theme'
+"Plug 'phanviet/vim-monokai-pro'
+Plug 'cormacrelf/vim-colors-github'
 "Plug '1612492/github.vim'
 "Plug 'sainnhe/edge'
 "Plug 'sainnhe/sonokai'
@@ -121,16 +121,16 @@ set termguicolors
 "colorscheme wwdc16
 
 "paper color
-
-set background=light
-colorscheme PaperColor
+"set t_Co=256
+"set background=light
+"colorscheme PaperColor
 
 " github colorscheme
 
-"let g:github_colors_soft = 0
-"let g:github_colors_block_diffmark = 0
-"set background=light
-"colorscheme github
+let g:github_colors_soft = 1
+let g:github_colors_block_diffmark = 0
+set background=light
+colorscheme github
 
 " edge
 
@@ -142,6 +142,7 @@ colorscheme PaperColor
 
 " Mapings
 inoremap jj <ESC>
+nnoremap Y yy$
 
 " Split navigation
 map <C-j> <C-W>j
