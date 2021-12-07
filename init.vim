@@ -2,6 +2,11 @@
 " git clone --depth 1 https://github.com/wbthomason/packer.nvim\ 
 " ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
+" phpactor lsp integration
+"
+" https://github.com/bmewburn/vscode-intelephense/issues/1888
+" https://phpactor.readthedocs.io/en/master/lsp/code-actions.html
+
 lua require('plugins')
 
 augroup packer_user_config
