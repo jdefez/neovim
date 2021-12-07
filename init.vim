@@ -1,4 +1,13 @@
-lua require('plug')
+" todo: note about packer installation:
+" git clone --depth 1 https://github.com/wbthomason/packer.nvim\ 
+" ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+
+lua require('plugins')
+
+augroup packer_user_config
+  autocmd!
+  autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+augroup end
 
 lua require('basic')
 
@@ -13,6 +22,8 @@ require'lspconfig'.phpactor.setup{}
 require'lspconfig'.dockerls.setup{}
 require'lspconfig'.eslint.setup{}
 EOF
+
+lua require('galaxy-line')
 
 lua require('nvim-cmp')
 
@@ -55,8 +66,5 @@ nnoremap <leader>g <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap <leader>b <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>h <cmd>lua require('telescope.builtin').help_tags()<cr>
 
-" plugin: airline
-let g:airline_powerline_fonts = 1
-
 " abbreviations
-:autocmd FileType php iabbrev <buffer> tmet@ /** @test */<CR>public function Name ()<CR><ESC>i{<CR>}<ESC>02k/Name<CR>ciw
+:autocmd FileType php iabbrev <buffer> tm@ /** @test */<CR>public function Name ()<CR><ESC>i{<CR>}<ESC>02k/Name<CR>ciw
