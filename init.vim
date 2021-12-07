@@ -65,13 +65,6 @@ autocmd Filetype python setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
 autocmd Filetype apache setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
 autocmd Filetype php setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
 
-" plugin: fugitive
-nnoremap <leader>gd :Gvdiffsplit!<CR>
-nnoremap dgh :diffget //2<CR>
-nnoremap dgl :diffget //3<CR>
-nnoremap dp :diffput<CR>
-nnoremap dg :diffget<CR>
-
 " plugin: telescope
 nnoremap <leader>f <cmd>lua require('telescope.builtin').find_files()<cr>
 nnoremap <leader>g <cmd>lua require('telescope.builtin').live_grep()<cr>

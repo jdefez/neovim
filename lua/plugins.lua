@@ -32,18 +32,27 @@ return require('packer').startup(function(use)
 
   use 'kyazdani42/nvim-web-devicons'
 
-  use 'tpope/vim-fugitive'
-  use 'tpope/vim-obsession'
-  use {
-    'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' },
-    config = function() require('gitsigns').setup() end
-  }
-
-  -- Fugitive-companion to interact with github
-  --use 'tpope/vim-rhubarb'
-
   -- "gc" to comment visual regions/lines
   use 'tpope/vim-commentary'
+  use 'tpope/vim-obsession'
+
+  -- git relative
+  -- use 'tpope/vim-fugitive'
+  use {
+    'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'},
+    config = function() require('gitsigns').setup() end
+  }
+  use {
+    'sindrets/diffview.nvim',
+    requires = 'nvim-lua/plenary.nvim',
+    requires = {'kyazdani42/nvim-web-devicons'}
+  }
+  use {
+    'TimUntersberger/neogit',
+    requires = 'nvim-lua/plenary.nvim',
+    config = function() require('neogit').setup() end
+  }
+
   use {'nvim-telescope/telescope.nvim', requires = {'nvim-lua/plenary.nvim'}}
 
   -- Highlight, edit, and navigate code using a fast incremental parsing library
@@ -69,8 +78,6 @@ return require('packer').startup(function(use)
   -- todo: give it a try
   --
   -- https://github.com/jose-elias-alvarez/null-ls.nvim
-  -- https://github.com/lewis6991/gitsigns.nvim
-  -- https://github.com/sindrets/diffview.nvim
   -- https://github.com/TimUntersberger/neogit
   -- https://github.com/mfussenegger/nvim-dap
   -- https://github.com/nvim-lualine/lualine.nvim
