@@ -1,4 +1,22 @@
--- sample: https://github.com/wbthomason/dotfiles/blob/linux/neovim/.config/nvim/lua/plugins.lua
+-- You must run this or `PackerSync` whenever you make changes to your plugin configuration
+-- Regenerate compiled loader file
+-- :PackerCompile
+
+-- Remove any disabled or unused plugins
+-- :PackerClean
+
+-- Clean, then install missing plugins
+-- :PackerInstall
+
+-- Clean, then update and install plugins
+-- :PackerUpdate
+
+-- Perform `PackerUpdate` and then `PackerCompile`
+-- :PackerSync
+
+-- Loads opt plugin immediately
+-- :PackerLoad completion-nvim ale
+
 local fn = vim.fn
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 
@@ -10,25 +28,6 @@ end
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
-  -- You must run this or `PackerSync` whenever you make changes to your plugin configuration
-  -- Regenerate compiled loader file
-  -- :PackerCompile
-
-  -- Remove any disabled or unused plugins
-  -- :PackerClean
-
-  -- Clean, then install missing plugins
-  -- :PackerInstall
-
-  -- Clean, then update and install plugins
-  -- :PackerUpdate
-
-  -- Perform `PackerUpdate` and then `PackerCompile`
-  -- :PackerSync
-
-  -- Loads opt plugin immediately
-  -- :PackerLoad completion-nvim ale
-
   use 'wbthomason/packer.nvim'
 
   use 'kyazdani42/nvim-web-devicons'
