@@ -2,7 +2,7 @@
 " git clone --depth 1 https://github.com/wbthomason/packer.nvim\ 
 " ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
-" phpactor lsp integration
+" phpactor lsp integration with actions
 "
 " https://github.com/bmewburn/vscode-intelephense/issues/1888
 " https://phpactor.readthedocs.io/en/master/lsp/code-actions.html
@@ -22,10 +22,19 @@ lua require('tree-sitter')
 
 " lsp servers
 lua <<EOF
-require'lspconfig'.intelephense.setup{}
+require'lspconfig'.intelephense.setup{
+  settings = {
+    path = '/usr/lib/node_modules/intelephense',
+    intelephense = {
+      licenceKey = '/home/jean/intelephense/licence.txt',
+      rules = '@PSR12,ordered_imports,no_unused_imports',
+    }
+  }
+}
 require'lspconfig'.phpactor.setup{}
 require'lspconfig'.dockerls.setup{}
 require'lspconfig'.eslint.setup{}
+require'lspconfig'.jsonls.setup{}
 EOF
 
 lua require('galaxy-line')
@@ -66,8 +75,8 @@ autocmd Filetype apache setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
 autocmd Filetype php setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
 
 " plugin: telescope
-nnoremap <leader>f <cmd>lua require('telescope.builtin').find_files()<cr>
-nnoremap <leader>g <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader>F <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>G <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap <leader>b <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>h <cmd>lua require('telescope.builtin').help_tags()<cr>
 

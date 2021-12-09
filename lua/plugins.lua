@@ -1,4 +1,6 @@
--- You must run this or `PackerSync` whenever you make changes to your plugin configuration
+-- You must run this or `PackerSync` whenever you make changes to your plugin
+-- configuration
+--
 -- Regenerate compiled loader file
 -- :PackerCompile
 
@@ -22,7 +24,9 @@ local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 
 if fn.empty(fn.glob(install_path)) > 0 then
   vim.api.nvim_echo({{'Installing packer.nvim', 'Type'}}, true, {})
-  packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+  packer_bootstrap = fn.system({
+    'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path
+  })
 end
 
 vim.cmd [[packadd packer.nvim]]
@@ -30,7 +34,16 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
-  use 'kyazdani42/nvim-web-devicons'
+  -- todo: give it a try
+  --
+  -- https://github.com/jose-elias-alvarez/null-ls.nvim
+  -- https://github.com/mfussenegger/nvim-dap
+  -- https://github.com/nvim-lualine/lualine.nvim
+
+  -- Plug 'swekaj/php-foldexpr.vim'
+  -- Plug 'mattn/emmet-vim'
+  -- Plug('mg979/vim-visual-multi', {branch = 'master'})
+  -- Plug 'phanviet/vim-monokai-pro'
 
   -- "gc" to comment visual regions/lines
   use 'tpope/vim-commentary'
@@ -45,7 +58,7 @@ return require('packer').startup(function(use)
   use {
     'sindrets/diffview.nvim',
     requires = 'nvim-lua/plenary.nvim',
-    requires = {'kyazdani42/nvim-web-devicons'}
+    requires = 'kyazdani42/nvim-web-devicons'
   }
   use {
     'TimUntersberger/neogit',
@@ -56,17 +69,33 @@ return require('packer').startup(function(use)
   use {'nvim-telescope/telescope.nvim', requires = {'nvim-lua/plenary.nvim'}}
 
   -- Highlight, edit, and navigate code using a fast incremental parsing library
-  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+  use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
 
   -- Collection of configurations for built-in LSP client
   use 'neovim/nvim-lspconfig'
   use 'williamboman/nvim-lsp-installer'
 
   -- Autocompletion plugin
-  use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/nvim-cmp'
-  use 'hrsh7th/cmp-vsnip'
-  use 'hrsh7th/vim-vsnip'
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'quangnguyen30192/cmp-nvim-ultisnips'
+  use {'SirVer/ultisnips',
+    requires = {{'honza/vim-snippets', rtp = '.'}},
+    config = function()      
+      vim.g.UltiSnipsExpandTrigger = '<Plug>(ultisnips_expand)'      
+      vim.g.UltiSnipsJumpForwardTrigger = '<Plug>(ultisnips_jump_forward)'
+      vim.g.UltiSnipsJumpBackwardTrigger = '<Plug>(ultisnips_jump_backward)'
+      vim.g.UltiSnipsListSnippets = '<c-x><c-s>'
+      vim.g.UltiSnipsRemoveSelectModeMappings = 0
+    end
+  }
+
+  -- use{
+  --   'hrsh7th/nvim-cmp',
+  --   requires = 'quangnguyen30192/cmp-nvim-ultisnips',
+  --   requires = 'SirVer/ultisnips',
+  --   requires = 'hrsh7th/cmp-nvim-lsp',
+  -- }
 
   use {
     'glepnir/galaxyline.nvim', branch = 'main',
@@ -74,18 +103,6 @@ return require('packer').startup(function(use)
     requires = {'kyazdani42/nvim-web-devicons'}
   }
   use {'cormacrelf/vim-colors-github', as = 'colorscheme github'}
-
-  -- todo: give it a try
-  --
-  -- https://github.com/jose-elias-alvarez/null-ls.nvim
-  -- https://github.com/TimUntersberger/neogit
-  -- https://github.com/mfussenegger/nvim-dap
-  -- https://github.com/nvim-lualine/lualine.nvim
-
-  -- Plug 'swekaj/php-foldexpr.vim'
-  -- Plug 'mattn/emmet-vim'
-  -- Plug('mg979/vim-visual-multi', {branch = 'master'})
-  -- Plug 'phanviet/vim-monokai-pro'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
