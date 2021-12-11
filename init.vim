@@ -1,12 +1,3 @@
-" todo: note about packer installation:
-" git clone --depth 1 https://github.com/wbthomason/packer.nvim\ 
-" ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-
-" phpactor lsp integration with actions
-"
-" https://github.com/bmewburn/vscode-intelephense/issues/1888
-" https://phpactor.readthedocs.io/en/master/lsp/code-actions.html
-
 lua require('plugins')
 
 augroup packer_user_config
@@ -26,6 +17,7 @@ lua require('lsp-saga')
 lua <<EOF
 require'lspconfig'.intelephense.setup{
   settings = {
+    -- this is not working
     path = '/usr/lib/node_modules/intelephense',
     intelephense = {
       licenceKey = '/home/jean/intelephense/licence.txt',
@@ -33,10 +25,12 @@ require'lspconfig'.intelephense.setup{
     }
   }
 }
-require'lspconfig'.phpactor.setup{}
+-- require'lspconfig'.phpactor.setup{}
+require'lspconfig'.sumneko_lua.setup{}
 require'lspconfig'.dockerls.setup{}
-require'lspconfig'.eslint.setup{}
 require'lspconfig'.jsonls.setup{}
+require'lspconfig'.eslint.setup{}
+require'lspconfig'.dotls.setup{}
 EOF
 
 lua require('galaxy-line')
@@ -87,33 +81,28 @@ nnoremap <leader>h <cmd>lua require('telescope.builtin').help_tags()<cr>
 
 " plugin: lspsaga
 " lsp provider to find the cursor word definition and reference
+"
 nnoremap <silent> gh <cmd>lua require'lspsaga.provider'.lsp_finder()<CR>
-
 " code action
 nnoremap <silent><leader>ca <cmd>lua require('lspsaga.codeaction').code_action()<CR>
 vnoremap <silent><leader>ca :<C-U>lua require('lspsaga.codeaction').range_code_action()<CR>
-
 " show hover doc
-nnoremap <silent> K <cmd>lua require('lspsaga.hover').render_hover_doc()<CR>
-
+nnoremap <silent>K <cmd>lua require('lspsaga.hover').render_hover_doc()<CR>
 " scroll down hover doc or scroll in definition preview
-nnoremap <silent> <C-f> <cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>
-
+nnoremap <silent><C-f> <cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>
 " scroll up hover doc
-nnoremap <silent> <C-b> <cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>
-
+nnoremap <silent><C-b> <cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>
 " show signature help
-nnoremap <silent> gs <cmd>lua require('lspsaga.signaturehelp').signature_help()<CR>
-
-" rename
-" close rename win use <C-c> in insert mode or `q` in noremal mode or `:q`
+nnoremap <silent>gs <cmd>lua require('lspsaga.signaturehelp').signature_help()<CR>
+" rename (close rename win use <C-c> in insert mode or `q` in noremal mode or `:q`)
 nnoremap <silent>gr <cmd>lua require('lspsaga.rename').rename()<CR>
-
 " preview definition
 nnoremap <silent> gd <cmd>lua require'lspsaga.provider'.preview_definition()<CR>
-
 " show
-nnoremap <silent><leader>cd <cmd>lua require'lspsaga.diagnostic'.show_line_diagnostics()<CR>
+" nnoremap <silent><leader>cd <cmd>lua require'lspsaga.diagnostic'.show_line_diagnostics()<CR>
+" only show diagnostic if cursor is over the area
+" nnoremap <silent><leader>cc <cmd>lua
+" require'lspsaga.diagnostic'.show_cursor_diagnostics()<CR>
 
 " plugin: phpactor
 
@@ -124,10 +113,6 @@ augroup PhpactorMappings
   au FileType php nmap <buffer> <Leader>mm :PhpactorContextMenu<CR>
   au FileType php nmap <buffer> <Leader>tt :PhpactorTransform<CR>
 augroup END
-
-" only show diagnostic if cursor is over the area
-" nnoremap <silent><leader>cc <cmd>lua
-" require'lspsaga.diagnostic'.show_cursor_diagnostics()<CR>
 
 " jump diagnostic
 nnoremap <silent> [e <cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_prev()<CR>
