@@ -74,10 +74,16 @@ return require('packer').startup(function(use)
   -- Collection of configurations for built-in LSP client
   use 'neovim/nvim-lspconfig'
   use 'williamboman/nvim-lsp-installer'
+  use 'glepnir/lspsaga.nvim'
+  use 'phpactor/phpactor'
 
   -- Autocompletion plugin
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/cmp-path'
+  use 'hrsh7th/cmp-calc'
+  use 'hrsh7th/cmp-cmdline'
   use 'quangnguyen30192/cmp-nvim-ultisnips'
   use {'SirVer/ultisnips',
     requires = {{'honza/vim-snippets', rtp = '.'}},
@@ -89,13 +95,6 @@ return require('packer').startup(function(use)
       vim.g.UltiSnipsRemoveSelectModeMappings = 0
     end
   }
-
-  -- use{
-  --   'hrsh7th/nvim-cmp',
-  --   requires = 'quangnguyen30192/cmp-nvim-ultisnips',
-  --   requires = 'SirVer/ultisnips',
-  --   requires = 'hrsh7th/cmp-nvim-lsp',
-  -- }
 
   use {
     'glepnir/galaxyline.nvim', branch = 'main',
