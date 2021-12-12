@@ -1,24 +1,3 @@
--- You must run this or `PackerSync` whenever you make changes to your plugin
--- configuration
---
--- Regenerate compiled loader file
--- :PackerCompile
-
--- Remove any disabled or unused plugins
--- :PackerClean
-
--- Clean, then install missing plugins
--- :PackerInstall
-
--- Clean, then update and install plugins
--- :PackerUpdate
-
--- Perform `PackerUpdate` and then `PackerCompile`
--- :PackerSync
-
--- Loads opt plugin immediately
--- :PackerLoad completion-nvim ale
-
 local fn = vim.fn
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 
@@ -34,11 +13,13 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
-  -- todo: give it a try
+  -- Todo: give it a try
   --
   -- https://github.com/jose-elias-alvarez/null-ls.nvim
   -- https://github.com/mfussenegger/nvim-dap
-
+  --
+  -- Not installed + find replacement
+  --
   -- Plug 'swekaj/php-foldexpr.vim'
   -- Plug 'mattn/emmet-vim'
   -- Plug('mg979/vim-visual-multi', {branch = 'master'})

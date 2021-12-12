@@ -30,12 +30,11 @@ require'lspconfig'.intelephense.setup{
     }
   }
 }
--- require'lspconfig'.phpactor.setup{}
-require'lspconfig'.sumneko_lua.setup{}
 require'lspconfig'.dockerls.setup{}
 require'lspconfig'.jsonls.setup{}
 require'lspconfig'.eslint.setup{}
 require'lspconfig'.dotls.setup{}
+-- require'lspconfig'.phpactor.setup{}
 EOF
 
 lua require('galaxy-line')
