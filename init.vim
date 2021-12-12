@@ -7,29 +7,14 @@ augroup end
 
 lua require('basic')
 
-lua <<EOF
-require'nvim-treesitter.configs'.setup {
-  highlight = {
-    enable = true,
-  }
-}
-EOF
-
 set background=light
 colorscheme github-colors
 
+"lua require'navigator'.setup()
+
 " lsp servers
 lua <<EOF
-require'lspconfig'.intelephense.setup{
-  settings = {
-    -- this is not working
-    path = '/usr/lib/node_modules/intelephense',
-    intelephense = {
-      licenceKey = '/home/jean/intelephense/licence.txt',
-      rules = '@PSR12,ordered_imports,no_unused_imports',
-    }
-  }
-}
+require'lspconfig'.intelephense.setup{}
 require'lspconfig'.dockerls.setup{}
 require'lspconfig'.jsonls.setup{}
 require'lspconfig'.eslint.setup{}
@@ -37,14 +22,15 @@ require'lspconfig'.dotls.setup{}
 -- require'lspconfig'.phpactor.setup{}
 EOF
 
-lua require('galaxy-line')
-
 lua require('nvim-cmp')
 
 " Mapings
 
 " yank line
 nnoremap Y yy$
+
+" copy to clip board
+" vmap <C-c> "+y
 
 " custom escape
 inoremap jj <ESC>
@@ -60,9 +46,6 @@ nnoremap <S-Up> :m .-2<CR>==
 nnoremap <S-Down> :m .+1<CR>==
 vnoremap <S-Up> :m '<-2<CR>gv=gv
 vnoremap <S-Down> :m '>+1<CR>gv=gv
-
-" copy to clip board
-vmap <C-c> "+y
 
 " Specific syntax settings
 au BufRead,BufNewFile *.blade.php set ft=html

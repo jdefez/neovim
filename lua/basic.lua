@@ -42,3 +42,9 @@ vim.opt.undolevels = 10000
 -- vim.opt.updatetime = 300
 
 vim.opt.termguicolors = true
+
+-- plugin: lualine
+vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
+
+-- plugin: nvim-lightbulb
+vim.cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]]

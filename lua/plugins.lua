@@ -17,6 +17,7 @@ return require('packer').startup(function(use)
   --
   -- https://github.com/jose-elias-alvarez/null-ls.nvim
   -- https://github.com/mfussenegger/nvim-dap
+  -- https://github.com/Pocco81/AutoSave.nvim
   --
   -- Not installed + find replacement
   --
@@ -27,7 +28,15 @@ return require('packer').startup(function(use)
 
   -- "gc" to comment visual regions/lines
   use 'tpope/vim-commentary'
-  use 'tpope/vim-obsession'
+  use {
+    'rmagatti/auto-session',
+    config = function()
+      require('auto-session').setup {
+        log_level = 'info',
+        auto_session_suppress_dirs = {'~/', '~/Projects'}
+      }
+    end
+  }
 
   -- git relative
   -- use 'tpope/vim-fugitive'
@@ -54,6 +63,15 @@ return require('packer').startup(function(use)
   -- Collection of configurations for built-in LSP client
   use 'neovim/nvim-lspconfig'
   use 'williamboman/nvim-lsp-installer'
+  use 'kosayoda/nvim-lightbulb'
+
+  -- use 'nanotee/nvim-lsp-basics'
+
+  -- use {
+  --   'ray-x/navigator.lua',
+  --   requires = {'ray-x/guihua.lua', run = 'cd lua/fzy && make'}
+  -- }
+
   use 'phpactor/phpactor'
 
   -- Autocompletion plugin
@@ -76,12 +94,52 @@ return require('packer').startup(function(use)
   }
 
   use {
-    'glepnir/galaxyline.nvim', branch = 'main',
-    -- config = function() require'statusline' end,
-    requires = {'kyazdani42/nvim-web-devicons'}
+    'nvim-lualine/lualine.nvim',
+    requires = {'kyazdani42/nvim-web-devicons', opt = true},
+    config = function()
+      require('lualine').setup{
+        options = { theme = 'horizon' },
+        sections = {
+          lualine_c = {
+            require('auto-session-library').current_session_name
+          }
+        }
+      }
+    end
   }
 
-  -- use {'cormacrelf/vim-colors-github', as = 'colorscheme github'}
+  -- toggle on/off using :ASToggle
+  use {
+    'Pocco81/AutoSave.nvim',
+    config = function()
+      require('autosave').setup{
+        {
+          enabled = true,
+          execution_message = "AutoSave: saved at " .. vim.fn.strftime("%H:%M:%S"),
+          events = {"InsertLeave", "TextChanged"},
+          conditions = {
+            exists = true,
+            filename_is_not = {},
+            filetype_is_not = {},
+            modifiable = true
+          },
+          write_all_buffers = false,
+          on_off_commands = true,
+          clean_command_line_interval = 0,
+          debounce_delay = 135
+        }
+      }
+    end
+  }
+
+  use {
+    "folke/which-key.nvim",
+    config = function()
+      require("which-key").setup {
+      }
+    end
+  }
+
   use { 'lourenci/github-colors', { branch = 'main' }}
 
   -- Automatically set up your configuration after cloning packer.nvim
