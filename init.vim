@@ -7,11 +7,16 @@ augroup end
 
 lua require('basic')
 
-lua require('schemes')
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  highlight = {
+    enable = true,
+  }
+}
+EOF
 
-lua require('tree-sitter')
-
-lua require('lsp-saga')
+set background=light
+colorscheme github-colors
 
 " lsp servers
 lua <<EOF
@@ -78,31 +83,6 @@ nnoremap <leader>F <cmd>lua require('telescope.builtin').find_files()<cr>
 nnoremap <leader>G <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap <leader>b <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>h <cmd>lua require('telescope.builtin').help_tags()<cr>
-
-" plugin: lspsaga
-" lsp provider to find the cursor word definition and reference
-"
-nnoremap <silent> gh <cmd>lua require'lspsaga.provider'.lsp_finder()<CR>
-" code action
-nnoremap <silent><leader>ca <cmd>lua require('lspsaga.codeaction').code_action()<CR>
-vnoremap <silent><leader>ca :<C-U>lua require('lspsaga.codeaction').range_code_action()<CR>
-" show hover doc
-nnoremap <silent>K <cmd>lua require('lspsaga.hover').render_hover_doc()<CR>
-" scroll down hover doc or scroll in definition preview
-nnoremap <silent><C-f> <cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>
-" scroll up hover doc
-nnoremap <silent><C-b> <cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>
-" show signature help
-nnoremap <silent>gs <cmd>lua require('lspsaga.signaturehelp').signature_help()<CR>
-" rename (close rename win use <C-c> in insert mode or `q` in noremal mode or `:q`)
-nnoremap <silent>gr <cmd>lua require('lspsaga.rename').rename()<CR>
-" preview definition
-nnoremap <silent> gd <cmd>lua require'lspsaga.provider'.preview_definition()<CR>
-" show
-" nnoremap <silent><leader>cd <cmd>lua require'lspsaga.diagnostic'.show_line_diagnostics()<CR>
-" only show diagnostic if cursor is over the area
-" nnoremap <silent><leader>cc <cmd>lua
-" require'lspsaga.diagnostic'.show_cursor_diagnostics()<CR>
 
 " plugin: phpactor
 

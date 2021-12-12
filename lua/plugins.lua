@@ -38,7 +38,6 @@ return require('packer').startup(function(use)
   --
   -- https://github.com/jose-elias-alvarez/null-ls.nvim
   -- https://github.com/mfussenegger/nvim-dap
-  -- https://github.com/nvim-lualine/lualine.nvim
 
   -- Plug 'swekaj/php-foldexpr.vim'
   -- Plug 'mattn/emmet-vim'
@@ -74,7 +73,6 @@ return require('packer').startup(function(use)
   -- Collection of configurations for built-in LSP client
   use 'neovim/nvim-lspconfig'
   use 'williamboman/nvim-lsp-installer'
-  use 'glepnir/lspsaga.nvim'
   use 'phpactor/phpactor'
 
   -- Autocompletion plugin
@@ -101,7 +99,9 @@ return require('packer').startup(function(use)
     -- config = function() require'statusline' end,
     requires = {'kyazdani42/nvim-web-devicons'}
   }
-  use {'cormacrelf/vim-colors-github', as = 'colorscheme github'}
+
+  -- use {'cormacrelf/vim-colors-github', as = 'colorscheme github'}
+  use { 'lourenci/github-colors', { branch = 'main' }}
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
