@@ -24,6 +24,8 @@ EOF
 
 lua require('nvim-cmp')
 
+lua require('lualine-bubble')
+
 " Mapings
 
 " yank line

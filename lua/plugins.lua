@@ -96,16 +96,6 @@ return require('packer').startup(function(use)
   use {
     'nvim-lualine/lualine.nvim',
     requires = {'kyazdani42/nvim-web-devicons', opt = true},
-    config = function()
-      require('lualine').setup{
-        options = { theme = 'horizon' },
-        sections = {
-          lualine_c = {
-            require('auto-session-library').current_session_name
-          }
-        }
-      }
-    end
   }
 
   -- toggle on/off using :ASToggle
