@@ -52,7 +52,9 @@ return require('packer').startup(function(use)
   use {
     'TimUntersberger/neogit',
     requires = 'nvim-lua/plenary.nvim',
-    config = function() require('neogit').setup() end
+    config = function()
+      require('neogit').setup()
+    end
   }
 
   use {'nvim-telescope/telescope.nvim', requires = {'nvim-lua/plenary.nvim'}}
@@ -60,10 +62,28 @@ return require('packer').startup(function(use)
   -- Highlight, edit, and navigate code using a fast incremental parsing library
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
 
-  -- Collection of configurations for built-in LSP client
+  -- lsp relative plugins
   use 'neovim/nvim-lspconfig'
   use 'williamboman/nvim-lsp-installer'
   use 'kosayoda/nvim-lightbulb'
+  use {
+    'folke/lsp-colors.nvim',
+    config = function()
+      require("lsp-colors").setup({
+        Error = "#db4b4b",
+        Warning = "#e0af68",
+        Information = "#0db9d7",
+        Hint = "#10B981"
+      })
+    end
+  }
+  use {
+    "folke/trouble.nvim",
+    requires = "kyazdani42/nvim-web-devicons",
+    config = function()
+      require("trouble").setup {}
+    end
+  }
 
   -- use 'nanotee/nvim-lsp-basics'
 
