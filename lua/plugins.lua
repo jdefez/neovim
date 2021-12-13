@@ -49,6 +49,7 @@ return require('packer').startup(function(use)
     requires = 'nvim-lua/plenary.nvim',
     requires = 'kyazdani42/nvim-web-devicons'
   }
+  -- todo: test https://github.com/lambdalisue/gina.vim; could replace fugitive
   use {
     'TimUntersberger/neogit',
     requires = 'nvim-lua/plenary.nvim',
@@ -102,7 +103,8 @@ return require('packer').startup(function(use)
   use 'hrsh7th/cmp-calc'
   use 'hrsh7th/cmp-cmdline'
   use 'quangnguyen30192/cmp-nvim-ultisnips'
-  use {'SirVer/ultisnips',
+  use {
+    'SirVer/ultisnips',
     requires = {{'honza/vim-snippets', rtp = '.'}},
     config = function()      
       vim.g.UltiSnipsExpandTrigger = '<Plug>(ultisnips_expand)'      
@@ -143,10 +145,11 @@ return require('packer').startup(function(use)
   }
 
   use {
+    -- todo: register all key bindings
+    --  and may be use ; as leader
     "folke/which-key.nvim",
     config = function()
-      require("which-key").setup {
-      }
+      require("which-key").setup { }
     end
   }
 
@@ -155,7 +158,8 @@ return require('packer').startup(function(use)
     'projekt0n/github-nvim-theme',
     config = function()
       require('github-theme').setup({
-        theme_style = 'light',
+        -- dark, dark_default, dimmed, light
+        theme_style = 'dimmed',
         function_style = 'italic',
         sidebars = {'qf', 'vista_kind', 'terminal', 'packer'},
 
