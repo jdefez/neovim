@@ -153,13 +153,12 @@ return require('packer').startup(function(use)
     end
   }
 
-  -- use { 'lourenci/github-colors', { branch = 'main' }}
   use {
     'projekt0n/github-nvim-theme',
     config = function()
       require('github-theme').setup({
         -- dark, dark_default, dimmed, light
-        theme_style = 'dimmed',
+        theme_style = 'light',
         function_style = 'italic',
         sidebars = {'qf', 'vista_kind', 'terminal', 'packer'},
 
