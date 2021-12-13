@@ -7,9 +7,6 @@ augroup end
 
 lua require('basic')
 
-set background=light
-colorscheme github-colors
-
 "lua require'navigator'.setup()
 
 " lsp servers

@@ -150,7 +150,20 @@ return require('packer').startup(function(use)
     end
   }
 
-  use { 'lourenci/github-colors', { branch = 'main' }}
+  -- use { 'lourenci/github-colors', { branch = 'main' }}
+  use {
+    'projekt0n/github-nvim-theme',
+    config = function()
+      require('github-theme').setup({
+        theme_style = 'light',
+        function_style = 'italic',
+        sidebars = {'qf', 'vista_kind', 'terminal', 'packer'},
+
+        -- Change the 'hint' color to the 'orange' color, and make the 'error' color bright red
+        colors = {hint = 'orange', error = '#ff0000'}
+      })
+    end
+  }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
