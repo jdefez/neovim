@@ -17,28 +17,20 @@ return require('packer').startup(function(use)
   --
   -- https://github.com/jose-elias-alvarez/null-ls.nvim
   -- https://github.com/mfussenegger/nvim-dap
-  -- https://github.com/Pocco81/AutoSave.nvim
-  --
-  -- Not installed + find replacement
+  -- https://github.com/RRethy/vim-illuminate
+
+  -- Todo: Not installed + find replacement
   --
   -- Plug 'swekaj/php-foldexpr.vim'
   -- Plug 'mattn/emmet-vim'
   -- Plug('mg979/vim-visual-multi', {branch = 'master'})
   -- Plug 'phanviet/vim-monokai-pro'
 
-  -- "gc" to comment visual regions/lines
-  use 'tpope/vim-commentary'
-  use {
-    'rmagatti/auto-session',
-    config = function()
-      require('auto-session').setup {
-        log_level = 'info',
-        auto_session_suppress_dirs = {'~/', '~/Projects'}
-      }
-    end
-  }
-
   -- git relative
+  --
+  -- todo: test https://github.com/lambdalisue/gina.vim; could replace fugitive
+  --  and diffview and neogit
+
   use 'tpope/vim-fugitive'
   use {
     'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'},
@@ -49,7 +41,6 @@ return require('packer').startup(function(use)
     requires = 'nvim-lua/plenary.nvim',
     requires = 'kyazdani42/nvim-web-devicons'
   }
-  -- todo: test https://github.com/lambdalisue/gina.vim; could replace fugitive
   use {
     'TimUntersberger/neogit',
     requires = 'nvim-lua/plenary.nvim',
@@ -58,31 +49,34 @@ return require('packer').startup(function(use)
     end
   }
 
+  -- navigation relative plugins
+
   use {'nvim-telescope/telescope.nvim', requires = {'nvim-lua/plenary.nvim'}}
 
   -- Highlight, edit, and navigate code using a fast incremental parsing library
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
 
   -- lsp relative plugins
+
   use 'neovim/nvim-lspconfig'
   use 'williamboman/nvim-lsp-installer'
   use 'kosayoda/nvim-lightbulb'
   use {
     'folke/lsp-colors.nvim',
     config = function()
-      require("lsp-colors").setup({
-        Error = "#db4b4b",
-        Warning = "#e0af68",
-        Information = "#0db9d7",
-        Hint = "#10B981"
+      require('lsp-colors').setup({
+        Error = '#db4b4b',
+        Warning = '#e0af68',
+        Information = '#0db9d7',
+        Hint = '#10B981'
       })
     end
   }
   use {
-    "folke/trouble.nvim",
-    requires = "kyazdani42/nvim-web-devicons",
+    'folke/trouble.nvim',
+    requires = 'kyazdani42/nvim-web-devicons',
     config = function()
-      require("trouble").setup {}
+      require('trouble').setup {}
     end
   }
 
@@ -127,8 +121,8 @@ return require('packer').startup(function(use)
       require('autosave').setup{
         {
           enabled = true,
-          execution_message = "AutoSave: saved at " .. vim.fn.strftime("%H:%M:%S"),
-          events = {"InsertLeave", "TextChanged"},
+          execution_message = 'AutoSave: saved at ' .. vim.fn.strftime('%H:%M:%S'),
+          events = {'InsertLeave', 'TextChanged'},
           conditions = {
             exists = true,
             filename_is_not = {},
@@ -145,13 +139,22 @@ return require('packer').startup(function(use)
   }
 
   use {
-    -- todo: register all key bindings
-    --  and may be use ; as leader
-    "folke/which-key.nvim",
+    'rmagatti/auto-session',
     config = function()
-      require("which-key").setup { }
+      require('auto-session').setup {
+        log_level = 'info',
+        auto_session_suppress_dirs = {'~/', '~/Projects'}
+      }
     end
   }
+
+  -- :BDelete <hidden|nameless|this>
+  use 'kazhala/close-buffers.nvim'
+
+  -- 'gc' to comment visual regions/lines
+  use 'tpope/vim-commentary'
+
+  use 'folke/which-key.nvim'
 
   use {
     'projekt0n/github-nvim-theme',
@@ -162,11 +165,14 @@ return require('packer').startup(function(use)
         function_style = 'italic',
         sidebars = {'qf', 'vista_kind', 'terminal', 'packer'},
 
-        -- Change the 'hint' color to the 'orange' color, and make the 'error' color bright red
+        -- Change the 'hint' color to the 'orange' color, and make the 'error'
+        -- color bright red
         colors = {hint = 'orange', error = '#ff0000'}
       })
     end
   }
+
+  use 'RRethy/vim-illuminate'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

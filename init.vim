@@ -24,6 +24,8 @@ lua require('nvim-cmp')
 
 lua require('lualine-bubble')
 
+lua require('which-key-bindings')
+
 " Mapings
 
 " yank line
@@ -60,20 +62,6 @@ autocmd Filetype python setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
 autocmd Filetype apache setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
 autocmd Filetype php setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
 
-" plugin: trouble
-nnoremap <leader>xx <cmd>TroubleToggle<cr>
-nnoremap <leader>xw <cmd>TroubleToggle workspace_diagnostics<cr>
-nnoremap <leader>xd <cmd>TroubleToggle document_diagnostics<cr>
-nnoremap <leader>xq <cmd>TroubleToggle quickfix<cr>
-nnoremap <leader>xl <cmd>TroubleToggle loclist<cr>
-nnoremap gR <cmd>TroubleToggle lsp_references<cr>
-
-" plugin: telescope
-nnoremap <leader>F <cmd>lua require('telescope.builtin').find_files()<cr>
-nnoremap <leader>G <cmd>lua require('telescope.builtin').live_grep()<cr>
-nnoremap <leader>b <cmd>lua require('telescope.builtin').buffers()<cr>
-nnoremap <leader>h <cmd>lua require('telescope.builtin').help_tags()<cr>
-
 " plugin: phpactor
 
 autocmd FileType php setlocal omnifunc=phpactor#Complete
@@ -83,10 +71,6 @@ augroup PhpactorMappings
   au FileType php nmap <buffer> <Leader>mm :PhpactorContextMenu<CR>
   au FileType php nmap <buffer> <Leader>tt :PhpactorTransform<CR>
 augroup END
-
-" jump diagnostic
-nnoremap <silent> [e <cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_prev()<CR>
-nnoremap <silent> ]e <cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_next()<CR>
 
 " abbreviations
 :autocmd FileType php iabbrev <buffer> tm@ /** @test */<CR>public function Name ()<CR><ESC>i{<CR>}<ESC>02k/Name<CR>ciw
