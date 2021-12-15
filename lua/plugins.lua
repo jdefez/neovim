@@ -29,8 +29,8 @@ return require('packer').startup(function(use)
   -- todo: test https://github.com/lambdalisue/gina.vim; could replace fugitive
   --  and diffview and neogit
 
-  use 'tpope/vim-fugitive'
-  -- use '/lambdalisue/gina.vim'
+  -- use 'tpope/vim-fugitive'
+  use '/lambdalisue/gina.vim'
   use {
     'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'},
     config = function() require('gitsigns').setup() end
