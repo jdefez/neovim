@@ -142,8 +142,12 @@ return require('packer').startup(function(use)
     'rmagatti/auto-session',
     config = function()
       require('auto-session').setup {
-        log_level = 'info',
-        auto_session_suppress_dirs = {'~/', '~/Projects'}
+        auto_session_enable_last_session = false,
+        auto_session_root_dir = vim.fn.stdpath('data').."/sessions/",
+        auto_session_enabled = true,
+        auto_save_enabled = true,
+        auto_restore_enabled = nil,
+        auto_session_suppress_dirs = nil
       }
     end
   }
@@ -161,7 +165,7 @@ return require('packer').startup(function(use)
     config = function()
       require('github-theme').setup({
         -- dark, dark_default, dimmed, light
-        theme_style = 'light',
+        theme_style = 'dimmed',
         function_style = 'italic',
         sidebars = {'qf', 'vista_kind', 'terminal', 'packer'},
 

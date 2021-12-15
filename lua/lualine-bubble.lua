@@ -41,9 +41,8 @@ require('lualine').setup {
     lualine_a = {
       { 'mode', separator = { left = '' }, right_padding = 2 },
     },
-    lualine_b = { 'filename', 'branch' },
+    lualine_b = { 'filename', 'branch', 'fileformat' },
     lualine_c = {
-      'fileformat',
       require('auto-session-library').current_session_name
     },
     lualine_x = {
