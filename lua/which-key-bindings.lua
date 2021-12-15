@@ -7,27 +7,27 @@ wk.register({
   --  - gitsigns
   b = {
     name = '+buffer',
-    c = {'<cmd>BDelete this', 'Close current buffer'},
-    h = {'<cmd>BDelete hidden', 'Close hidden buffers'},
-    n = {'<cmd>BDelete nameless', 'Close nameless buffers'},
+    c = {'<cmd>BDelete this<CR>', 'Close current buffer'},
+    h = {'<cmd>BDelete hidden<CR>', 'Close hidden buffers'},
+    n = {'<cmd>BDelete nameless<CR>', 'Close nameless buffers'},
   },
   d = {
     name = '+trouble',
-    t = {'<cmd>TroubleToggle<cr>', 'Toggle trouble'},
-    w = {'<cmd>TroubleToggle workspace_diagnostics<cr>', 'Toggle trouble diagnostics'},
-    d = {'<cmd>TroubleToggle document_diagnostics<cr>', 'Toggle document diagnostics'},
-    q = {'<cmd>TroubleToggle quickfix<cr>', 'Toggle quickfix'},
-    l = {'<cmd>TroubleToggle loclist<cr>', 'Toggle loclist'},
-    R = {'<cmd>TroubleToggle lsp_references<cr>', 'Toggle lsp references'}
+    t = {'<cmd>TroubleToggle<CR>', 'Toggle trouble'},
+    w = {'<cmd>TroubleToggle workspace_diagnostics<CR>', 'Toggle trouble diagnostics'},
+    d = {'<cmd>TroubleToggle document_diagnostics<CR>', 'Toggle document diagnostics'},
+    q = {'<cmd>TroubleToggle quickfix<CR>', 'Toggle quickfix'},
+    l = {'<cmd>TroubleToggle loclist<CR>', 'Toggle loclist'},
+    R = {'<cmd>TroubleToggle lsp_references<CR>', 'Toggle lsp references'}
   },
   f = {
     name = '+telescope',
-    f = {'<cmd>Telescope find_files<cr>', 'Find file'},
-    g = {'<cmd>Telescope live_grep<cr>', 'Live grep'},
-    b = {'<cmd>Telescope buffers<cr>', 'Buffers'},
-    h = {'<cmd>Telescope help_tags<cr>', 'Tags'},
-    c = {'<cmd>Telescope git_commits<cr>', 'List commits'},
-    s = {'<cmd>Telescope git_status<cr>', 'Show git status'}
+    f = {'<cmd>Telescope find_files<CR>', 'Find file'},
+    g = {'<cmd>Telescope live_grep<CR>', 'Live grep'},
+    b = {'<cmd>Telescope buffers<CR>', 'Buffers'},
+    h = {'<cmd>Telescope help_tags<CR>', 'Tags'},
+    c = {'<cmd>Telescope git_commits<CR>', 'List commits'},
+    s = {'<cmd>Telescope git_status<CR>', 'Show git status'}
   },
   h = {
     name = '+hunk',
