@@ -8,8 +8,6 @@ if fn.empty(fn.glob(install_path)) > 0 then
   })
 end
 
-vim.cmd [[packadd packer.nvim]]
-
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
@@ -32,6 +30,7 @@ return require('packer').startup(function(use)
   --  and diffview and neogit
 
   use 'tpope/vim-fugitive'
+  -- use '/lambdalisue/gina.vim'
   use {
     'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'},
     config = function() require('gitsigns').setup() end
