@@ -17,7 +17,7 @@ require'lspconfig'.jsonls.setup{}
 require'lspconfig'.eslint.setup{}
 require'lspconfig'.yamlls.setup{}
 require'lspconfig'.dotls.setup{}
--- require'lspconfig'.phpactor.setup{}
+require'lspconfig'.phpactor.setup{}
 EOF
 
 lua require('nvim-cmp')
@@ -52,9 +52,6 @@ vnoremap <S-Down> :m '>+1<CR>gv=gv
 " Specific syntax settings
 au BufRead,BufNewFile *.blade.php set ft=html
 
-" avoiding phpactor to create variables with 2 $ sign
-autocmd FileType php set iskeyword+=$
-
 autocmd Filetype vue setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype html setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype graphql setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
@@ -64,13 +61,8 @@ autocmd Filetype php setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
 
 " plugin: phpactor
 
-autocmd FileType php setlocal omnifunc=phpactor#Complete
-let g:phpactor_executable = '~/.local/share/nvim/site/pack/packer/phpactor/bin/phpactor'
-augroup PhpactorMappings
-  au!
-  au FileType php nmap <buffer> <Leader>mm :PhpactorContextMenu<CR>
-  au FileType php nmap <buffer> <Leader>tt :PhpactorTransform<CR>
-augroup END
+" avoiding phpactor to create variables with 2 $ sign
+autocmd FileType php set iskeyword+=$
 
 " abbreviations
 :autocmd FileType php iabbrev <buffer> tm@ /** @test */<CR>public function Name ()<CR><ESC>i{<CR>}<ESC>02k/Name<CR>ciw

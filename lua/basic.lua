@@ -3,6 +3,9 @@ vim.g.mapleader = ' '
 
 vim.g['python3_host_prog'] = '/usr/bin/python3'
 
+-- lsp: phpactor
+vim.g['phpactor_executable'] = '~/phpactor/bin/phpactor'
+
 vim.wo.colorcolumn = '81'
 vim.wo.relativenumber = true
 vim.wo.number = true

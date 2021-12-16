@@ -15,7 +15,6 @@ return require('packer').startup(function(use)
   --
   -- https://github.com/jose-elias-alvarez/null-ls.nvim
   -- https://github.com/mfussenegger/nvim-dap
-  -- https://github.com/RRethy/vim-illuminate
 
   -- Todo: Not installed + find replacement
   --
@@ -24,16 +23,13 @@ return require('packer').startup(function(use)
   -- Plug('mg979/vim-visual-multi', {branch = 'master'})
   -- Plug 'phanviet/vim-monokai-pro'
 
-  -- git relative
-  --
-  -- todo: test https://github.com/lambdalisue/gina.vim; could replace fugitive
-  --  and diffview and neogit
-
-  -- use 'tpope/vim-fugitive'
   use '/lambdalisue/gina.vim'
   use {
-    'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'},
-    config = function() require('gitsigns').setup() end
+    'lewis6991/gitsigns.nvim',
+    requires = {'nvim-lua/plenary.nvim'},
+    config = function()
+      require('gitsigns').setup()
+    end
   }
   use {
     'sindrets/diffview.nvim',
@@ -53,7 +49,10 @@ return require('packer').startup(function(use)
   use {'nvim-telescope/telescope.nvim', requires = {'nvim-lua/plenary.nvim'}}
 
   -- Highlight, edit, and navigate code using a fast incremental parsing library
-  use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate'
+  }
 
   -- lsp relative plugins
 
@@ -86,7 +85,7 @@ return require('packer').startup(function(use)
   --   requires = {'ray-x/guihua.lua', run = 'cd lua/fzy && make'}
   -- }
 
-  use 'phpactor/phpactor'
+  -- use 'phpactor/phpactor'
 
   -- Autocompletion plugin
   use 'hrsh7th/nvim-cmp'
@@ -151,7 +150,6 @@ return require('packer').startup(function(use)
     end
   }
 
-  -- :BDelete <hidden|nameless|this>
   use 'kazhala/close-buffers.nvim'
 
   -- 'gc' to comment visual regions/lines
@@ -164,7 +162,7 @@ return require('packer').startup(function(use)
     config = function()
       require('github-theme').setup({
         -- dark, dark_default, dimmed, light
-        theme_style = 'dimmed',
+        theme_style = 'light',
         function_style = 'italic',
         sidebars = {'qf', 'vista_kind', 'terminal', 'packer'},
 
