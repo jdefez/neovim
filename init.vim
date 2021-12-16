@@ -17,6 +17,10 @@ require'lspconfig'.jsonls.setup{}
 require'lspconfig'.eslint.setup{}
 require'lspconfig'.yamlls.setup{}
 require'lspconfig'.dotls.setup{}
+-- phpactor must be installed glabaly as described here:
+--  https://phpactor.readthedocs.io/en/master/usage/standalone.html#installation-global
+--  and the path to the executable must be set with
+--  vim.g['phpactor_executable'] = '~/phpactor/bin/phpactor'
 require'lspconfig'.phpactor.setup{}
 EOF
 
