@@ -85,7 +85,7 @@ return require('packer').startup(function(use)
   --   requires = {'ray-x/guihua.lua', run = 'cd lua/fzy && make'}
   -- }
 
-  -- use 'phpactor/phpactor'
+  use 'phpactor/phpactor'
 
   -- Autocompletion plugin
   use 'hrsh7th/nvim-cmp'

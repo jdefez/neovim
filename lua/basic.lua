@@ -1,10 +1,10 @@
-
 vim.g.mapleader = ' '
 
 vim.g['python3_host_prog'] = '/usr/bin/python3'
 
 -- lsp: phpactor
-vim.g['phpactor_executable'] = '~/phpactor/bin/phpactor'
+vim.g['phpactorCompletionIgnoreCase'] = true
+-- vim.g['phpactor_executable'] = '~/phpactor/bin/phpactor'
 
 vim.wo.colorcolumn = '81'
 vim.wo.relativenumber = true
@@ -13,7 +13,6 @@ vim.wo.number = true
 vim.opt.cmdheight = 3
 vim.opt.completeopt = 'menu,menuone,noselect'
 vim.opt.cursorline = true
--- vim.opt.encoding = utf-8
 vim.opt.expandtab = true
 vim.opt.foldcolumn = '0'
 vim.opt.foldmethod = 'indent'
@@ -25,7 +24,6 @@ vim.opt.formatoptions = vim.opt.formatoptions:append('q') -- Allow formatting of
 vim.opt.formatoptions = vim.opt.formatoptions:append('r') -- Insert comment leader after hitting <Enter>
 vim.opt.formatoptions = vim.opt.formatoptions:append('t') -- Auto-wrap text using textwidth
 vim.opt.ignorecase = true
---vim.opt.noerrorbells = true
 vim.opt.wrap = false
 vim.opt.backup = false
 vim.opt.writebackup = false
@@ -42,7 +40,6 @@ vim.opt.softtabstop = 2
 vim.opt.splitbelow = true
 vim.opt.tabstop = 2
 vim.opt.undolevels = 10000
--- vim.opt.updatetime = 300
 
 vim.opt.termguicolors = true
 

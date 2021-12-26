@@ -38,5 +38,12 @@ wk.register({
     R = {'<cmd>Gitsigns reset_buffer<CR>', 'Reset buffer'},
     S = {'<cmd>Gitsigns stage_buffer<CR>', 'Stage buffer'},
     p = {'<cmd>Gitsigns preview_hunk<CR>', 'Preview hunk'}
+  },
+  p = {
+    name = '+php',
+    m = {'<cmd>PhpactorContextMenu<CR>', 'show phpactor context menu'},
+    t = {'<cmd>PhpactorTransform<CR>', 'show phpactor transform menu'},
+    em = {'<C-u>PhpactorExtractMethod<CR>', 'phpactor extract method'},
+    ee = {'<C-u>PhpactorExtractExpression<CR>', 'phpactor extract expression'}
   }
 }, {prefix = '<leader>'})
