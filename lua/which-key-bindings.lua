@@ -41,9 +41,18 @@ wk.register({
   },
   p = {
     name = '+php',
-    m = {'<cmd>PhpactorContextMenu<CR>', 'show phpactor context menu'},
-    t = {'<cmd>PhpactorTransform<CR>', 'show phpactor transform menu'},
-    em = {'<C-u>PhpactorExtractMethod<CR>', 'phpactor extract method'},
-    ee = {'<C-u>PhpactorExtractExpression<CR>', 'phpactor extract expression'}
+    m = {'<cmd>PhpactorContextMenu<CR>', 'Show phpactor context menu'},
+    t = {'<cmd>PhpactorTransform<CR>', 'Show phpactor transform menu'},
+    em = {'<C-u>PhpactorExtractMethod<CR>', 'Phpactor extract method'},
+    ee = {'<C-u>PhpactorExtractExpression<CR>', 'Phpactor extract expression'}
+  },
+  l = {
+    name = '+saga',
+    r = {'<cmd>Lspsaga rename<CR>', 'Rename'},
+    k = {'<cmd>Lspsaga hover_doc<cr>', 'Show documentation'},
+    d = {'<cmd>Lspsaga preview_definition<CR>', 'Preview definition'},
+    s = {'<cmd>Lspsaga signature_help<CR>', 'Signature help'},
+    x = {'<cmd>Lspsaga code_action<cr>', 'Show code actions'},
+    x = {':<c-u>Lspsaga range_code_action<cr>', 'Show code actions'}
   }
 }, {prefix = '<leader>'})

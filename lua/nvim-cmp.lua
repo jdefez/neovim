@@ -12,9 +12,6 @@ cmp.setup({
     -- REQUIRED - you must specify a snippet engine
     expand = function(args)
       vim.fn["UltiSnips#Anon"](args.body)
-      -- vim.fn["vsnip#anonymous"](args.body)
-      -- require('luasnip').lsp_expand(args.body)
-      -- require'snippy'.expand_snippet(args.body)
     end,
   },
   mapping = {
@@ -121,10 +118,8 @@ cmp.setup({
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
     { name = 'ultisnips' },
-  }, {
     { name = 'buffer' },
-  }, {
-      {name = 'calc' }
+    { name = 'calc' }
   })
 })
 
@@ -132,8 +127,7 @@ cmp.setup({
 
 cmp.setup.cmdline(':', {
   sources = cmp.config.sources({
-    { name = 'path' }
-  }, {
+    { name = 'path' },
     { name = 'cmdline' }
   })
 })

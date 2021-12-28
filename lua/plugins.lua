@@ -58,6 +58,7 @@ return require('packer').startup(function(use)
 
   use 'neovim/nvim-lspconfig'
   use 'williamboman/nvim-lsp-installer'
+  use { 'tami5/lspsaga.nvim' }
   use 'kosayoda/nvim-lightbulb'
   use {
     'folke/lsp-colors.nvim',
@@ -77,13 +78,6 @@ return require('packer').startup(function(use)
       require('trouble').setup {}
     end
   }
-
-  -- use 'nanotee/nvim-lsp-basics'
-
-  -- use {
-  --   'ray-x/navigator.lua',
-  --   requires = {'ray-x/guihua.lua', run = 'cd lua/fzy && make'}
-  -- }
 
   use 'phpactor/phpactor'
 
