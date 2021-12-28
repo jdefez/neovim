@@ -11,18 +11,6 @@ end
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
-  -- Todo: give it a try
-  --
-  -- https://github.com/jose-elias-alvarez/null-ls.nvim
-  -- https://github.com/mfussenegger/nvim-dap
-
-  -- Todo: Not installed + find replacement
-  --
-  -- Plug 'swekaj/php-foldexpr.vim'
-  -- Plug 'mattn/emmet-vim'
-  -- Plug('mg979/vim-visual-multi', {branch = 'master'})
-  -- Plug 'phanviet/vim-monokai-pro'
-
   use '/lambdalisue/gina.vim'
   use {
     'lewis6991/gitsigns.nvim',
@@ -147,10 +135,18 @@ return require('packer').startup(function(use)
   use 'kazhala/close-buffers.nvim'
 
   -- 'gc' to comment visual regions/lines
-  use 'tpope/vim-commentary'
-
+  -- use 'tpope/vim-commentary'
+  use {
+    'b3nj5m1n/kommentary',
+    config = function()
+      require('kommentary.config').configure_language("default", {
+        prefer_single_line_comments = true,
+      })
+    end
+  }
   use 'folke/which-key.nvim'
-
+  use 'RRethy/vim-illuminate'
+  use {'mg979/vim-visual-multi', { branch = 'master' }}
   use {
     'projekt0n/github-nvim-theme',
     config = function()
@@ -167,7 +163,17 @@ return require('packer').startup(function(use)
     end
   }
 
-  use 'RRethy/vim-illuminate'
+  -- Toggle zen mode :ZenMode
+  use {
+    "folke/zen-mode.nvim",
+    config = function()
+      require("zen-mode").setup {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      }
+    end
+  }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

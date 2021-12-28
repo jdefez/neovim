@@ -2,9 +2,8 @@ local wk = require("which-key")
 
 wk.register({
   -- todo:
-  --  - phpactor (augroup?)
   --  - illuminate
-  --  - gitsigns
+
   b = {
     name = '+buffer',
     c = {'<cmd>BDelete this<CR>', 'Close current buffer'},

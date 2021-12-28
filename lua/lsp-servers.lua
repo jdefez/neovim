@@ -67,8 +67,8 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', 'lk',  '<cmd>Lspsaga hover_doc<cr>', binding_opts)
   buf_set_keymap('n', 'ld', '<cmd>Lspsaga preview_definition<CR>', binding_opts)
   buf_set_keymap('n', 'ls', '<cmd>Lspsaga signature_help<CR>', binding_opts)
-  nvim_buf_set_keymap(0, "n", "<C-u>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<cr>")
-  nvim_buf_set_keymap(0, "n", "<C-d>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<cr>")
+  buf_set_keymap('n', '<C-u>', '<cmd>lua require("lspsaga.action").smart_scroll_with_saga(-1)<cr>', binding_opts)
+  buf_set_keymap('n', '<C-d>', '<cmd>lua require("lspsaga.action").smart_scroll_with_saga(1)<cr>', binding_opts)
 
   require 'illuminate'.on_attach(client)
 
