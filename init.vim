@@ -49,8 +49,6 @@ autocmd Filetype python setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
 autocmd Filetype apache setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
 autocmd Filetype php setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
 
-" plugin: phpactor
-
 " avoiding phpactor to create variables with 2 $ sign
 autocmd FileType phpset iskeyword+=$
 autocmd FileType php setlocal omnifunc=phpactor#Complete
