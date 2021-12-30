@@ -1,9 +1,6 @@
 local wk = require("which-key")
 
 wk.register({
-  -- todo:
-  --  - illuminate
-
   b = {
     name = '+buffer',
     c = {'<cmd>BDelete this<CR>', 'Close current buffer'},
@@ -38,13 +35,6 @@ wk.register({
     S = {'<cmd>Gitsigns stage_buffer<CR>', 'Stage buffer'},
     p = {'<cmd>Gitsigns preview_hunk<CR>', 'Preview hunk'}
   },
-  p = {
-    name = '+php',
-    m = {'<cmd>PhpactorContextMenu<CR>', 'Show phpactor context menu'},
-    t = {'<cmd>PhpactorTransform<CR>', 'Show phpactor transform menu'},
-    em = {'<C-u>PhpactorExtractMethod<CR>', 'Phpactor extract method'},
-    ee = {'<C-u>PhpactorExtractExpression<CR>', 'Phpactor extract expression'}
-  },
   l = {
     name = '+saga',
     r = {'<cmd>Lspsaga rename<CR>', 'Rename'},
@@ -53,5 +43,20 @@ wk.register({
     s = {'<cmd>Lspsaga signature_help<CR>', 'Signature help'},
     x = {'<cmd>Lspsaga code_action<cr>', 'Show code actions'},
     x = {':<c-u>Lspsaga range_code_action<cr>', 'Show code actions'}
+  },
+  p = {
+    name = '+php',
+    m = {'<cmd>PhpactorContextMenu<CR>', 'Show phpactor context menu'},
+    t = {'<cmd>PhpactorTransform<CR>', 'Show phpactor transform menu'},
+    em = {'<C-u>PhpactorExtractMethod<CR>', 'Phpactor extract method'},
+    ee = {'<C-u>PhpactorExtractExpression<CR>', 'Phpactor extract expression'}
+  },
+  t = {
+    name = '+test',
+    t = {'<cmd>TestNearest<CR>', 'Run nearest test'},
+    T = {'<cmd>TestFile<CR>', 'Run test file'},
+    a = {'<cmd>TestSuite<CR>', 'Run test suite'},
+    l = {'<cmd>TestLast<CR>', 'Run latest test'},
+    g = {'<cmd>TestVisit<CR>', 'Visit test'}
   }
 }, {prefix = '<leader>'})

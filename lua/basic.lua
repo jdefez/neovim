@@ -4,7 +4,12 @@ vim.g['python3_host_prog'] = '/usr/bin/python3'
 
 -- lsp: phpactor
 vim.g['phpactorCompletionIgnoreCase'] = true
--- vim.g['phpactor_executable'] = '~/phpactor/bin/phpactor'
+
+-- vim-test:
+vim.g['test#neovim#start_normal'] = true
+vim.g['test#basic#start_normal'] = true
+vim.g['test#echo_command'] = false
+vim.g['test#neovim#term_position'] = "topright"
 
 vim.wo.colorcolumn = '81'
 vim.wo.relativenumber = true

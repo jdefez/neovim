@@ -54,4 +54,4 @@ autocmd FileType phpset iskeyword+=$
 autocmd FileType php setlocal omnifunc=phpactor#Complete
 
 " abbreviations
-:autocmd FileType php iabbrev <buffer> tm@ /** @test */<CR>public function Name ()<CR><ESC>i{<CR>}<ESC>02k/Name<CR>ciw
+:autocmd FileType php iabbrev <buffer> t@ /** @test */<CR>
