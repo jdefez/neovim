@@ -68,6 +68,7 @@ return require('packer').startup(function(use)
   }
 
   use 'phpactor/phpactor'
+  use 'vim-test/vim-test'
 
   -- Autocompletion plugin
   use 'hrsh7th/nvim-cmp'
