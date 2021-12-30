@@ -24,13 +24,13 @@ return require('packer').startup(function(use)
     requires = 'nvim-lua/plenary.nvim',
     requires = 'kyazdani42/nvim-web-devicons'
   }
-  use {
-    'TimUntersberger/neogit',
-    requires = 'nvim-lua/plenary.nvim',
-    config = function()
-      require('neogit').setup()
-    end
-  }
+  -- use {
+  --   'TimUntersberger/neogit',
+  --   requires = 'nvim-lua/plenary.nvim',
+  --   config = function()
+  --     require('neogit').setup()
+  --   end
+  -- }
 
   -- navigation relative plugins
 
@@ -162,7 +162,6 @@ return require('packer').startup(function(use)
       })
     end
   }
-
   -- Toggle zen mode :ZenMode
   use {
     "folke/zen-mode.nvim",
@@ -172,6 +171,12 @@ return require('packer').startup(function(use)
         -- or leave it empty to use the default settings
         -- refer to the configuration section below
       }
+    end
+  }
+  use {
+    'karb94/neoscroll.nvim',
+    config = function()
+      require('neoscroll').setup()
     end
   }
 
