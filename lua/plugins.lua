@@ -11,6 +11,14 @@ end
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
+  -- Todo test:
+  --  https://github.com/aserowy/tmux.nvim
+  --
+  --  or
+  --
+  --  https://github.com/numToStr/Navigator.nvim (with:
+  --  https://github.com/jabirali/tmux-tilish)
+
   use '/lambdalisue/gina.vim'
   use {
     'lewis6991/gitsigns.nvim',
@@ -24,13 +32,6 @@ return require('packer').startup(function(use)
     requires = 'nvim-lua/plenary.nvim',
     requires = 'kyazdani42/nvim-web-devicons'
   }
-  -- use {
-  --   'TimUntersberger/neogit',
-  --   requires = 'nvim-lua/plenary.nvim',
-  --   config = function()
-  --     require('neogit').setup()
-  --   end
-  -- }
 
   -- navigation relative plugins
 
@@ -71,6 +72,7 @@ return require('packer').startup(function(use)
   use 'vim-test/vim-test'
 
   -- Autocompletion plugin
+
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-buffer'
@@ -118,13 +120,12 @@ return require('packer').startup(function(use)
       }
     end
   }
-
   use {
     'rmagatti/auto-session',
     config = function()
       require('auto-session').setup {
         auto_session_enable_last_session = false,
-        auto_session_root_dir = vim.fn.stdpath('data').."/sessions/",
+        auto_session_root_dir = vim.fn.stdpath('data')..'/sessions/',
         auto_session_enabled = true,
         auto_save_enabled = true,
         auto_restore_enabled = nil,
@@ -132,19 +133,19 @@ return require('packer').startup(function(use)
       }
     end
   }
-
   use 'kazhala/close-buffers.nvim'
-
-  -- 'gc' to comment visual regions/lines
-  -- use 'tpope/vim-commentary'
   use {
     'b3nj5m1n/kommentary',
     config = function()
-      require('kommentary.config').configure_language("default", {
+      -- deactivating default mappings to avoid conflicting 'gc' mapping
+      vim.g.kommentary_create_default_mappings = false
+
+      require('kommentary.config').configure_language('default', {
         prefer_single_line_comments = true,
       })
     end
   }
+  use 'b0o/mapx.nvim'
   use 'folke/which-key.nvim'
   use 'RRethy/vim-illuminate'
   use {'mg979/vim-visual-multi', { branch = 'master' }}
@@ -153,25 +154,17 @@ return require('packer').startup(function(use)
     config = function()
       require('github-theme').setup({
         -- dark, dark_default, dimmed, light
-        theme_style = 'light',
+        theme_style = 'dark',
         function_style = 'italic',
         sidebars = {'qf', 'vista_kind', 'terminal', 'packer'},
-
-        -- Change the 'hint' color to the 'orange' color, and make the 'error'
-        -- color bright red
         colors = {hint = 'orange', error = '#ff0000'}
       })
     end
   }
-  -- Toggle zen mode :ZenMode
   use {
-    "folke/zen-mode.nvim",
+    'folke/zen-mode.nvim',
     config = function()
-      require("zen-mode").setup {
-        -- your configuration comes here
-        -- or leave it empty to use the default settings
-        -- refer to the configuration section below
-      }
+      require('zen-mode').setup()
     end
   }
   use {
