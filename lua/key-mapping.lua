@@ -62,9 +62,9 @@ nnoremap('<leader>hp', ':Gitsigns preview_hunk<CR>', 'Preview hunk')
 -- kommentary
 
 m.nname('<leader>c', 'Comment')
-nnoremap('<leader>cc', '<Plug>kommentary_line_default', 'Comment line')
-nnoremap('<leader>c', '<Plug>kommentary_motion_default', 'Comment visual/motion')
-xnoremap('<leader>c', '<Plug>kommentary_visual_default', 'Comment visual/motion')
+nnoremap('<leader>cc', '<plug>kommentary_line_default', 'comment line')
+nnoremap('<leader>c', '<plug>kommentary_motion_default', 'comment visual/motion')
+vnoremap('<leader>c', '<plug>kommentary_visual_default', 'comment visual/motion')
 
 -- php
 m.nname('<leader>p', 'Php')

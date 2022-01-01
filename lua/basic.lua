@@ -3,6 +3,7 @@ vim.g.mapleader = ' '
 vim.g['python3_host_prog'] = '/usr/bin/python3'
 
 -- lsp: phpactor
+-- vim.g['phpactor_executable'] = '/usr/local/bin/phpactor'
 vim.g['phpactorCompletionIgnoreCase'] = true
 
 -- vim-test:

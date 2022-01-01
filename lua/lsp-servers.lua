@@ -4,27 +4,25 @@
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 
-local servers = {'intelephense', 'phpactor'}
+-- Create the language server config file. Configs file can be found here:
+-- https://github.com/neovim/nvim-lspconfig/tree/master/lua/lspconfig/server_configurations
+-- /lua/lspconfig/language-server-name.lua
+
+local servers = {'intelephense', 'phpactor', 'dockerls', 'jsonls', 'eslint', 'yamlls'}
 
 require'lspconfig'.intelephense.setup{}
 
--- phpactor must be installed glabaly as described here:
---  https://phpactor.readthedocs.io/en/master/usage/standalone.html#installation-global
---  works fine with lspsaga plugin
---  and the path to the executable must be set with
---  vim.g['phpactor_executable'] = '~/phpactor/bin/phpactor'
-
 require'lspconfig'.phpactor.setup{}
 
--- require'lspconfig'.dockerls.setup{}
+require'lspconfig'.dockerls.setup{}
 
--- require'lspconfig'.jsonls.setup{}
+require'lspconfig'.jsonls.setup{}
 
--- require'lspconfig'.eslint.setup{}
+require'lspconfig'.eslint.setup{}
 
--- require'lspconfig'.yamlls.setup{}
-
--- require'lspconfig'.dotls.setup{}
+-- install info found here:
+-- https://github.com/redhat-developer/yaml-language-server#getting-started
+require'lspconfig'.yamlls.setup{}
 
 local on_attach = function(client, bufnr)
 
@@ -33,15 +31,16 @@ local on_attach = function(client, bufnr)
 
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-  m.nname('<leader>w', 'lsp: workspace')
+  m.nname('<leader>l', 'lsp: workspace')
   nnoremap('<leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', 'Add workspace folder')
   nnoremap('<leader>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', 'Remove workspace folder')
   nnoremap('<leader>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', 'List workspcase folder')
+
+  m.nname('g', 'lsp: navigation')
   nnoremap('gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', 'Lsp: declaration')
   nnoremap('gd', '<cmd>lua vim.lsp.buf.definition()<CR>', 'Lsp: definition')
   nnoremap('gr', '<cmd>lua vim.lsp.buf.references()<CR>', 'Lsp: references')
   nnoremap('gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', 'Lsp: implementation')
-  nnoremap('<leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', 'Lsp: format')
 
   -- saga
 
@@ -53,6 +52,7 @@ local on_attach = function(client, bufnr)
   nnoremap('<leader>lh', ':Lspsaga lsp_finder<CR>', 'Word definition and reference')
   nnoremap('<leader>lx', ':Lspsaga code_action<cr>', 'Show code actions')
   vnoremap('<leader>lx', ':<C-U>Lspsaga range_code_action<cr>', 'Show code actions')
+  nnoremap('<leader>lf', '<cmd>lua vim.lsp.buf.formatting()<CR>', 'Lsp: format')
 
   -- illuminate
 
