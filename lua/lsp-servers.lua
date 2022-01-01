@@ -8,9 +8,16 @@
 -- https://github.com/neovim/nvim-lspconfig/tree/master/lua/lspconfig/server_configurations
 -- /lua/lspconfig/language-server-name.lua
 
-local servers = {'intelephense', 'phpactor', 'dockerls', 'jsonls', 'eslint', 'yamlls'}
+local servers = {
+  'intelephense', 'sumneko_lua', 'phpactor', 'dockerls', 'jsonls', 'eslint',
+  'yamlls'
+}
 
 require'lspconfig'.intelephense.setup{}
+
+-- install instruction can be found here:
+-- https://github.com/sumneko/lua-language-server/wiki/Build-and-Run
+require'lspconfig'.sumneko_lua.setup{}
 
 require'lspconfig'.phpactor.setup{}
 

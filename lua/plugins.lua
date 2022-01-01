@@ -68,6 +68,7 @@ return require('packer').startup(function(use)
     end
   }
 
+  -- todo: check, is it still needed?
   use 'phpactor/phpactor'
   use 'vim-test/vim-test'
 
