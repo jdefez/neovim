@@ -9,6 +9,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 return require('packer').startup(function(use)
+
   use 'wbthomason/packer.nvim'
 
   -- Todo test:
@@ -19,7 +20,27 @@ return require('packer').startup(function(use)
   --  https://github.com/numToStr/Navigator.nvim (with:
   --  https://github.com/jabirali/tmux-tilish)
 
-  use '/lambdalisue/gina.vim'
+  use {
+    'quangnguyen30192/cmp-nvim-ultisnips',
+    'williamboman/nvim-lsp-installer',
+    'kazhala/close-buffers.nvim',
+    'kosayoda/nvim-lightbulb',
+    'neovim/nvim-lspconfig',
+    'RRethy/vim-illuminate',
+    '/lambdalisue/gina.vim',
+    'folke/which-key.nvim',
+    'hrsh7th/cmp-nvim-lsp',
+    'hrsh7th/cmp-cmdline',
+    'tami5/lspsaga.nvim',
+    'hrsh7th/cmp-buffer',
+    'phpactor/phpactor',
+    'vim-test/vim-test',
+    'hrsh7th/nvim-cmp',
+    'hrsh7th/cmp-path',
+    'hrsh7th/cmp-calc',
+    'b0o/mapx.nvim',
+  }
+
   use {
     'lewis6991/gitsigns.nvim',
     requires = {'nvim-lua/plenary.nvim'},
@@ -43,12 +64,6 @@ return require('packer').startup(function(use)
     run = ':TSUpdate'
   }
 
-  -- lsp relative plugins
-
-  use 'neovim/nvim-lspconfig'
-  use 'williamboman/nvim-lsp-installer'
-  use { 'tami5/lspsaga.nvim' }
-  use 'kosayoda/nvim-lightbulb'
   use {
     'folke/lsp-colors.nvim',
     config = function()
@@ -60,6 +75,7 @@ return require('packer').startup(function(use)
       })
     end
   }
+
   use {
     'folke/trouble.nvim',
     requires = 'kyazdani42/nvim-web-devicons',
@@ -68,19 +84,6 @@ return require('packer').startup(function(use)
     end
   }
 
-  -- todo: check, is it still needed?
-  use 'phpactor/phpactor'
-  use 'vim-test/vim-test'
-
-  -- Autocompletion plugin
-
-  use 'hrsh7th/nvim-cmp'
-  use 'hrsh7th/cmp-nvim-lsp'
-  use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/cmp-path'
-  use 'hrsh7th/cmp-calc'
-  use 'hrsh7th/cmp-cmdline'
-  use 'quangnguyen30192/cmp-nvim-ultisnips'
   use {
     'SirVer/ultisnips',
     requires = {{'honza/vim-snippets', rtp = '.'}},
@@ -121,6 +124,7 @@ return require('packer').startup(function(use)
       }
     end
   }
+
   use {
     'rmagatti/auto-session',
     config = function()
@@ -134,7 +138,7 @@ return require('packer').startup(function(use)
       }
     end
   }
-  use 'kazhala/close-buffers.nvim'
+
   use {
     'b3nj5m1n/kommentary',
     config = function()
@@ -146,10 +150,9 @@ return require('packer').startup(function(use)
       })
     end
   }
-  use 'b0o/mapx.nvim'
-  use 'folke/which-key.nvim'
-  use 'RRethy/vim-illuminate'
+
   use {'mg979/vim-visual-multi', { branch = 'master' }}
+
   use {
     'projekt0n/github-nvim-theme',
     config = function()
@@ -162,12 +165,14 @@ return require('packer').startup(function(use)
       })
     end
   }
+
   use {
     'folke/zen-mode.nvim',
     config = function()
       require('zen-mode').setup()
     end
   }
+
   use {
     'karb94/neoscroll.nvim',
     config = function()
