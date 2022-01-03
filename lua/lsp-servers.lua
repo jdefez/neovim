@@ -10,7 +10,7 @@
 
 local servers = {
   'intelephense', 'sumneko_lua', 'phpactor', 'dockerls', 'jsonls', 'eslint',
-  'yamlls'
+  'yamlls', 'graphql', 'psalm', 'emmet_ls'
 }
 
 require'lspconfig'.intelephense.setup{}
@@ -21,11 +21,19 @@ require'lspconfig'.sumneko_lua.setup{}
 
 require'lspconfig'.phpactor.setup{}
 
+require'lspconfig'.emmet_ls.setup{}
+
 require'lspconfig'.dockerls.setup{}
+
+require'lspconfig'.graphql.setup{}
 
 require'lspconfig'.jsonls.setup{}
 
 require'lspconfig'.eslint.setup{}
+
+require'lspconfig'.psalm.setup{}
+
+
 
 -- install info found here:
 -- https://github.com/redhat-developer/yaml-language-server#getting-started
