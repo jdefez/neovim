@@ -33,8 +33,6 @@ require'lspconfig'.eslint.setup{}
 
 require'lspconfig'.psalm.setup{}
 
-
-
 -- install info found here:
 -- https://github.com/redhat-developer/yaml-language-server#getting-started
 require'lspconfig'.yamlls.setup{}

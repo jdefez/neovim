@@ -27,7 +27,7 @@ return require('packer').startup(function(use)
     'kosayoda/nvim-lightbulb',
     'neovim/nvim-lspconfig',
     'RRethy/vim-illuminate',
-    '/lambdalisue/gina.vim',
+    'lambdalisue/gina.vim',
     'folke/which-key.nvim',
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-cmdline',
@@ -42,6 +42,29 @@ return require('packer').startup(function(use)
   }
 
   use {
+    "aserowy/tmux.nvim",
+    config = function()
+      require("tmux").setup({
+        -- overwrite default configuration
+        -- here, e.g. to enable default bindings
+        copy_sync = {
+          -- enables copy sync and overwrites all register actions to
+          -- sync registers *, +, unnamed, and 0 till 9 from tmux in advance
+          enable = true,
+        },
+        navigation = {
+          -- enables default keybindings (C-hjkl) for normal mode
+          enable_default_keybindings = true,
+        },
+        resize = {
+          -- enables default keybindings (A-hjkl) for normal mode
+          enable_default_keybindings = true,
+        }
+      })
+    end
+  }
+
+  use {
     'lewis6991/gitsigns.nvim',
     requires = {'nvim-lua/plenary.nvim'},
     config = function()
@@ -50,13 +73,18 @@ return require('packer').startup(function(use)
   }
   use {
     'sindrets/diffview.nvim',
-    requires = 'nvim-lua/plenary.nvim',
-    requires = 'kyazdani42/nvim-web-devicons'
+    requires = {
+      'nvim-lua/plenary.nvim',
+      'kyazdani42/nvim-web-devicons'
+    }
   }
 
   -- navigation relative plugins
 
-  use {'nvim-telescope/telescope.nvim', requires = {'nvim-lua/plenary.nvim'}}
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = {'nvim-lua/plenary.nvim'}
+  }
 
   -- Highlight, edit, and navigate code using a fast incremental parsing library
   use {
@@ -151,7 +179,10 @@ return require('packer').startup(function(use)
     end
   }
 
-  use {'mg979/vim-visual-multi', { branch = 'master' }}
+  use {
+    'mg979/vim-visual-multi',
+    { branch = 'master' }
+  }
 
   use {
     'projekt0n/github-nvim-theme',
